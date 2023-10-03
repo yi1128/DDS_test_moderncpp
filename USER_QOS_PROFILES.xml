@@ -1,0 +1,1741 @@
+﻿<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rti_dds_qos_profiles.xsd"	 version="5.3.0">
+
+  <qos_library name="hussqos">
+    <!-- A common Participant base profile that configures a fast, a medium,
+				 and a slow flow controller that can each be used to throttle 
+				 application data flow at different rates. -->
+
+    <qos_profile name="ParticipantQos" base_name="BuiltinQosLibExp::Generic.Participant.LargeData">
+
+      <!--participant_factory_qos>
+        <logging>
+          <verbosity>ALL</verbosity>
+          <category>ALL</category>
+          <print_format>TIMESTAMPED</print_format>
+          <output_file>ddslog.txt</output_file>
+        </logging>
+      </participant_factory_qos-->
+
+      <participant_qos>
+        <event>
+          <thread>
+            <stack_size>2097152</stack_size>
+          </thread>
+        </event>
+        <receiver_pool>
+          <thread>
+            <!--priority>3</priority-->
+            <stack_size>2097152</stack_size>
+          </thread>
+          <buffer_size>2097152</buffer_size>
+          <!--  2 MB  -->
+        </receiver_pool>
+
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>
+
+        <property>
+          <value>
+            <element>
+              <name>dds.clock.internal_clock</name>
+              <value>monotonic</value>
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.parent.message_size_max</name>
+              <value>31000</value>
+            </element>
+
+            <!--20180531-->
+            <element>
+              <name>dds.transport.UDPv4.builtin.recv_socket_buffer_size</name>
+              <value>2147483647</value>
+              <!--value>2097152</value-->
+              <!--  2 MB  -->
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.send_socket_buffer_size</name>
+              <value>2147483647</value>
+              <!--value>524288</value-->
+              <!--  512 KB  -->
+            </element>
+            <element>
+              <name>multicast_loopback_disabled</name>
+              <value>1</value>
+            </element>
+            <element>
+              <name>ignore_loopback_interface</name>
+              <value>1</value>
+            </element>
+            <!--element>
+              <name>send_blocking</name>
+              <value>NDDS_TRANSPORT_UDPV4_BLOCKING_NEVER</value>
+            </element-->
+
+            <!--20180531 RTI 10Gbps 실제는 4Gbps =.. 256(최대 토큰 개수) * 16384(토큰 사이즈) * 10(ms) *  100(1000ms로 변경하기위해서) -->
+            <!--20180531 RTI 10Gbps 실제는 3Gbps =.. 256(최대 토큰 개수) * 12288(토큰 사이즈) * 10(ms) *  100(1000ms로 변경하기위해서) -->
+            <element>
+              <name>dds.flow_controller.token_bucket.10Gbps.token_bucket.max_tokens</name>
+              <value>192</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.10Gbps.token_bucket.tokens_added_per_period</name>
+              <value>192</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.10Gbps.token_bucket.bytes_per_token</name>
+              <value>12288</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.10Gbps.token_bucket.period.sec</name>
+              <value>0</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.10Gbps.token_bucket.period.nanosec</name>
+              <value>10000000</value>
+            </element>
+
+
+            <!--181115 lhj -->
+            <!-- medium: 75 MB/sec (786 Mb/sec) flow controller 로 수정 해봄!!-->
+            <element>
+              <name>dds.flow_controller.token_bucket.fast_flow.token_bucket.max_tokens</name>
+              <value>96</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.fast_flow.token_bucket.tokens_added_per_period</name>
+              <value>96</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.fast_flow.token_bucket.bytes_per_token</name>
+              <value>8192</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.fast_flow.token_bucket.period.sec</name>
+              <value>0</value>
+            </element>
+            <element>
+              <name>dds.flow_controller.token_bucket.fast_flow.token_bucket.period.nanosec</name>
+              <value>10000000</value>
+            </element>
+
+            <!--IP 사용제한-->
+            <!--element>
+              <name>dds.transport.UDPv4.builtin.parent.deny_interfaces_list</name>
+              <value>100.*.*.*,200.*.*.*,192.*.*.*,192.168.1.100,10.1.3.*,10.1.3.101,10.1.8.*,192.168.11.*,192.168.12.*,192.168.11.*,192.168.12.*</value>
+            </element-->
+            <!--<element>
+              <name>dds.transport.UDPv4.builtin.parent.allow_interfaces_list</name>
+              <value>10.10.1.*</value>
+            </element>-->
+
+          </value>
+        </property>
+
+        <discovery_config>
+          <initial_participant_announcements>2</initial_participant_announcements>
+          <publication_writer_publish_mode>
+            <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          </publication_writer_publish_mode>
+          <subscription_writer_publish_mode>
+            <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          </subscription_writer_publish_mode>
+          <publication_reader_resource_limits>
+            <dynamically_allocate_fragmented_samples>true</dynamically_allocate_fragmented_samples>
+            <max_fragments_per_sample>4096</max_fragments_per_sample>
+            <max_fragmented_samples>65535</max_fragmented_samples>
+          </publication_reader_resource_limits>
+          <subscription_reader_resource_limits>
+            <dynamically_allocate_fragmented_samples>true</dynamically_allocate_fragmented_samples>
+            <max_fragments_per_sample>4096</max_fragments_per_sample>
+            <max_fragmented_samples>65535</max_fragmented_samples>
+          </subscription_reader_resource_limits>
+          <participant_reader_resource_limits>
+
+          </participant_reader_resource_limits>
+          <!-- [20161004] add to control the discovery of participant manually -->
+          <min_initial_participant_announcement_period>
+            <!-- 0.5 sec-->
+            <sec>0</sec>
+            <nanosec>500000000</nanosec>
+          </min_initial_participant_announcement_period>
+          <max_initial_participant_announcement_period>
+            <sec>1</sec>
+          </max_initial_participant_announcement_period>
+        </discovery_config>
+      </participant_qos>
+    </qos_profile>
+
+
+    <!-- This profile guarantees delivery of every published sample. 
+				 Samples will not be overwritten, regardless of HistoryQosPolicy's depth. 
+				 Strict reliability ensures in-order delivery and retransmission of 
+				 lost samples. -->
+    <qos_profile name="Event" base_name="BuiltinQosLibExp::Generic.StrictReliable">
+      <datawriter_qos>
+        <!--publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+        </publish_mode-->
+
+        <resource_limits>
+          <initial_samples>40</initial_samples>
+          <max_samples>40</max_samples>
+          <max_samples_per_instance>40</max_samples_per_instance>
+          <!--initial_instances>1</initial_instances-->
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+
+        <reliability>
+          <max_blocking_time>
+            <sec>0</sec>
+            <nanosec>500000000</nanosec>
+          </max_blocking_time>
+        </reliability>
+
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--<depth>6</depth>-->
+          <!-- History 3 으로 변경,6은 너무 많은듯 191021-->
+          <depth>3</depth>    
+        </history>
+
+        <protocol>
+          <rtps_reliable_writer>
+            <max_heartbeat_retries>5</max_heartbeat_retries>
+            <heartbeat_period>
+              <sec>0</sec>
+              <nanosec>100000000</nanosec>
+            </heartbeat_period>
+
+            <max_send_window_size>40</max_send_window_size>
+            <min_send_window_size>40</min_send_window_size>
+
+          </rtps_reliable_writer>
+
+        </protocol>
+      </datawriter_qos>
+
+      <datareader_qos>
+        <resource_limits>
+          <initial_samples>40</initial_samples>
+          <max_samples>40</max_samples>
+          <max_samples_per_instance>40</max_samples_per_instance>
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--<depth>6</depth>-->
+          <!-- History 3 으로 변경,6은 너무 많은듯 191021-->
+          <depth>3</depth>
+        </history>
+        <reader_resource_limits>
+          <disable_fragmentation_support>true</disable_fragmentation_support>
+        </reader_resource_limits>
+        <!-- [20161004] add to prevent to message storm by ACKNACK of reader -->
+
+        <!--protocol>
+          <rtps_reliable_reader>
+            <min_heartbeat_response_delay>
+              <sec>0</sec>
+              <nanosec>0</nanosec>
+            </min_heartbeat_response_delay>
+            <max_heartbeat_response_delay>
+              <sec>0</sec>
+              <nanosec>200000000</nanosec>
+            </max_heartbeat_response_delay>
+          </rtps_reliable_reader>
+        </protocol-->
+
+      </datareader_qos>
+    </qos_profile>
+
+
+    <!-- This profile is intended to be used for applications that expect
+				 periodic data such as sensor data. The deadline that is set in
+				 this profile can be used to detect when DataWriters are not
+				 publishing data with the expected periodicity. -->
+    <qos_profile name="Periodic" base_name="BuiltinQosLibExp::Pattern.PeriodicData">
+      <datawriter_qos>
+        <reliability>
+          <max_blocking_time>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_blocking_time>
+        </reliability>
+      </datawriter_qos>
+    </qos_profile>
+
+
+    <!-- This profile enables best-effort communication. No effort or
+				 resources are spent to track whether or not sent samples are
+				 received. Minimal resources are used. This is the most 
+				 deterministic method of sending data since there is no 
+				 indeterministic delay that can be introduced by resending data. 
+				 Data samples may be lost. This setting is good for periodic
+				 data -->
+    <qos_profile name="BestEffort" base_name="BuiltinQosLibExp::Generic.BestEffort">
+      <datareader_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>4096</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>4096</depth>
+        </history>
+      </datawriter_qos>
+    </qos_profile>
+
+
+    <qos_profile name="LargeBig" base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData">
+      <datawriter_qos>
+        <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          <flow_controller_name>dds.flow_controller.token_bucket.10Gbps</flow_controller_name>
+        </publish_mode>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--depth 4->3으로 변경 191022-->
+          <depth>3</depth>
+        </history>
+        <resource_limits>
+          <!-- Initially, only allocate 1 sample because the samples
+               are large -->
+          <initial_samples>25</initial_samples>
+          <max_samples>25</max_samples>
+          <max_samples_per_instance>25</max_samples_per_instance>
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+        <protocol>
+          <rtps_reliable_writer>
+            <max_send_window_size>25</max_send_window_size>
+            <min_send_window_size>25</min_send_window_size>
+            <!--heartbeats_per_max_samples>25</heartbeats_per_max_samples-->
+            <high_watermark>20</high_watermark>
+            <low_watermark>10</low_watermark>
+          </rtps_reliable_writer>
+        </protocol>
+        <property>
+          <value>
+            <!-- The next setting is used to force dynamic memory allocation 
+                 for samples with a serialized size of larger than 32K. Without
+                 setting pool_buffer_max_size, all memory would be obtained 
+                 from a pre-allocated pool, which would greatly increase the 
+                 memory usage in an application that sends large data. -->
+            <element>
+              <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+              <value>32768</value>
+            </element>
+          </value>
+        </property>
+      </datawriter_qos>
+
+      <datareader_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--depth 4->3으로 변경 191022-->
+          <depth>3</depth>
+        </history>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <!-- We limit max_samples on the reader so that if the writer is
+               publishing samples faster than the reader is taking them, then 
+               the reader will start sending NACKs for samples received after 
+               the number of samples in its queue reaches max_samples. This 
+               behavior will put pressure on the writer to throttle back its 
+               publishing speed. -->
+          <initial_samples>25</initial_samples>
+          <max_samples>25</max_samples>
+          <max_samples_per_instance>25</max_samples_per_instance>
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+        <reader_resource_limits>
+          <disable_fragmentation_support>false</disable_fragmentation_support>
+          <!-- Determines whether the DataReader pre-allocates storage for 
+               storing fragmented samples. This setting can be used to limit
+               up-front memory allocation costs in applications that deal with 
+               large data -->
+          <!--max_fragmented_samples>150000</max_fragmented_samples-->
+          <!--max_fragments_per_sample>DDS_LENGTH_UNLIMITED</max_fragments_per_sample-->
+          <max_fragmented_samples>65535</max_fragmented_samples>
+          <max_fragments_per_sample>32767</max_fragments_per_sample>
+          <initial_fragmented_samples>1024</initial_fragmented_samples>
+
+          <!--dynamically_allocate_fragmented_samples>true</dynamically_allocate_fragmented_samples-->
+        </reader_resource_limits>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="LargeBig_LAS_DETECTION_DATA" base_name="hussqos::LargeBig">
+      <datawriter_qos>
+        <history>
+          <!--depth 1로 변경 191021-->
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>1</depth>
+        </history>
+        <protocol>
+          <rtps_reliable_writer>
+
+            <enable_multicast_periodic_heartbeat>1</enable_multicast_periodic_heartbeat>
+            <multicast_resend_threshold>1</multicast_resend_threshold>
+            <min_nack_response_delay>
+              <sec>0</sec>
+              <nanosec>500000000</nanosec>
+            </min_nack_response_delay>
+            <max_nack_response_delay>
+              <sec>1</sec>
+              <nanosec>0</nanosec>
+            </max_nack_response_delay>
+
+          </rtps_reliable_writer>
+        </protocol>
+      </datawriter_qos>
+      <datareader_qos>
+        <history>
+          <!--depth 1로 변경 191021-->
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>1</depth>
+        </history>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="LargeBig_BIS_BEAM_DATA" base_name="hussqos::LargeBig">
+      <datawriter_qos>
+        <publish_mode>
+          <flow_controller_name>dds.flow_controller.token_bucket.fast_flow</flow_controller_name>
+        </publish_mode>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+      </datawriter_qos>
+
+      <datareader_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+      </datareader_qos>
+    </qos_profile>
+    
+  
+    <!-- This profile enables the Turbo Mode batching and Auto Throttle 
+				 experimental features. Aside from the properties that enable these
+				 features (which are all false by default), all the values are set to their 
+				 defaults and are shown here for reference. Turbo Mode batching adjusts
+				 the maximum number of bytes of a batch, based on how frequently samples
+				 are being written. Auto Throttle auto-adjusts the speed at which a 
+				 writer will write samples, based on the number of unacknowledged 
+				 samples in its queue.
+					
+				 These features are designed to auto-adjust the publishing behavior 
+				 within a system to achieve the best possible performance 
+				 with regards to throughput and latency. 
+
+				 Important! If you are inheriting from this profile and are writing 
+				 samples smaller than 120 bytes you will fail to see 
+				 communication between your DataWriters and DataReaders. This is because
+				 of the batching settings in combination with the DataReader's 
+				 max_samples resource limit of 256 that is inherted from the 
+				 Generic.StrictReliable profile. You will need to increase this value. 
+				 For a full explanation of the problem please visit -->
+    <qos_profile name="Batch" base_name="BuiltinQosLibExp::Generic.AutoTuning">
+      <datawriter_qos>
+        <reliability>
+          <max_blocking_time>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_blocking_time>
+        </reliability>
+        <batch>
+          <enable>false</enable>
+        </batch>
+        <protocol>
+          <rtps_reliable_writer>
+            <max_send_window_size>300</max_send_window_size>
+          </rtps_reliable_writer>
+        </protocol>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>4096</depth>
+        </history>
+      </datawriter_qos>
+    </qos_profile>
+
+
+    <qos_profile name="Large" base_name="BuiltinQosLibExp::Generic.KeepLastReliable.LargeData">
+      <datawriter_qos>
+        <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          <flow_controller_name>dds.flow_controller.token_bucket.10Gbps</flow_controller_name>
+        </publish_mode>
+        <protocol>
+          <rtps_reliable_writer>
+            <!--max_heartbeat_retries>1</max_heartbeat_retries-->
+            <heartbeat_period>
+              <sec>0</sec>
+              <nanosec>500000000</nanosec>
+            </heartbeat_period>
+            <max_send_window_size>25</max_send_window_size>
+            <min_send_window_size>25</min_send_window_size>
+          </rtps_reliable_writer>
+        </protocol>
+        <reliability>
+          <max_blocking_time>
+            <sec>0</sec>
+            <nanosec>200000000</nanosec>
+          </max_blocking_time>
+        </reliability>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--depth 25->3 로 변경 191021-->
+          <depth>3</depth>
+        </history>
+        <resource_limits>
+          <initial_samples>25</initial_samples>
+          <max_samples>25</max_samples>
+          <max_samples_per_instance>25</max_samples_per_instance>
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+      </datawriter_qos>
+
+      <datareader_qos>
+        <resource_limits>
+          <initial_samples>25</initial_samples>
+          <max_samples>25</max_samples>
+          <max_samples_per_instance>25</max_samples_per_instance>
+          <!--max_instances>1</max_instances-->
+        </resource_limits>
+        <reader_resource_limits>
+          <disable_fragmentation_support>false</disable_fragmentation_support>
+          <!--dynamically_allocate_fragmented_samples>true</dynamically_allocate_fragmented_samples-->
+          <max_fragments_per_sample>32767</max_fragments_per_sample>
+          <max_fragmented_samples>65535</max_fragmented_samples>
+        </reader_resource_limits>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--depth 25->3 로 변경 191021-->
+          <depth>3</depth>
+        </history>
+        <!-- [20161004] add to prevent to message storm by ACKNACK of reader -->
+
+        <!--protocol>
+          <rtps_reliable_reader>
+            <min_heartbeat_response_delay>
+              <sec>0</sec>
+              <nanosec>0</nanosec>
+            </min_heartbeat_response_delay>
+            <max_heartbeat_response_delay>
+              <sec>0</sec>
+              <nanosec>200000000</nanosec>
+            </max_heartbeat_response_delay>
+          </rtps_reliable_reader>
+        </protocol-->
+
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="Large_MediumFlow" base_name="hussqos::Large">
+      <datawriter_qos>
+        <publish_mode>
+          <flow_controller_name>dds.flow_controller.token_bucket.medium_flow</flow_controller_name>
+        </publish_mode>
+      </datawriter_qos>
+    </qos_profile>
+
+
+    <qos_profile name="Large_FastFlow" base_name="hussqos::Large">
+      <datawriter_qos>
+        <publish_mode>
+          <flow_controller_name>dds.flow_controller.token_bucket.fast_flow</flow_controller_name>
+        </publish_mode>
+      </datawriter_qos>
+    </qos_profile>
+
+
+    <qos_profile name="Large_TGTMGR_MGR" base_name="hussqos::Large">
+      <datawriter_qos>
+        <publish_mode>
+          <flow_controller_name>dds.flow_controller.token_bucket.10Gbps</flow_controller_name>
+        </publish_mode>
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="Large_10G" base_name="hussqos::Large">
+      <datawriter_qos>
+        <publish_mode>
+          <flow_controller_name>dds.flow_controller.token_bucket.10Gbps</flow_controller_name>
+        </publish_mode>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+
+      </datawriter_qos>
+
+      <datareader_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <!-- to send large sonar data within 1 sec, make new QoS that is BestEffort based on LargeData -->
+    <qos_profile name="LargeBestEffort" base_name="BuiltinQosLibExp::Generic.KeepLastReliable.LargeData.MediumFlow">
+      <datawriter_qos>
+        <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+        </publish_mode>
+        <protocol>
+          <rtps_reliable_writer>
+            <!--max_heartbeat_retries>1</max_heartbeat_retries-->
+            <heartbeat_period>
+              <sec>1</sec>
+              <nanosec>0</nanosec>
+            </heartbeat_period>
+          </rtps_reliable_writer>
+        </protocol>
+        <reliability>
+          <max_blocking_time>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_blocking_time>
+        </reliability>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>128</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos>
+        <reader_resource_limits>
+          <dynamically_allocate_fragmented_samples>true</dynamically_allocate_fragmented_samples>
+          <max_fragments_per_sample>4096</max_fragments_per_sample>
+        </reader_resource_limits>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>128</depth>
+        </history>
+      </datareader_qos>
+    </qos_profile>
+
+
+
+  </qos_library>
+
+  <qos_library name="hussqosbytopic">
+    <qos_profile name="MASDSP_MAS_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="MASDSP_MAS_DETECTION_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="MASDSP_MAS_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="MASDSP_MAS_ACO_SENSOR_SIGNAL_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="MASDSP_MAS_DETECTION_CTRL_INFO_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="LASDSP_LAS_A_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="LASDSP_LAS_A_TIME_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="LASDSP_LAS_A_FREQ_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="LASDSP_LAS_A_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="LASDSP_LAS_A_BEAM_DATA" base_name="hussqos::LargeBig">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.21</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="LASDSP_LAS_B_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="LASDSP_LAS_B_TIME_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="LASDSP_LAS_B_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="LASDSP_LAS_B_BEAM_DATA" base_name="hussqos::LargeBig">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.21</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="LASDSP_LAS_C_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="LASDSP_LAS_C_TIME_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="LASDSP_LAS_C_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="LASDSP_LAS_C_BEAM_DATA" base_name="hussqos::LargeBig">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.21</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="LASDSP_LAS_B_FREQ_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="LASDSP_LAS_C_FREQ_DETECTION_DATA" base_name="hussqos::LargeBig"/>
+    <qos_profile name="BISDSP_BIS_A_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+
+    <qos_profile name="BISDSP_BIS_A_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="BISDSP_BIS_A_BEAM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.11</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="BISDSP_BIS_B_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="BISDSP_BIS_B_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="BISDSP_BIS_B_BEAM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.12</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_C_AGC_CTRL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="BISDSP_BIS_C_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="BISDSP_BIS_C_BEAM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.13</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="BISDSP_BIS_A_DETECTION_FM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.40</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="BISDSP_BIS_B_DETECTION_FM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.41</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_C_DETECTION_FM_DATA" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.42</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_A_ACTIVE_PULSE_DETECTION_INFO" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.30</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="BISDSP_BIS_B_ACTIVE_PULSE_DETECTION_INFO" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.31</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_C_ACTIVE_PULSE_DETECTION_INFO" base_name="hussqos::LargeBig_BIS_BEAM_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.32</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="BISDSP_BIS_A_DETECTION_CW_DATA" base_name="hussqos::Large_FastFlow">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.20</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_B_DETECTION_CW_DATA" base_name="hussqos::Large_FastFlow">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.21</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="BISDSP_BIS_C_DETECTION_CW_DATA" base_name="hussqos::Large_FastFlow">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.22</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="CTRMGR_LAS_A_SENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_LAS_A_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_LAS_A_TIME_DETECTION_CONTROL" base_name="hussqos::Event"/>
+
+    <qos_profile name="CTRMGR_BIS_A_SENSOR_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.10</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="CTRMGR_BIS_A_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.10</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="CTRMGR_BIS_B_SENSOR_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.11</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="CTRMGR_BIS_B_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.11</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="CTRMGR_BIS_C_SENSOR_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.12</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="CTRMGR_BIS_C_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.7.12</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+
+    <qos_profile name="CTRMGR_MAS_SENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_MAS_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_MAS_DETECTION_CONTROL" base_name="hussqos::Event"/>
+
+    <qos_profile name="CTRMGR_BIS_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="CTRMGR_LAS_DETECTION_DATA" base_name="hussqos::LargeBig_LAS_DETECTION_DATA">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.5</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="CTRMGR_LAS_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="CTRMGR_MAS_DETECTION_DATA" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.7</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="CTRMGR_MAS_ENE_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="CTRMGR_BIS_SENSOR_POWER_CTRL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_SENSOR_POWER_CTRL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_MAS_SENSOR_POWER_CTRL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_B_TIME_DETECTION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_C_TIME_DETECTION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_A_FREQ_DETECTION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_B_FREQ_DETECTION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_LAS_C_FREQ_DETECTION_CONTROL" base_name="hussqos::Event"/>
+
+    <qos_profile name="CTRMGR_LAS_B_SENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_LAS_B_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+
+    <qos_profile name="CTRMGR_LAS_C_SENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_LAS_C_SIMULATION_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+
+    <qos_profile name="CTRMGR_LAS_SENSOR_STATUS" base_name="hussqos::Large"/>
+    <qos_profile name="CTRMGR_BIS_SENSOR_STATUS" base_name="hussqos::Large"/>
+    <qos_profile name="CTRMGR_MAS_SENSOR_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_RD_TARGET_DATA_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_KNTDS_TARGET_DATA_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_LOCAL_TARGET_DATA_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_RD_IMAGE_DATA_INFO" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.4</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="IFCCTR_RD_OPERATION_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_SIM_RD_TARGET_INFO" base_name="hussqos::Large"/>
+
+    <qos_profile name="DATMGR_LAS_TARGET_CLASSIFICATION_CONTROL" base_name="hussqos::LargeBig">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.5.90</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="DATMGR_LAS_AUDIO_SIG_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_BIS_AUDIO_SIG_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_MAS_AUDIO_SIG_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_OPER_SAVE_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OPER_RESTORE_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OPER_EDIT_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OPER_BACKUP_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OPER_DELETE_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OPER_LIST_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_OPER_HISTORY_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_STORAGE_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_EXTRACTED_GRAM_CONTROL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_EXTRACTED_GRAM_LIST_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_LAS_EXTRACTED_GRAM_INFO" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="DATMGR_MAS_EXTRACTED_GRAM_INFO" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="DATMGR_CTR_ALERT_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_CTR_ALERT_DELETE_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="DATMGR_SCREENSHOT_CONTROL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_SCREENSHOT_LIST_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_SAVED_SCREENSHOT_INFO" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="DATMGR_TACTICAL_AREA_CONTROL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_THREAT_AREA_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_TACTICAL_AREA_INFO" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="DATMGR_BIS_SOURCE_DB_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_BIS_SOURCE_DB_CONTROL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_OI_CLASSIFICATION_GRAM_INFO"	 base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.7</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="DATMGR_USER_LOGIN_INFO_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_CLA_MANAGE_RESULT"	 base_name="hussqos::Event"/>
+
+    <!--18.07.23 추가 토픽-->
+    <qos_profile name="DATMGR_CLASSIFICATION_RESULT_LIST" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="DATMGR_CLASSIFICATION_RESULT" base_name="hussqos::Large_10G">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.6</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="SYSMGR_HW_STATUS_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_THREAT_TARGET_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_GLOBAL_TARGET_RMT_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_GLOBAL_TARGET_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.1</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_CONCERNED_TARGET_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.1</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_OUM_TARGET_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_BIS_SOURCE_MANUEVER_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_SENSOR_CONFIG_PARAM_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_CONCERNED_TARGET_LOST_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_TGT_CLASSIFICATION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+
+    <qos_profile name="TGTMGR_LOCAL_TARGET_LAS_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_MAS_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_BIS_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="TGTMGR_LOCAL_TARGET_KNTDS_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_RD_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_AS_INFO" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.2</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_EO_INFO" base_name="hussqos::Event"/>
+
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_LAS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_MAS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_BIS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_KNTDS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_RD_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_AS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_EO_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_GLOBAL_TARGET_FOR_FUSION_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTMGR_MAS_INOUT_ESTIMATION_CONTROL"	 base_name="hussqos::Event"/>
+
+
+
+    <qos_profile name="TGTTRK_MAS_SENSOR_POSITION_DATA_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LASTRK_TARGET_TRACKING_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="TGTTRK_MASTRK_TARGET_TRACKING_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_BIS_DETECT_USERCONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_ACTIVE_PULSE_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_DETECTTARGET_USERCONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_DETECTTARGET_USERCONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_SENSOR_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_SENSORRECEIVER_USER_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_SENSOR_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_USERRECEIVERDISCONNECTCONTROL_INFO_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_SENSORRECEIVER_USER_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_SENSOR_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_SENSORRECEIVER_USER_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_AUDIO_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RAWAUDIO_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_RECORD_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_DELETE_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_RESTORE_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_MODIFY_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_BACKUP_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_DATA_LIST_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_HISTORY_LIST_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="USERIF_SOFTWARE_OPERATE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_CPACALCULATE_INFO_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_MOVINFO_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_PRESUPPOSEDHEADING_CALCULATE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_FUSION_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_OUM_REFRESH_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_OUM_REGISTER_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_OUM_DELETE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_INTEREST_NEW_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_INTEREST_DELETE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_GLOBAL_REFRESH_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_GLOBAL_REGISTER_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_GLOBAL_DELETE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_DANGER_INFO_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_BBD_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_LOFAR_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_DEMON_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BISTRK_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_OIT_TRACKING_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_CIT_TRACKING_THRESHOLD_INFO" base_name="hussqos::Event"/>
+
+
+    <qos_profile name="TGTCLA_STANDARD_CLA_DB_INFO_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LAS_SENSOR_POSITION_DATA_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BIS_SENSOR_POSITION_DATA_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_USERPOWERCONTROL_INFO_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_USERPOWERCONTROL_INFO_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_USERPOWERCONTROL_INFO_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="SYSMGR_SW_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SW_RUN_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SW_RUN_CMD_ALL" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SW_STATUS_HCI_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_ALERT_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_ALERT_REPORT" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_HW_STATUS_HCI_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="SYSMGR_TIMESYNC_DEV_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SW_KILL_CMD" base_name="hussqos::Event"/>
+
+    <qos_profile name="SPPANA_HORIZONTAL_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_VERTICAL_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_POINT_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_ANALYSIS_PROCESS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_LAS_ACOUSTIC_DETECTION_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_MAS_ACOUSTIC_DETECTION_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_AS_ACOUSTIC_DETECTION_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_BI_ACOUSTIC_DETECTION_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_HORIZONTAL_ANALYSIS_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_VERTICAL_ANALYSIS_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_POINT_ANALYSIS_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_MAS_DETECTION_PROBABILITY_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_AS_DETECTION_PROBABILITY_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_BI_DETECTION_PROBABILITY_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_CLASSIFICATIONDATABASE_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_CLASSIFICATIONDATABASE_BAKUPRESTORE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_DEV_RUN_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SW_FIRST_RUN_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_FOC_DR_REQUEST" base_name="hussqos::Event"/>
+
+
+
+    <qos_profile name="SYSMGR_SERVER_START_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SWUPDATE_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SCREENSHOT_LIST_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SCREENSHOT_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SCREENSHOT_SAVE_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_SYSMGR_ALL_STATE_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SYSMGR_REALLOCATION_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SYSMGR_SWUPDATE_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RADAR_VIDEO_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RADAR_TRACK_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RADAR_FILTER_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_PARAMETER_REQ" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="USERIF_RADAR_CHANNEL_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_THREAT_FREQ_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_IPE_DEVICE_CTRL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_SPE_DEVICE_CTRL_COMMAND" base_name="hussqos::Event"/>
+
+    <qos_profile name="SYSMGR_PARAMETER_RESULT" base_name="hussqos::Large"/>
+
+    <qos_profile name="USERIF_EXTRACTED_GRAM_SAVE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EXTRACTED_GRAM_LIST_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="USERIF_EXTRACTED_GRAM_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_SWUPDATE_RESULT" base_name="hussqos::Event"/>
+
+    <qos_profile name="USERIF_ASE_MODE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_TRANSMIT_OPTION_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_TRANSMIT_ACTIVIATION_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_MANUAL_AGC_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_DETECT_TH_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_SONARSPEED_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_MAX_RANGE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_TRK_SENSITIVE_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_FISH_SUP_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_FLOW_SUP_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_WAKE_SUP_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_MAX_SPEED_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="IFCCTR_ACTIVESONAR_MODE_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_TRANSMIT_OPTION_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_TRANSMIT_ACTIVIATION_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_DETECT_TH_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_SONARSPEED_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_MAX_RANGE_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_TRK_SENSITIVE_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_FISH_SUP_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_FLOW_SUP_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_WAKE_SUP_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_SENSOR_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_DETECT_DATA" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_MAX_SPEED_RESPONSE" base_name="hussqos::Event"/>
+
+
+    <qos_profile name="USERIF_THREAT_AREA_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_KNTDS_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_RD_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_SIM_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RMT_DEVICE_CTRL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_SOUNDSOURCEPOSITION_SEARCH_REQUEST" base_name="hussqos::Large"/>
+
+    <qos_profile name="SPPANA_BIS_SOUND_SOURCE_POSITION_SEARCH_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_BIS_SOUND_SOURCE_POSITION_FIND_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_BIS_SOUND_SOURCE_POSITION_CONFIRM_ANALYSIS_RESULT" base_name="hussqos::Event"/>
+
+    <qos_profile name="SYSMGR_TIMESYNC_CMD" base_name="hussqos::Event"/>
+
+
+
+    <qos_profile name="USERIF_ZONE_CONTROL_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="TGTCLA_CLA_DB_BACKUP_RESTORE_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_SOUNDSOURCEPOSITION_FIND_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_BIS_SOUNDSOURCEPOSITION_CONFIRM_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="SYSMGR_TIMESYNC_MODE_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_GPS_STS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TIMESYNC_MODE_CMD" base_name="hussqos::Event"/>
+    <qos_profile name="HUSSIS_TARGET_INFORMATION" base_name="hussqos::Large"/>
+
+
+    <qos_profile name="CTRMGR_BIS_A_MONITORSENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_BIS_B_MONITORSENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_BIS_C_MONITORSENSOR_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+
+    <qos_profile name="TGTCLA_OI_ACOUSTIC_TARGET_CLASSIFICATION_RESULT" base_name="hussqos::Large"/>
+    
+    <!--ClutterMapInfo Large->LargeBig 로 QOS 변경-->
+    <qos_profile name="IFCCTR_ACTIVESONAR_CLUTTER_MAP_INFO" base_name="hussqos::LargeBig">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.4</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <qos_profile name="HUSSIS_SCENARIO_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTCLA_OI_CLASSIFICATION_FREQ_INFO" base_name="hussqos::Large">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.5</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="USERIF_OI_CLASSIFICATION_FREQ_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_ENE_DATA" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_REV_DATA" base_name="hussqos::Large"/>
+
+    <qos_profile name="USERIF_BIS_SOURCE_DB_CONTROL_REQUEST" base_name="hussqos::Large"/>
+
+    <!--180323추가  -->
+    <qos_profile name="IFCCTR_EOTE_SENSOR_CONTROL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_TRACK_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_TRACKING_CONTROL_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_MOTOR_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_LASER_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_TRACKING_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_POWER_CTRL_REQUEST" base_name="hussqos::Event"/>
+
+    <!--180425-->
+    <qos_profile name="TGTCLA_CI_ACOUSTIC_TARGET_CLASSIFICATION_TO_TGTMGR_RESULT"	base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ACOUSTIC_MODEL_PROCESS_STOP_REQUEST"	base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LASTRK_LOFAR_MEAS_INFO"	base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.3</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="CTRMGR_LAS_SENSOR_IFC_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_BIS_SENSOR_IFC_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="CTRMGR_MAS_SENSOR_IFC_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BISTRK_TARGET_TRACKING_INFO_A"	 base_name="hussqos::Large"/>
+    <qos_profile name="TGTTRK_BISTRK_TARGET_TRACKING_INFO_B"	 base_name="hussqos::Large"/>
+    <qos_profile name="TGTTRK_BISTRK_TARGET_TRACKING_INFO_C"	 base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_ACOUSTIC_MODEL_PROCESS_STATUS_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ACOUSTIC_MODEL_PERIOD_PROCESS_PARAMETER_INFO"	 base_name="hussqos::Large"/>
+    <qos_profile name="SPPANA_MODEL_PROCESS_STATUS_RESULT"	 base_name="hussqos::Event"/>
+    <qos_profile name="TGTCLA_CI_ACOUSTIC_TARGET_CLASSIFICATION_TO_DATMGR_RESULT"	 base_name="hussqos::LargeBig"/>
+
+    <qos_profile name="USERIF_OI_CLASSIFICATION_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_CLASSIFICATION_RESULT_MANAGE_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_OI_CLASSIFICATION_RESULT_SAVE_REQUEST"	 base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_USER_LOGIN_INFO"	 base_name="hussqos::Event"/>
+
+    <qos_profile name="IFCCTR_EOTE_BIT_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_LASER_CONTROL_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_MOVE_INFO_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_BLOCK_SET_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_BLOCK_INFO_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_MOVE_CONTROL_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_AUTH_CONTROL_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_AUTH_INFO_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_AUTH_FAIL_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_CALIBRATION_CONTROL_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_MOVE_SET_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_ADDITIONAL_INFO_RESPONSE"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_AUTH_CONTROL_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_AUTH_INFO_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_POWER_CONTROL_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_ZOOMFOC_CONTROL_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_BLOCK_SET_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_BLOCK_INFO_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_MOVE_SET_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_MOVE_INFO_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_MOVE_CONTROL_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_ADDITIONAL_SET_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_ADDITIONAL_INFO_REQUEST"	 base_name="hussqos::Event"/>
+
+    <qos_profile name="IFCCTR_RMD_INTERCHANGE_DEVICE_STATUS_INFO"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_RMD_EA_INTERWORKING_STATUS_INFO"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_RMD_TRANSCEIVER_STATUS_INFO"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_CONTROL_INFO" base_name="hussqos::Large"/>
+
+
+    <!--18.06.26 추가 토픽-->
+    <qos_profile name="USERIF_LOST_INTEREST_TARGET_SEND_REQUEST"	 base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_EOTE_TARGET_INFO"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_SEMI_OIT_CONTROL_COMMAND"	 base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTE_CALIBRATION_CONTROL_REQUEST"	 base_name="hussqos::Event"/>
+
+    <!--18.07.16 추가 토픽-->
+    <qos_profile name="TGTTRK_BISTRK_MEAS_INFO_A" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.4</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTTRK_BISTRK_MEAS_INFO_B" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.4</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+    <qos_profile name="TGTTRK_BISTRK_MEAS_INFO_C" base_name="hussqos::Large_TGTMGR_MGR">
+      <datareader_qos>
+        <multicast>
+          <value>
+            <element>
+              <!-- Must be a valid multicast address-->
+              <receive_address>239.255.6.4</receive_address>
+            </element>
+          </value>
+        </multicast>
+      </datareader_qos>
+    </qos_profile>
+
+    <!--18.07.18 추가 토픽-->
+    <qos_profile name="SYSMGR_SW_ALL_STATUS_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="SYSMGR_HW_ALL_STATUS_INFO" base_name="hussqos::Large"/>
+
+
+    <!--18.08.30 추가 토픽-->
+    <qos_profile name="IFCCTR_ACTIVESONAR_CHANNEL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="SPPANA_BIS_ACOUSTIC_MODEL_PROCESS_STOP_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_MASTRK_ACO_FREQ_TRACK_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_LASTRK_CONC_TGT_REG_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BISTRK_CONC_TGT_REG_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MASTRK_CONC_TGT_REG_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_SENSOR_FAIL_SET_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_USERDEFINE_SENSOR_FAULT_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_USERDEFINE_SENSOR_FAULT_CONTROL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_USERDEFINE_SENSOR_FAULT_CONTROL_REQUEST" base_name="hussqos::Event"/>
+
+    <!--18.10.05 추가 토픽-->
+    <qos_profile name="USERIF_TARGET_INFO_INITIATE_REQUEST" base_name="hussqos::Event"/>
+
+    <!--18.10.22 추가 토픽-->
+    <qos_profile name="SYSMGR_HUSS_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_AUTO_CLASSIFICATION_RESULT_INIT_REQ" base_name="hussqos::Event"/>
+
+
+    <!--18.11.22 추가 토픽-->
+    <qos_profile name="USERIF_LAS_SENSOR_STATUS_MANUAL_SET_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_SENSOR_STATUS_MANUAL_SET_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_SENSOR_STATUS_MANUAL_SET_REQUEST" base_name="hussqos::Event"/>
+
+    <!--18.11.23 추가 토픽-->
+
+    <qos_profile name="CTRMGR_BIS_A_MONITOR_SIM_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_BIS_C_MONITOR_SIM_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+    <qos_profile name="CTRMGR_BIS_B_MONITOR_SIM_SIGNAL_DATA" base_name="hussqos::Large_MediumFlow"/>
+
+
+
+    <!--18.12.04 추가 토픽-->
+    <qos_profile name="SYSMGR_USER_ACCOUNT_INFO_RSP" base_name="hussqos::Large"/>
+    <qos_profile name="SYSMGR_USER_ACCOUNT_LIST_RSP" base_name="hussqos::Large"/>
+    <qos_profile name="SYSMGR_USER_ACCOUNT_LOG_RSP" base_name="hussqos::Large"/>
+
+    <qos_profile name="USERIF_USER_ACCOUNT_INFO_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_USER_ACCOUNT_LIST_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_USER_ACCOUNT_LOG_REQ" base_name="hussqos::Event"/>
+
+    <!--19.01.02 추가 토픽-->
+    <qos_profile name="TGTMGR_KNTDS_TARGET_DROP_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_OIT_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BISTRK_OIT_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_CIT_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BISTRK_CIT_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MASTRK_CIT_THRESHOLD_INFO" base_name="hussqos::Event"/>
+
+    <qos_profile name="SYSMGR_SYSTEM_SHUTDOWN_CMD" base_name="hussqos::Event"/>
+
+
+    <qos_profile name="IFCCTR_ACTIVESONAR_MANUAL_AGC_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_STEERING_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_SENSOR_FAIL_SET_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_SENSOR_DEG_OFFSET_SET_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_OIT_GEN_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_STEERING_CTRL_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_SENSOR_DEG_OFFSET_SET_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_ASE_OIT_GEN_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_USER_REALLOCATION_RSP" base_name="hussqos::Event"/>
+    
+     <!--19.04.17 추가 토픽-->
+    <qos_profile name="IFCCTR_AIS_TARGET_DATA_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="IFCCTR_AIS_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LOCAL_TARGET_AIS_INFO" base_name="hussqos::Large_TGTMGR_MGR"/>
+    <qos_profile name="USERIF_MANUAL_TARGET_CLASSIFICATION_REQUEST" base_name="hussqos::Event"/>
+    
+    <!--19.04.22 추가 토픽-->
+    <qos_profile name="USERIF_LASTRK_EXCLUSION_FREQ_CONTROL_COMMAND" base_name="hussqos::Event"/>
+
+    <!--19.04.29 추가 토픽-->
+    <qos_profile name="USERIF_MASTRK_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LASTRK_THRESHOLD_INFO_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BISTRK_THRESHOLD_INFO_ACK_A" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BISTRK_THRESHOLD_INFO_ACK_B" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BISTRK_THRESHOLD_INFO_ACK_C" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_MASTRK_THRESHOLD_INFO_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LASTRK_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BISTRK_THRESHOLD_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="BISDSP_BIS_ACTIVE_PULSE_DB_REQ" base_name="hussqos::Event"/>
+
+    <!--19.05.02 추가 토픽-->
+    <qos_profile name="DATMGR_BIS_ACTIVE_PULSE_DB" base_name="hussqos::Large"/>
+    <qos_profile name="BISDSP_BIS_DPD_INFO" base_name="hussqos::Event"/>
+    
+    <!--19.05.20 추가 토픽-->
+    <qos_profile name="DATMGR_TGTTRK_PARAM_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_PARAM_INFO_REQ" base_name="hussqos::Event"/>
+    
+    <!--19.05.28 추가 토픽-->
+    <qos_profile name="SYSMGR_EQUIP_DIAGNOSTIC_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="SYSMGR_AGENT_HW_DIAGNOSTIC_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LASTRK_SEMI_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_SEMI_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EQUIP_DIAGNOSTIC_REQUEST" base_name="hussqos::Event"/>
+
+    <!--19.06.10 추가 토픽-->
+    <qos_profile name="DATMGR_RAWAUDIO_LIST_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_RAWAUDIO_CONTROL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_MAS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LAS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_BIS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_MAS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+
+    <!--19.06.18 추가 토픽-->
+    <qos_profile name="USERIF_ASE_STAY_TARGET_MODE_REQ" base_name="hussqos::Event"/>
+    <qos_profile name="IFCCTR_ACTIVESONAR_STAY_TARGET_MODE_RES" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_LAS_TRACK_SFL_REGISTRATION_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LASTRK_LOFAR_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LASTRK_DEMON_OIT_CONTROL_COMMAND" base_name="hussqos::Event"/>
+
+
+    <!--19.06.27 추가 토픽-->
+    <qos_profile name="USERIF_LAS_TRACK_SFL_DELETE_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="DATMGR_STABILIZED_GRAM_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_BIS_TRACK_DELETE_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LAS_TRACK_DELETE_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LAS_TRACK_SFL_DELETE_CONTROL" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_STABILIZED_GRAM_TARGET_INFO_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_TARGET_FUSION_ACTIVATION_COMMAND" base_name="hussqos::Event"/>
+
+    <!--19.07.12 추가 토픽-->
+    <qos_profile name="DATMGR_TARGET_DB_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_TARGET_DB_CONTROL_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="DATMGR_ACO_MODEL_PERIOD_PARAM_CONTROL_RESULT" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_ACO_MODEL_PERIOD_PARAM_CONTROL_REQUEST" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_AS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LAS_BBD_OIT_CONTROL_COMMAND_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LAS_LOFAR_OIT_CONTROL_COMMAND_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_LAS_DEMON_CONTROL_COMMAND_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="TGTTRK_BIS_OIT_CONTROL_COMMAND_ACK" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_AS_TRACK_USER_CONFIRM_COMMAND" base_name="hussqos::Event"/>
+
+    <!--19.09.02 추가 토픽-->
+    <qos_profile name="SYSMGR_NOTIFICATION_INFO" base_name="hussqos::Event"/>
+
+    <!--19.10.11 추가 토픽-->
+    <qos_profile name="DATMGR_STRUCT_SAVE" base_name="hussqos::LargeBig"/>
+    <qos_profile name="SYSMGR_SWUPDATE_OVERALL_RESULT" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_BIS_DETECT_PARAM_CONTROL_REQUEST" base_name="hussqos::Event"/>
+
+    <qos_profile name="USERIF_REQUEST_LOGIN_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RESPONSE_LOGIN_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTS_RECORDING_REQUEST" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTS_RECORDING_RESPONSE" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_EOTS_RECORDING_STATUS" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_REQUEST_DRILL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_RESPONSE_DRILL_INFO" base_name="hussqos::Event"/>
+    
+    <!--19.11.05 추가 토픽-->
+    <qos_profile name="USERIF_SYSMGR_SWUPDATE_OVERALL_CMD" base_name="hussqos::Event"/>
+
+    <!--19.11.11 추가 토픽-->
+    <qos_profile name="DATMGR_AS_THREAT_AREA_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="USERIF_AS_THREAT_AREA_CONTROL_REQUEST" base_name="hussqos::Event"/>
+
+    <!--19.12.02 추가 토픽-->
+    <qos_profile name="DATMGR_SENSOR_PROTECTION_CONTROL_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_TARGET_FUSION_ACTIVATION_STATUS_INFO" base_name="hussqos::Event"/>
+    <qos_profile name="TGTMGR_LAS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_MAS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_BIS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_AS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_EOS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_RDS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="TGTMGR_KNTDS_FUSED_GLOBAL_TARGET_INFO" base_name="hussqos::Large"/>
+    <qos_profile name="USERIF_SENSOR_PROTECTION_CONTROL_REQUEST" base_name="hussqos::Event"/>
+
+  </qos_library>
+</dds>
+
+

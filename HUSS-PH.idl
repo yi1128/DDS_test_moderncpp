@@ -1,0 +1,7504 @@
+enum E_CSCI_CSC_TYPE
+{
+	E_SW_ID_NONE = 0,
+	E_SW_ID_SPE_LASDSP_1_LASDSP_LTA = 1,
+	E_SW_ID_SPE_LASDSP_1_SYSMGR_SMA = 2,
+	E_SW_ID_SPE_LASDSP_2_LASDSP_LTB = 3,
+	E_SW_ID_SPE_LASDSP_2_SYSMGR_SMA = 4,
+	E_SW_ID_SPE_LASDSP_3_LASDSP_LTC = 5,
+	E_SW_ID_SPE_LASDSP_3_SYSMGR_SMA = 6,
+	E_SW_ID_SPE_LASDSP_4_LASDSP_LFA = 7,
+	E_SW_ID_SPE_LASDSP_4_SYSMGR_SMA = 8,
+	E_SW_ID_SPE_LASDSP_5_LASDSP_LFB = 9,
+	E_SW_ID_SPE_LASDSP_5_SYSMGR_SMA = 10,
+	E_SW_ID_SPE_LASDSP_6_LASDSP_LFC = 11,
+	E_SW_ID_SPE_LASDSP_6_SYSMGR_SMA = 12,
+	E_SW_ID_SPE_SIGGEN_1_LASSIGGEN = 13,
+	E_SW_ID_SPE_SIGGEN_1_SYSMGR_SMA = 14,
+	E_SW_ID_SPE_SIGGEN_2_MASSIGGEN = 15,
+	E_SW_ID_SPE_SIGGEN_2_SYSMGR_SMA = 16,
+	E_SW_ID_SPE_SIGGEN_3_BISSIGGEN = 17,
+	E_SW_ID_SPE_SIGGEN_3_SYSMGR_SMA = 18,
+	E_SW_ID_SPE_CTRMGR_1_CTRMGR_LAS = 19,
+	E_SW_ID_SPE_CTRMGR_1_CTRMGR_MAS = 20,
+	E_SW_ID_SPE_CTRMGR_1_CTRMGR_BIS = 21,
+	E_SW_ID_SPE_CTRMGR_1_SYSMGR_SMA = 22,
+	E_SW_ID_SPE_BISDSP_1_BISDSP_APA = 23,
+	E_SW_ID_SPE_BISDSP_1_SYSMGR_SMA = 24,
+	E_SW_ID_SPE_BISDSP_2_BISDSP_APB = 25,
+	E_SW_ID_SPE_BISDSP_2_SYSMGR_SMA = 26,
+	E_SW_ID_SPE_BISDSP_3_BISDSP_APC = 27,
+	E_SW_ID_SPE_BISDSP_3_SYSMGR_SMA = 28,
+	E_SW_ID_SPE_BISDSP_4_BISDSP_TDA = 29,
+	E_SW_ID_SPE_BISDSP_4_SYSMGR_SMA = 30,
+	E_SW_ID_SPE_BISDSP_5_BISDSP_TDB = 31,
+	E_SW_ID_SPE_BISDSP_5_SYSMGR_SMA = 32,
+	E_SW_ID_SPE_BISDSP_6_BISDSP_TDC = 33,
+	E_SW_ID_SPE_BISDSP_6_SYSMGR_SMA = 34,
+	E_SW_ID_SPE_BISDSP_7_BISDSP_SPA = 35,
+	E_SW_ID_SPE_BISDSP_7_SYSMGR_SMA = 36,
+	E_SW_ID_SPE_BISDSP_8_BISDSP_SPB = 37,
+	E_SW_ID_SPE_BISDSP_8_SYSMGR_SMA = 38,
+	E_SW_ID_SPE_BISDSP_9_BISDSP_SPC = 39,
+	E_SW_ID_SPE_BISDSP_9_SYSMGR_SMA = 40,
+	E_SW_ID_SPE_MASDSP_1_MASDSP = 41,
+	E_SW_ID_SPE_MASDSP_1_SYSMGR_SMA = 42,
+	E_SW_ID_SPE_CTRMGR_1_R_CTRMGR_LAS = 43,
+	E_SW_ID_SPE_CTRMGR_1_R_CTRMGR_MAS = 44,
+	E_SW_ID_SPE_CTRMGR_1_R_CTRMGR_BIS = 45,
+	E_SW_ID_SPE_CTRMGR_1_R_SYSMGR_SMA = 46,
+	E_SW_ID_IPE_TGTMGR_1_TGTMGR_MGR = 47,
+	E_SW_ID_IPE_TGTMGR_1_TGTMGR_FUS = 48,
+	E_SW_ID_IPE_TGTMGR_1_SYSMGR_SMA = 49,
+	E_SW_ID_IPE_TGTTRK_1_TGTTRK_LAS = 50,
+	E_SW_ID_IPE_TGTTRK_1_SYSMGR_SMA = 51,
+	E_SW_ID_IPE_TGTTRK_2_TGTTRK_MAS = 52,
+	E_SW_ID_IPE_TGTTRK_2_TGTTRK_BIS = 53,
+	E_SW_ID_IPE_TGTTRK_2_SYSMGR_SMA = 54,
+	E_SW_ID_IPE_DATMGR_1_DATMGR_REC = 55,
+	E_SW_ID_IPE_DATMGR_1_SYSMGR_SMA = 56,
+	E_SW_ID_IPE_DATMGR_2_DATMGR_EX = 57,
+	E_SW_ID_IPE_DATMGR_2_SYSMGR_SMA = 58,
+	E_SW_ID_IPE_SYSMGR_1_SYSMGR_SOM = 59,
+	E_SW_ID_IPE_SYSMGR_1_SYSMGR_SMA = 60,
+	E_SW_ID_IPE_IFCCTR_1_IFCCTR_KNT = 61,
+	E_SW_ID_IPE_IFCCTR_1_IFCCTR_ASE = 62,
+	E_SW_ID_IPE_IFCCTR_1_IFCCTR_RDR = 63,
+	E_SW_ID_IPE_IFCCTR_1_IFCCTR_EOT = 64,
+	E_SW_ID_IPE_IFCCTR_1_IFCCTR_RMD = 65,
+	E_SW_ID_IPE_IFCCTR_1_SYSMGR_SMA = 66,
+	E_SW_ID_IPE_SPPANA_1_SPPANA_PAM = 67,
+	E_SW_ID_IPE_SPPANA_1_SPPANA_OCN = 68,
+	E_SW_ID_IPE_SPPANA_1_SYSMGR_SMA = 69,
+	E_SW_ID_IPE_SPPANA_2_SPPANA_BIS = 70,
+	E_SW_ID_IPE_SPPANA_2_SPPANA_PAM = 71,
+	E_SW_ID_IPE_SPPANA_2_SYSMGR_SMA = 72,
+	E_SW_ID_IPE_TGTCLA_1_TGTCLA_VMG = 73,
+	E_SW_ID_IPE_TGTCLA_1_TGTCLA_CLA = 74,
+	E_SW_ID_IPE_TGTCLA_1_SYSMGR_SMA = 75,
+	E_SW_ID_IPE_TGTMGR_1_R_TGTMGR_MGR = 76,
+	E_SW_ID_IPE_TGTMGR_1_R_TGTMGR_FUS = 77,
+	E_SW_ID_IPE_TGTMGR_1_R_SYSMGR_SMA = 78,
+	E_SW_ID_IPE_TGTTRK_1_R_TGTTRK_LAS = 79,
+	E_SW_ID_IPE_TGTTRK_1_R_SYSMGR_SMA = 80,
+	E_SW_ID_IPE_TGTTRK_2_R_TGTTRK_MAS = 81,
+	E_SW_ID_IPE_TGTTRK_2_R_TGTTRK_BIS = 82,
+	E_SW_ID_IPE_TGTTRK_2_R_SYSMGR_SMA = 83,
+	E_SW_ID_IPE_DATMGR_1_R_DATMGR_REC = 84,
+	E_SW_ID_IPE_DATMGR_1_R_SYSMGR_SMA = 85,
+	E_SW_ID_IPE_SYSMGR_1_R_SYSMGR_SOM = 86,
+	E_SW_ID_IPE_SYSMGR_1_R_SYSMGR_SMA = 87,
+	E_SW_ID_IPE_IFCCTR_1_R_IFCCTR_KNT = 88,
+	E_SW_ID_IPE_IFCCTR_1_R_IFCCTR_ASE = 89,
+	E_SW_ID_IPE_IFCCTR_1_R_IFCCTR_RDR = 90,
+	E_SW_ID_IPE_IFCCTR_1_R_IFCCTR_EOT = 91,
+	E_SW_ID_IPE_IFCCTR_1_R_IFCCTR_RMD = 92,
+	E_SW_ID_IPE_IFCCTR_1_R_SYSMGR_SMA = 93,
+	E_SW_ID_IDE_USERIF_1_USERIF_IFC = 94,
+	E_SW_ID_IDE_USERIF_1_TRAEDT = 95,
+	E_SW_ID_IDE_USERIF_1_MSSSUP = 96,
+	E_SW_ID_IDE_USERIF_1_SYSMGR_SMA = 97,
+	E_SW_ID_IDE_USERIF_2_USERIF_IFC = 98,
+	E_SW_ID_IDE_USERIF_2_TRAEDT = 99,
+	E_SW_ID_IDE_USERIF_2_MSSSUP = 100,
+	E_SW_ID_IDE_USERIF_2_SYSMGR_SMA = 101,
+	E_SW_ID_IDE_USERIF_3_USERIF_IFC = 102,
+	E_SW_ID_IDE_USERIF_3_TRAEDT = 103,
+	E_SW_ID_IDE_USERIF_3_MSSSUP = 104,
+	E_SW_ID_IDE_USERIF_3_SYSMGR_SMA = 105,
+	E_SW_ID_IDE_USERIF_4_USERIF_IFC = 106,
+	E_SW_ID_IDE_USERIF_4_TRAEDT = 107,
+	E_SW_ID_IDE_USERIF_4_MSSSUP = 108,
+	E_SW_ID_IDE_USERIF_4_SYSMGR_SMA = 109,
+	E_SW_ID_RMT_RMTDIS_1_USERIF_RMT = 110,
+	E_SW_ID_RMT_RMTDIS_1_SYSMGR_SMA = 111,
+	E_SW_ID_RMT_RMTDIS_2_USERIF_RMT = 112,
+	E_SW_ID_RMT_RMTDIS_2_SYSMGR_SMA = 113,
+	E_SW_ID_RMT_RMTDIS_3_USERIF_RMT = 114,
+	E_SW_ID_RMT_RMTDIS_3_SYSMGR_SMA = 115,
+	E_SW_ID_LASIE_LASIE_1_LASIE = 116,
+	E_SW_ID_LASIE_LASIE_2_LASIE = 117,
+	E_SW_ID_BISIE_BISIE_1_BISIE = 118,
+	E_SW_ID_BISIE_BISIE_2_BISIE = 119,
+	E_SW_ID_MASIE_MASIE_1_MASIE = 120,
+	E_SW_ID_MASIE_MASIE_2_MASIE = 121,
+	E_SW_ID_EIE_RADARIF_1_RADARIF = 122,
+	E_SW_ID_EIE_RADARIF_2_RADARIF = 123,
+	E_SW_ID_EIE_KNTDSIF_1_KNTDSIF = 124,
+	E_SW_ID_EOE_ELEOPT_1_ELEOPT1 = 125,
+	E_SW_ID_EOE_ELEOPT_2_ELEOPT2 = 126,
+	E_SW_ID_ASE_ACTDSP_1_ACTDSP1 = 127,
+	E_SW_ID_ASE_ACTDSP_2_ACTDSP2 = 128,
+	E_SW_ID_ASE_ACTDSP_3_ACTDSP3 = 129
+};
+
+enum E_EQUIPMENT_ID
+{
+	E_EQUIPMENT_ID_NONE = 0,
+	E_EQUIPMENT_ID_IPE1 = 1,
+	E_EQUIPMENT_ID_IPE2 = 2,
+	E_EQUIPMENT_ID_SPE1 = 3,
+	E_EQUIPMENT_ID_SPE2 = 4,
+	E_EQUIPMENT_ID_EOEAS = 5,
+	E_EQUIPMENT_ID_IDE = 6,
+	E_EQUIPMENT_ID_RDE = 7,
+	E_EQUIPMENT_ID_EIE = 8,
+	E_EQUIPMENT_ID_LASIE = 9,
+	E_EQUIPMENT_ID_BISIE = 10,
+	E_EQUIPMENT_ID_MASIE = 11,
+	E_EQUIPMENT_ID_RDIE1 = 12,
+	E_EQUIPMENT_ID_RDIE2 = 13
+};
+
+enum E_HW_ID
+{
+	E_HW_ID_NONE = 0,
+	E_HW_ID_IPE1_TGTMGR = 1,
+	E_HW_ID_IPE1_TGTTRK1 = 2,
+	E_HW_ID_IPE1_TGTTRK2 = 3,
+	E_HW_ID_IPE1_DATMGR1 = 4,
+	E_HW_ID_IPE1_DATMGR2 = 5,
+	E_HW_ID_IPE1_SYSMGR = 6,
+	E_HW_ID_IPE1_IFCCTR = 7,
+	E_HW_ID_IPE1_SPPANA1 = 8,
+	E_HW_ID_IPE1_SPPANA2 = 9,
+	E_HW_ID_IPE1_TGTCLA = 10,
+	E_HW_ID_IPE2_TGTMGR = 11,
+	E_HW_ID_IPE2_TGTTRK1 = 12,
+	E_HW_ID_IPE2_TGTTRK2 = 13,
+	E_HW_ID_IPE2_DATMGR1 = 14,
+	E_HW_ID_IPE2_SYSMGR = 15,
+	E_HW_ID_IPE2_IFCCTR = 16,
+	E_HW_ID_IPE1_HDDR = 17,
+	E_HW_ID_SPE1_LASDSP1 = 18,
+	E_HW_ID_SPE1_LASDSP2 = 19,
+	E_HW_ID_SPE1_LASDSP3 = 20,
+	E_HW_ID_SPE1_LASDSP4 = 21,
+	E_HW_ID_SPE1_LASDSP5 = 22,
+	E_HW_ID_SPE1_LASDSP6 = 23,
+	E_HW_ID_SPE1_SIGGEN1 = 24,
+	E_HW_ID_SPE1_SIGGEN2 = 25,
+	E_HW_ID_SPE1_SIGGEN3 = 26,
+	E_HW_ID_SPE1_IFCCTR = 27,
+	E_HW_ID_SPE2_BISDSP1 = 28,
+	E_HW_ID_SPE2_BISDSP2 = 29,
+	E_HW_ID_SPE2_BISDSP3 = 30,
+	E_HW_ID_SPE2_BISDSP4 = 31,
+	E_HW_ID_SPE2_BISDSP5 = 32,
+	E_HW_ID_SPE2_BISDSP6 = 33,
+	E_HW_ID_SPE2_BISDSP7 = 34,
+	E_HW_ID_SPE2_BISDSP8 = 35,
+	E_HW_ID_SPE2_BISDSP9 = 36,
+	E_HW_ID_SPE2_MASDSP = 37,
+	E_HW_ID_SPE2_IFCCTR_SUB = 38,
+	E_HW_ID_EOASE_ELEOPT1 = 39,
+	E_HW_ID_EOASE_ELEOPT2 = 40,
+	E_HW_ID_EOASE_ACTDSP1 = 41,
+	E_HW_ID_EOASE_ACTDSP2 = 42,
+	E_HW_ID_EOASE_ACTDSP3 = 43,
+	E_HW_ID_EOASE_HDDR = 44,
+	E_HW_ID_IDE_WS1 = 45,
+	E_HW_ID_IDE_WS2 = 46,
+	E_HW_ID_IDE_WS3 = 47,
+	E_HW_ID_IDE_WS4 = 48,
+	E_HW_ID_RDE_WS1 = 49,
+	E_HW_ID_RDE_WS2 = 50,
+	E_HW_ID_RDE_WS3 = 51,
+	E_HW_ID_ELE_NAIMIF = 52,
+	E_HW_ID_LASIE_TBD = 53,
+	E_HW_ID_BISIE_TBD = 54,
+	E_HW_ID_MASIE_TBD = 55
+};
+
+enum E_SW_GID
+{
+	E_SW_GID_NONE = 0,
+	E_SW_GID_SPE_LASDSP1 = 1,
+	E_SW_GID_SPE_LASDSP2 = 2,
+	E_SW_GID_SPE_LASDSP3 = 3,
+	E_SW_GID_SPE_LASDSP4 = 4,
+	E_SW_GID_SPE_LASDSP5 = 5,
+	E_SW_GID_SPE_LASDSP6 = 6,
+	E_SW_GID_SPE_SIGGEN1 = 7,
+	E_SW_GID_SPE_SIGGEN2 = 8,
+	E_SW_GID_SPE_SIGGEN3 = 9,
+	E_SW_GID_SPE_CTRMGR1 = 10,
+	E_SW_GID_SPE_BISDSP1 = 11,
+	E_SW_GID_SPE_BISDSP2 = 12,
+	E_SW_GID_SPE_BISDSP3 = 13,
+	E_SW_GID_SPE_BISDSP4 = 14,
+	E_SW_GID_SPE_BISDSP5 = 15,
+	E_SW_GID_SPE_BISDSP6 = 16,
+	E_SW_GID_SPE_BISDSP7 = 17,
+	E_SW_GID_SPE_BISDSP8 = 18,
+	E_SW_GID_SPE_BISDSP9 = 19,
+	E_SW_GID_SPE_MASDSP1 = 20,
+	E_SW_GID_IPE_TGTMGR1 = 21,
+	E_SW_GID_IPE_TGTTRK1 = 22,
+	E_SW_GID_IPE_TGTTRK2 = 23,
+	E_SW_GID_IPE_DATMGR1 = 24,
+	E_SW_GID_IPE_DATMGR2 = 25,
+	E_SW_GID_IPE_SYSMGR1 = 26,
+	E_SW_GID_IPE_IFCCTR1 = 27,
+	E_SW_GID_IPE_SPPANA1 = 28,
+	E_SW_GID_IPE_SPPANA2 = 29,
+	E_SW_GID_IPE_TGTCLA1 = 30,
+	E_SW_GID_IDE_USERIF1 = 31,
+	E_SW_GID_IDE_USERIF2 = 32,
+	E_SW_GID_IDE_USERIF3 = 33,
+	E_SW_GID_IDE_USERIF4 = 34,
+	E_SW_GID_IDE_RMTDIS1 = 35,
+	E_SW_GID_IDE_RMTDIS2 = 36,
+	E_SW_GID_IDE_RMTDIS3 = 37,
+	E_SW_GID_LASIE_LASIE1 = 38,
+	E_SW_GID_LASIE_LASIE2 = 39,
+	E_SW_GID_BISIE_BISIE1 = 40,
+	E_SW_GID_BISIE_BISIE2 = 41,
+	E_SW_GID_MASIE_MASIE1 = 42,
+	E_SW_GID_MASIE_MASIE2 = 43,
+	E_SW_GID_EIE_RADARIF1 = 44,
+	E_SW_GID_EIE_RADARIF2 = 45,
+	E_SW_GID_EIE_KNTDSIF1 = 46,
+	E_SW_GID_EOE_ELEOPT1 = 47,
+	E_SW_GID_EOE_ELEOPT2 = 48,
+	E_SW_GID_ASE_ACTDSP1 = 49,
+	E_SW_GID_ASE_ACTDSP2 = 50,
+	E_SW_GID_ASE_ACTDSP3 = 51
+};
+
+struct ST_DATE_TIME
+{
+	unsigned short unYear;
+	unsigned short unMonth;
+	unsigned short unDay;
+	unsigned short unHour;
+	unsigned short unMin;
+	unsigned short unSec;
+	unsigned short unMilSec;
+	unsigned short unReserved;
+};
+
+struct ST_MSG_HEADER
+{
+	long lTopicID;
+	E_CSCI_CSC_TYPE eSendSW;
+	long lSequenceNo;
+	ST_DATE_TIME stSendTime;
+	octet oSenderIP[20];
+	unsigned long ulTopicSize;
+	unsigned short usDomainID;
+	octet oConsoleID;
+	octet reserved;
+};
+
+struct BISDSP_BIS_ACTIVE_PULSE_DB_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	long aDBReqDeviceID[3];
+};
+
+struct BISDSP_BIS_A_ACTIVE_PULSE_DETECTION_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unDetBeamNo[2];
+	ST_DATE_TIME stDetectionStartTime;
+	ST_DATE_TIME stDetectionEndTime;
+	unsigned short Reserved;
+	unsigned short usStftResType;
+	float aStftOut[640][753];
+	float fFC[2];
+	float fBW[2];
+	float fPL[2];
+	unsigned short unPulseType;
+	unsigned short usAPDInfoChgFlag;
+	long aDBMatchingID[10][2];
+	float aDBMatchingScore[10][2];
+	long aActivePulseDecision[10][2];
+	float aTableResultsScore[10][2];
+	float aDBtable[10][2][3];
+};
+
+struct BISDSP_BIS_A_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unAutoGainCntrlVal;
+	float aSensorEnergy[148];
+	float fTotalEnergy;
+};
+
+struct BISDSP_BIS_A_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned long unSubFrameNo;
+	unsigned short usAxisId;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short oReserved;
+	float aBISBeamData[2][129][8192];
+};
+
+struct BISDSP_BIS_A_DETECTION_CW_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFramNo;
+	unsigned long unSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short unSensorGain;
+	unsigned short unBFWindowType;
+	unsigned short unTxSourceTargetNo;
+	unsigned short unPulseID;
+	unsigned long ulRemoveClutter;
+	float fMinDopplerSpeed;
+	unsigned long reserved3;
+	unsigned long reserved4;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aCWDetInfoRaw[129][64];
+	float aCWDetInfoNormalize[129][64];
+	float aCWDetInfoRangeInfo[256][64];
+	float aCWDetInfoDopplerInfo[256][64];
+	boolean bCWDrcPulseOnOff;
+	float fPRICW;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoCW;
+	unsigned short unPingNoCW;
+	unsigned short usDirectPulseFlagCW;
+	unsigned short usDirectPulseIndexCW;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_A_DETECTION_FM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFrameNo;
+	unsigned long usSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBFWindowType;
+	unsigned short usTxSourceTargetNo;
+	unsigned short usPulseID;
+	ST_DATE_TIME stCommTime;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aFMDetInfoRaw[129][256];
+	float aFMDetInfoNormalize[129][256];
+	float aFMDetInfoRangeInfo[256][256];
+	boolean bFMDrcPulseOnOff;
+	float fPRIFM;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoFM;
+	unsigned short unPingNoFM;
+	unsigned short usDirectPulseFlagFM;
+	unsigned short usDirectPulseIndexFM;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_A_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned long ulFrameNo;
+	float aENEInfo[256][7];
+};
+
+struct BISDSP_BIS_B_ACTIVE_PULSE_DETECTION_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unDetBeamNo[2];
+	ST_DATE_TIME stDetectionStartTime;
+	ST_DATE_TIME stDetectionEndTime;
+	unsigned short Reserved;
+	unsigned short usStftResType;
+	float aStftOut[640][753] ;
+	float fFC[2];
+	float fBW[2];
+	float fPL[2];
+	unsigned short unPulseType;
+	unsigned short usAPDInfoChgFlag;
+	long aDBMatchingID[10][2];
+	float aDBMatchingScore[10][2];
+	long aActivePulseDecision[10][2];
+	float aTableResultsScore[10][2];
+	float aDBtable[10][2][3];
+};
+
+struct BISDSP_BIS_B_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unAutoGainCntrlVal;
+	float aSensorEnergy[148];
+	float fTotalEnergy;
+};
+
+struct BISDSP_BIS_B_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned long unSubFrameNo;
+	unsigned short usAxisId;
+	ST_DATE_TIME stAcqusitionTime	;
+	unsigned short oReserved;
+	float aBISBeamData[2][129][8192];
+};
+
+struct BISDSP_BIS_B_DETECTION_CW_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFramNo;
+	unsigned long unSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short unSensorGain;
+	unsigned short unBFWindowType;
+	unsigned short unTxSourceTargetNo;
+	unsigned short unPulseID;
+	unsigned long ulRemoveClutter;
+	float fMinDopplerSpeed;
+	unsigned long reserved3;
+	unsigned long reserved4;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aCWDetInfoRaw[129][64];
+	float aCWDetInfoNormalize[129][64];
+	float aCWDetInfoRangeInfo[256][64];
+	float aCWDetInfoDopplerInfo[256][64];
+	boolean bCWDrcPulseOnOff;
+	float fPRICW;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoCW;
+	unsigned short unPingNoCW;
+	unsigned short usDirectPulseFlagCW;
+	unsigned short usDirectPulseIndexCW;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_B_DETECTION_FM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFrameNo;
+	unsigned long usSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBFWindowType;
+	unsigned short usTxSourceTargetNo;
+	unsigned short usPulseID;
+	ST_DATE_TIME stCommTime;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aFMDetInfoRaw[129][256];
+	float aFMDetInfoNormalize[129][256];
+	float aFMDetInfoRangeInfo[256][256];
+	boolean bFMDrcPulseOnOff;
+	float fPRIFM;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoFM;
+	unsigned short unPingNoFM;
+	unsigned short usDirectPulseFlagFM;
+	unsigned short usDirectPulseIndexFM;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_B_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned long ulFrameNo;
+	float aENEInfo[256][7];
+};
+
+struct BISDSP_BIS_C_ACTIVE_PULSE_DETECTION_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unDetBeamNo[2];
+	ST_DATE_TIME stDetectionStartTime;
+	ST_DATE_TIME stDetectionEndTime;
+	unsigned short Reserved;
+	unsigned short usStftResType;
+	float aStftOut[640][753];
+	float fFC[2];
+	float fBW[2];
+	float fPL[2];
+	unsigned short unPulseType;
+	unsigned short usAPDInfoChgFlag;
+	long aDBMatchingID[10][2];
+	float aDBMatchingScore[10][2];
+	long aActivePulseDecision[10][2];
+	float aTableResultsScore[10][2];
+	float aDBtable[10][2][3];
+};
+
+struct BISDSP_BIS_C_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short unAutoGainCntrlVal;
+	float aSensorEnergy[148];
+	float fTotalEnergy;
+};
+
+struct BISDSP_BIS_C_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned long unSubFrameNo;
+	unsigned short usAxisId;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short oReserved;
+	float aBISBeamData[2][129][8192];
+};
+
+struct BISDSP_BIS_C_DETECTION_CW_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFramNo;
+	unsigned long unSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short unSensorGain;
+	unsigned short unBFWindowType;
+	unsigned short unTxSourceTargetNo;
+	unsigned short unPulseID;
+	unsigned long ulRemoveClutter;
+	float fMinDopplerSpeed;
+	unsigned long reserved3;
+	unsigned long reserved4;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aCWDetInfoRaw[129][64];
+	float aCWDetInfoNormalize[129][64];
+	float aCWDetInfoRangeInfo[256][64];
+	float aCWDetInfoDopplerInfo[256][64];
+	boolean bCWDrcPulseOnOff;
+	float fPRICW;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoCW;
+	unsigned short unPingNoCW;
+	unsigned short usDirectPulseFlagCW;
+	unsigned short usDirectPulseIndexCW;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_C_DETECTION_FM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned long ulFrameNo;
+	unsigned long usSubFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBFWindowType;
+	unsigned short usTxSourceTargetNo;
+	unsigned short usPulseID;
+	ST_DATE_TIME stCommTime;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short reserved1;
+	float aFMDetInfoRaw[129][256];
+	float aFMDetInfoNormalize[129][256];
+	float aFMDetInfoRangeInfo[256][256];
+	boolean bFMDrcPulseOnOff;
+	float fPRIFM;
+	unsigned short usUsing3AxisDPDInfoFlag;
+	unsigned short unPRISubFrameNoFM;
+	unsigned short unPingNoFM;
+	unsigned short usDirectPulseFlagFM;
+	unsigned short usDirectPulseIndexFM;
+	float fSoundVel;
+	float fSourceToSensorDist;
+	float fSourceToSensorBear;
+	unsigned short usDirExistTDFlag;
+	unsigned short usDirExistTDSamIdx[2];
+	unsigned short usDirExistAudioFlag;
+	unsigned short usDirExistAudioSamIdx[2];
+	unsigned short reserved2;
+};
+
+struct BISDSP_BIS_C_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned long ulFrameNo;
+	float aENEInfo[256][7];
+};
+
+struct BISDSP_BIS_DPD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	long nPulseType;
+	long aSendDeviceID[3];
+	unsigned long ulSubFrameNo;
+	unsigned short usDirectPulseIndex;
+	float fPRI;
+	float fRngSrcRcv[3];
+};
+
+struct CTRMGR_BIS_A_MONITORSENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[2];
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_A_MONITOR_SIM_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_A_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[144];
+	unsigned short aMonitoringSensorStatus[2];
+	unsigned short aSensorSig[144][16384];
+};
+
+struct CTRMGR_BIS_A_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[144][16384];
+};
+
+struct CTRMGR_BIS_B_MONITORSENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[2];
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_B_MONITOR_SIM_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_B_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[144];
+	unsigned short aMonitoringSensorStatus[2];
+	unsigned short aSensorSig[144][16384];
+};
+
+struct CTRMGR_BIS_B_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[144][16384];
+};
+
+struct CTRMGR_BIS_C_MONITORSENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[2];
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_C_MONITOR_SIM_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aMonitoringSensorSig[2][16384];
+};
+
+struct CTRMGR_BIS_C_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[144];
+	unsigned short aMonitoringSensorStatus[2];
+	unsigned short aSensorSig[144][16384];
+};
+
+struct CTRMGR_BIS_C_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[144][16384];
+};
+
+struct ST_BIS_ENE_DATA
+{
+	unsigned long ulFrameNo;
+	unsigned short usAxisID;
+	unsigned short usReserved;
+	float aENEOutput[256][7];
+};
+
+struct CTRMGR_BIS_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisFaultStatus;
+	ST_BIS_ENE_DATA stENEData[3];
+};
+
+struct ST_IFC_POWERSUPPLY_STATUS
+{
+	octet oStatus;
+	octet oPowerStatus;
+	float fOutputCurrent;
+	float fOutputVoltage;
+	float fOutputPower;
+};
+
+struct ST_SENSOR_IFC_STATUS
+{
+	octet oProcessorStatus;
+	octet oReceiverFPGAStatus;
+	float fReceiverFPGAVoltage;
+	octet oReceiverCommBoardStatus;
+	octet oReceiverFanStatus;
+	octet oReceiverTemperature;
+	ST_IFC_POWERSUPPLY_STATUS stPowerSupplyStatus[3];
+	octet oPowerControllerStatus;
+	octet oPowerSupplyPowerStatus[3];
+	octet oProcessorPowerStatus;
+	octet oReceiverPowerStatus;
+	octet oNetworkPowerStatus;
+	octet oDisplayPowerStatus;
+	octet oPowerControllerFanStatus[2];
+	float aPowerSupplyInputVoltage[3];
+	octet oErrCode1;
+	octet oErrCode2;
+	octet oVoltageTransfomerStatus[9];
+};
+
+struct CTRMGR_BIS_SENSOR_IFC_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SENSOR_IFC_STATUS stSensorIFCStatus;
+};
+
+struct CTRMGR_BIS_SENSOR_POWER_CTRL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usPowerCtrlResult[3];
+};
+
+struct ST_BIS_SENSOR_STATUS
+{
+	octet oAxisID;
+	octet oMainMUXID;
+	octet oEOSwitch1ID;
+	octet oMainMuxFPGAStatus;
+	octet oSwitchCircuitFPGAStatusA;
+	octet oSwitchCircuitFPGAStatusB;
+	octet oSwitchCircuitStatusA;
+	octet oSwitchCircuitStatusB;
+	octet oMainMuxStatusA;
+	octet oMainMuxStatusB;
+	octet oMainSensorGain;
+	octet oSubSensorGain;
+	octet oEOSwitch2ID;
+	octet aSensorStatus[144];
+	octet aMonitoringSensorStatus[4];
+	octet aSubMuxStatus[26];
+	unsigned short usSensorGainCtrlMode;
+	float aSensorEnergy[148];
+	float fTotalEnergy;
+	unsigned long ulFrameNo;
+};
+
+struct CTRMGR_BIS_SENSOR_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_BIS_SENSOR_STATUS stSensorStatus[3];
+};
+
+struct CTRMGR_LAS_A_FREQ_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeABF;
+	unsigned short usNbIntegTimeABF;
+};
+
+struct CTRMGR_LAS_A_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[240];
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_A_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_A_TIME_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeCBF;
+	unsigned short usNbIntegTimeCBF;
+};
+
+struct CTRMGR_LAS_B_FREQ_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeABF;
+	unsigned short usNbIntegTimeABF;
+};
+
+struct CTRMGR_LAS_B_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[240];
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_B_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_B_TIME_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeCBF;
+	unsigned short usNbIntegTimeCBF;
+};
+
+struct CTRMGR_LAS_C_FREQ_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeABF;
+	unsigned short usNbIntegTimeABF;
+};
+
+struct CTRMGR_LAS_C_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorStatus[240];
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_C_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short usSensorGain;
+	unsigned short aSensorSig[240][2048];
+};
+
+struct CTRMGR_LAS_C_TIME_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	unsigned short usBbIntegTimeCBF;
+	unsigned short usNbIntegTimeCBF;
+};
+
+struct ST_LAS_TIME_DM_DETECTION_DATA
+{
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisID;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBBIntegrationTime;
+	unsigned short usNBIntegrationTime;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+	float aNormDEMONOutput[256][1601];
+	float aDEMONOutput[256][1601];
+};
+
+struct ST_LAS_FREQ_DM_DETECTION_DATA
+{
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisID;
+	unsigned short usBBIntegrationTime;
+	unsigned short unNBIntegrationTime;
+	unsigned short usReserved;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+};
+
+struct CTRMGR_LAS_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisFaultStatus;
+	ST_LAS_TIME_DM_DETECTION_DATA stTimeDmDetectionData[3];
+	ST_LAS_FREQ_DM_DETECTION_DATA stFreqDmDetectionData[3];
+};
+
+struct ST_LAS_ENE_DATA
+{
+	unsigned long ulFrameNo;
+	unsigned short usAxisID;
+	unsigned short usReserved;
+	float aENEOutput[256][15];
+};
+
+struct CTRMGR_LAS_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisFaultStatus;
+	ST_LAS_ENE_DATA stENEData[3];
+};
+
+struct CTRMGR_LAS_SENSOR_IFC_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SENSOR_IFC_STATUS stSensorIFCStatus;
+};
+
+struct CTRMGR_LAS_SENSOR_POWER_CTRL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usPowerCtrlResult[3];
+};
+
+struct ST_LAS_SENSOR_STATUS
+{
+	octet oAxisID;
+	octet oMainMUXID;
+	octet oEOSwitch1ID;
+	octet oMainMuxFPGAStatus;
+	octet oSwitchCircuitFPGAStatusA;
+	octet oSwitchCircuitFPGAStatusB;
+	octet oSwitchCircuitStatusA;
+	octet oSwitchCircuitStatusB;
+	octet oMainMuxStatusA;
+	octet oMainMuxStatusB;
+	octet oSensorGain;
+	octet oEOSwitch2ID;
+	octet aSensorStatus[240];
+	octet aSubMuxStatus[28];
+	unsigned short usSensorGainCtrlMode;
+	float aSensorEnergy[240];
+	float fTotalEnergy;
+	unsigned long ulFrameNo;
+};
+
+struct CTRMGR_LAS_SENSOR_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_LAS_SENSOR_STATUS stSensorStatus[3];
+};
+
+struct ST_MAS_DETECTION_EXCLUSION_FREQ_INFO
+{
+	unsigned short unNoOfBbdExcFreq;
+	unsigned short unBbdExcStartFreq[10];
+	unsigned short unBbdExcEndFreq[10];
+	unsigned short unNoOfNbdExcFreq;
+	unsigned short unNbdExcStartFreq[30];
+	unsigned short unNbdExcEndFreq[30];
+};
+
+struct CTRMGR_MAS_DETECTION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usIntegTime[2];
+	ST_MAS_DETECTION_EXCLUSION_FREQ_INFO stMASDetFreqExcInfo;
+};
+
+struct ST_MAS_DETECTION_DATA
+{
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usNBIntegrationTime;
+	ST_MAS_DETECTION_EXCLUSION_FREQ_INFO stMASDetFreqExcInfo;
+	float aBBDEngInfo[800];
+	float aNBDEngInfo[5][800];
+	float aLOFARSigNorm[25][1601];
+	float aDEMONSig[25][1601];
+	float aMagTgtDetectionInfo[800];
+	float aMagTgtDetectionInfoAxis[4][49];
+	float fALineMagSyntheSig[49];
+};
+
+struct CTRMGR_MAS_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	ST_MAS_DETECTION_DATA aDetectionData[2];
+};
+
+struct ST_MAS_ENE_DATA
+{
+	unsigned short usAxisID;
+	float aENEOutput[25][15];
+};
+
+struct CTRMGR_MAS_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_MAS_ENE_DATA aENEData[2];
+};
+
+struct CTRMGR_MAS_SENSOR_IFC_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SENSOR_IFC_STATUS stSensorIFCStatus;
+};
+
+struct CTRMGR_MAS_SENSOR_POWER_CTRL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usPowerCtrlResult[2];
+};
+
+struct ST_MAS_SENSOR_SIG
+{
+	unsigned short usAxisID;
+	unsigned short aAcoSensorSig[25][4096];
+	octet aAcoSensorStatus[50];
+	float aMagSensorSig[3][49][8];
+	octet aMagSensorStatus[49];
+	unsigned short aSensorGain;
+};
+
+struct CTRMGR_MAS_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	ST_MAS_SENSOR_SIG aSensorSig[2];
+};
+
+struct ST_MAS_SENSOR_STATUS
+{
+	octet oAxisID;
+	octet oMainMUXID;
+	octet oEOSwitch1ID;
+	octet oMainMuxFPGAStatus;
+	octet oSwitchCircuitFPGAStatusA;
+	octet oSwitchCircuitFPGAStatusB;
+	octet oSwitchCircuitStatusA;
+	octet oSwitchCircuitStatusB;
+	octet oMainMuxControlStatusA;
+	octet oMainMuxControlStatusB;
+	octet oMainMuxACOStatusA;
+	octet oMainMuxACOStatusB;
+	octet aDigitalCommDeviceMAGStatus[50];
+	octet aDigitalCommDeviceFPGAStatus[50];
+	octet aDigitalCommDeviceACOStatusA[50];
+	octet aDigitalCommDeviceACOStatusB[50];
+	octet aDigitalCommDeviceControlStatusA[50];
+	octet aDigitalCommDeviceControlStatusB[50];
+	octet oSensorGain;
+	octet oEOSwitch2ID;
+	octet aACOSensorStatus[25];
+	octet aMAGSensorStatus[49];
+	unsigned short usSensorGainCtrlMode;
+	float aSensorEnergy[25];
+	float fTotalEnergy;
+	unsigned long ulFrameNo;
+};
+
+struct CTRMGR_MAS_SENSOR_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_MAS_SENSOR_STATUS stSensorStatus[2];
+};
+
+struct ST_MAS_SIMULATOR_SIG
+{
+	unsigned short usAxisID;
+	unsigned short aAcoSensorSig[25][4096];
+	float aMagSensorSig[3][49][8];
+	unsigned short aSensorGain;
+};
+
+struct CTRMGR_MAS_SIMULATION_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_MAS_SIMULATOR_SIG aSimulatorSig[2];
+};
+
+struct ST_AS_TS_INFO
+{
+	boolean bTSTypeFlag;
+	float fASSingleTargetStrengthInfo;
+	unsigned short usFreqNum;
+	float fFreqInfo[5];
+	unsigned short usBearingNum;
+	float fBearingInfo[36];
+	float fASTargetStrengthInfo[5][36];
+};
+
+struct ST_BI_TS_INFO
+{
+	boolean bTSTypeFlag;
+	float fTargetStrengthInfo;
+	unsigned short usIncidenceNum;
+	float fIncidenceInfo[36];
+	unsigned short usReflectionNum;
+	float fReflectionInfo[36];
+	float fMatTargetStrengthInfo[36][36];
+};
+
+struct ST_SOUND_INFO
+{
+	octet oSoundPulseMode;
+	octet oSoundType;
+	float fSoundFreq;
+	float fSoundLevel;
+	float fSoundPulseLength;
+	float fSoundBandWidth;
+};
+
+struct ST_PERIOD_PARAM_MNG_INFO
+{
+	unsigned short usID;
+	octet oName[64];
+	unsigned short usMonth;
+	unsigned short usDay;
+	float fNBTargetSourceLevel[15];
+	float fBBTargetSourceLevel[4];
+	float fASTargetSpeed;
+	ST_AS_TS_INFO stASTSInfo;
+	boolean bASAutoNoiseFlag;
+	float fASAmbientNoise[3];
+	octet oASSeaState;
+	float fBISTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fBISTransmitterDepth;
+	ST_SOUND_INFO stBISSoundInfo;
+	double dBISSrcPosLat;
+	double dBISSrcPosLon;
+};
+
+struct DATMGR_ACO_MODEL_PERIOD_PARAM_CONTROL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usDataNum;
+	octet oRequestCommand;
+	ST_PERIOD_PARAM_MNG_INFO stPeriodParamInfo[100];
+};
+
+struct DATMGR_AS_THREAT_AREA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oInfoType;
+	float fRange[3];
+	unsigned short usReserved;
+};
+
+struct DATMGR_BIS_ACTIVE_PULSE_DB
+{
+	ST_MSG_HEADER stMsgHeader;
+	long aDBReqDeviceID[3];
+	long DBNum;
+	float aActivePulseDB[1000][3];
+};
+
+struct DATMGR_BIS_AUDIO_SIG_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNum;
+	octet oAxis;
+	unsigned short unAngle;
+	octet oFreqBand;
+	unsigned short usTargetNumber;
+	unsigned short unBISPulseType;
+	float fBISCenterFreq;
+	float fBISBandwidth;
+	float fBISPulseLength;
+	short nBISAudioSig[8192];
+};
+
+struct DATMGR_BIS_SOURCE_DB_CONTROL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oRequestResult;
+};
+
+struct ST_BIS_SOURCE_DB
+{
+	unsigned short usID;
+	unsigned short usTxMode;
+	float fCenterFreq;
+	float fBandWidth;
+	unsigned short usPulseLength;
+	unsigned short usTxPower;
+	unsigned short usSourceType;
+	unsigned short usShip;
+	octet szComment[256];
+};
+
+struct ST_BIS_SOURCE_TYPE_MATCHING_INFO
+{
+	unsigned short usKey;
+	octet szSourceType[100];
+};
+
+struct ST_BIS_SOURCE_SHIP_MATCHING_INFO
+{
+	unsigned short usKey;
+	octet szShipInfo[100];
+};
+
+struct DATMGR_BIS_SOURCE_DB_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usDataNum;
+	ST_BIS_SOURCE_DB stBISSourceDBInfo[1000];
+	ST_BIS_SOURCE_TYPE_MATCHING_INFO stTypeMatchingInfo[100];
+	ST_BIS_SOURCE_SHIP_MATCHING_INFO stShipMatchingInfo[100];
+};
+
+struct ST_HARMONIC_INFO
+{
+	unsigned short usHarmonicNum;
+	float fFundFreq;
+	float Hfreq[200];
+	unsigned short Hnum[200];
+};
+
+struct ST_FEATURE_FREQ_INFO
+{
+	unsigned short usTonalNum;
+	float fLOFARFreq[200];
+	unsigned short usHarmonicSetNum;
+	ST_HARMONIC_INFO stLOFARHarInfo[100];
+	unsigned short usDEMONFreqNum;
+	float fDEMONFreq[100];
+};
+
+struct ST_CLA_RESULT_INFO
+{
+	unsigned long ulChar_id;
+	char acClassKor[31];
+	char acNameKor[31];
+	double dSpeed;
+	char acUser_countries[81];
+	char acShipSub[16];
+	char acClaRet[10];
+	double dScore;
+};
+
+struct DATMGR_CLASSIFICATION_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oClaType;
+	unsigned short usDataIndex;
+	unsigned short usGlobalTargetNum;
+	ST_DATE_TIME stReqTime;
+	ST_DATE_TIME stSendTime;
+	unsigned short usClaRetNum;
+	unsigned short usSensorID;
+	unsigned short usBeamNum;
+	ST_FEATURE_FREQ_INFO stFeatureInfo;
+	ST_CLA_RESULT_INFO stCLAResult[8];
+	octet szComments[256];
+	unsigned short usLOFARFrameNum;
+	float fLOFARGram[300][4][1601];
+	unsigned short usDEMONFrameNum;
+	float fDEMONGram[300][1601];
+};
+
+struct DATMGR_CLASSIFICATION_RESULT_LIST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oClaType;
+	unsigned short usTotalPageNum;
+	unsigned short usCurrentPageNum;
+	unsigned short usDataNum;
+	unsigned short usDataIndex[100];
+	unsigned short usGlobalTargetNum[100];
+	ST_DATE_TIME stReqTime[100];
+	ST_DATE_TIME stSendTime[100];
+	unsigned short usSensorID[100];
+	unsigned short usBeamNum[100];
+	ST_CLA_RESULT_INFO stCLAResult[100][8];
+	octet szComments[100][256];
+};
+
+struct DATMGR_CLA_MANAGE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oRequestResult;
+	octet oDetailReason;
+};
+
+struct DATMGR_LAS_AUDIO_SIG_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNum;
+	octet oAxis;
+	unsigned short unAngle;
+	octet oFreqBand;
+	unsigned short usTargetNumber;
+	short nLASAudioSig[2048];
+};
+
+struct ST_EXTRACTED_GRAM
+{
+	unsigned short usExtractedGramIndex;
+	octet szUserID[30];
+	ST_DATE_TIME stSaveTime;
+	octet szUserTag[256];
+	octet oSensorType;
+	float aFreq[4];
+};
+
+struct DATMGR_LAS_EXTRACTED_GRAM_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_EXTRACTED_GRAM stExtractedGramInfo;
+	float aLASExtractedGram[80][4][1601];
+};
+
+struct DATMGR_LAS_TARGET_CLASSIFICATION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usGlobalTgtNo;
+	float fSpeed;
+	unsigned short usLOFARFreqCnt;
+	float aLOFARFreq[24];
+	unsigned short usDEMONFreqCnt;
+	float aDEMONFreq[6];
+	ST_DATE_TIME fReqTime;
+	unsigned short usSensorID;
+	unsigned short usShipType;
+	unsigned short usFriendlyInfo;
+	unsigned long ulMaintainTime;
+	unsigned short usLASFrameNum;
+	float fLASGram[300][4][1601];
+	unsigned short usDEMONFrameNum;
+	float fDEMONGram[300][1601];
+	unsigned short usAutoManualMode;
+};
+
+struct DATMGR_MAS_AUDIO_SIG_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNum;
+	octet oAxis;
+	octet oChannel;
+	unsigned short usTargetNumber;
+	short nMASAudioSig[4096];
+};
+
+struct DATMGR_MAS_EXTRACTED_GRAM_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_EXTRACTED_GRAM stExtractedGramInfo;
+	float aMASExtractedGram[80][1601];
+};
+
+struct DATMGR_OI_CLASSIFICATION_GRAM_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_DATE_TIME stSelectTime;
+	octet oAxis;
+	unsigned short usBeamNum;
+	unsigned short usLOFARFrameNum;
+	float fLOFARGram[300][4][1601];
+	unsigned short usDEMONFrameNum;
+	float fDEMONGram[300][1601];
+};
+
+struct DATMGR_OPER_BACKUP_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDataType;
+	octet oOperBackupStatus;
+	float fProgressRate;
+	octet oDetailReason;
+};
+
+struct DATMGR_OPER_DELETE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOperDeleteStatus;
+	octet oDetailReason;
+	float fProgressRate;
+};
+
+struct DATMGR_OPER_EDIT_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOperEditStatus;
+	octet oDetailReason;
+	float fProgressRate;
+};
+
+struct ST_OPER_HISTORY
+{
+	octet szIP[20];
+	octet szAppName[20];
+	octet szUserID[32];
+	octet szUserName[32];
+	ST_DATE_TIME stEventTime;
+	unsigned short usType;
+	unsigned short usPriority;
+	octet szContents[512];
+};
+
+struct DATMGR_OPER_HISTORY_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTotalPageNum;
+	unsigned short unCurrentPageNum;
+	unsigned short unDataNum;
+	ST_OPER_HISTORY stOperHistory[30];
+};
+
+struct ST_OPER_DATA_LIST
+{
+	unsigned long ulOperDataIndex;
+	ST_DATE_TIME stStartTime;
+	ST_DATE_TIME stEndTime;
+	octet usUserID[30];
+	octet szComments[256];
+	float fDataSize;
+	octet oNASDriveIndex;
+	octet oIsStored;
+};
+
+struct DATMGR_OPER_LIST_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oListType;
+	unsigned short unTotalPageNum;
+	unsigned long ulTotalDataNum;
+	unsigned short unCurrentPageNum;
+	unsigned short unDataNum;
+	ST_OPER_DATA_LIST stOperDataList[30];
+	float fStorageUsageRate;
+	unsigned long ulStorageUsageSpace;
+	unsigned long ulStorageFreeSpace;
+};
+
+struct DATMGR_OPER_RESTORE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDataType;
+	octet oOperRestoreStatus;
+	float fProgressRate;
+	octet oDetailReason;
+};
+
+struct DATMGR_OPER_SAVE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet aSaveRegion[5];
+	octet oOperSaveStatus;
+	octet oDetailReason;
+	ST_DATE_TIME stStartTime;
+	unsigned long ulElapsedTime;
+	float fDataSize;
+};
+
+struct DATMGR_RAWAUDIO_CONTROL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oRequestResult;
+	octet oDetailReason;
+};
+
+struct ST_RAWAUDIO_INFO
+{
+	unsigned short usIndex;
+	octet szFileName[256];
+	octet szUserTag[100];
+	unsigned long ulTotalTime;
+	ST_DATE_TIME stSaveTime;
+};
+
+struct DATMGR_RAWAUDIO_LIST_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usTotalPageNum;
+	unsigned long ulTotalDataNum;
+	unsigned short usCurrentPageNum;
+	unsigned short usDataNum;
+	ST_RAWAUDIO_INFO stRawaudioInfo[100];
+};
+
+struct ST_SCREENSHOT_INFO
+{
+	unsigned short unScreenShotIndex;
+	octet oScreenNum;
+	octet szUserID[30];
+	ST_DATE_TIME stSaveTime;
+	octet szComment[256];
+};
+
+struct DATMGR_SAVED_SCREENSHOT_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SCREENSHOT_INFO stScreenShotInfo;
+	octet aScreenContents[6220800];
+};
+
+struct DATMGR_SCREENSHOT_CONTROL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oRequestResult;
+	octet oDetailReason;
+};
+
+struct DATMGR_SCREENSHOT_LIST_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTotalPageNum;
+	unsigned short unCurrentPageNum;
+	unsigned short unDataNum;
+	ST_SCREENSHOT_INFO stScreenShotInfoList[30];
+};
+
+struct ST_SENSOR_PROTECTION_AREA_INFO
+{
+	unsigned short usRange;
+	float aVelocity[3];
+	unsigned long ulAnchoringDurationTime;
+};
+
+struct DATMGR_SENSOR_PROTECTION_CONTROL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oInfoType;
+	ST_SENSOR_PROTECTION_AREA_INFO stSensorProtectionAreaInfo;
+	unsigned short usReserved;
+};
+
+struct DATMGR_STABILIZED_GRAM_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usTargetNo;
+	unsigned short usAxis;
+	unsigned short usDataNum;
+	unsigned long ulFrameNo[1800];
+	unsigned short usBeamNo[1800];
+	ST_DATE_TIME stAcqusitionTime[1800];
+};
+
+struct ST_STORAGE_STATUS_INFO
+{
+	float fStorageUsageRate;
+	unsigned long ulStrorageUsage;
+	unsigned long ulStorageSpace;
+	octet oController1_Ctrl;
+	octet oController1_PSU[2];
+	octet oController1_Fan[3];
+	octet oController2_Ctrl;
+	octet oController2_PSU[2];
+	octet oController2_Fan[3];
+	octet oShelf1_Disk[60];
+	octet oShelf1_PSU[3];
+	octet oShelf1_Fan[3];
+	octet oShelf1_Comm[6];
+	octet oShelf2_Disk[60];
+	octet oShelf2_PSU[3];
+	octet oShelf2_Fan[3];
+	octet oShelf2_Comm[6];
+};
+
+struct DATMGR_STORAGE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_STORAGE_STATUS_INFO stStorageStatusInfo;
+	float fEOTSUsageRate;
+	unsigned long ulEOTSUsageSpace;
+	unsigned long ulEOTSFreeSpace;
+};
+
+struct ST_SAVE_LAS_TIME_DM_DETECTION_DATA
+{
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisID;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBBIntegrationTime;
+	unsigned short usNBIntegrationTime;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aNormDEMONOutput[256][1601];
+};
+
+struct ST_SAVE_LAS_FREQ_DM_DETECTION_DATA
+{
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisID;
+	unsigned short usBBIntegrationTime;
+	unsigned short unNBIntegrationTime;
+	unsigned short usReserved;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+};
+
+struct ST_SAVE_LAS_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisFaultStatus;
+	ST_SAVE_LAS_TIME_DM_DETECTION_DATA stTimeDmDetectionData[3];
+	ST_SAVE_LAS_FREQ_DM_DETECTION_DATA stFreqDmDetectionData[3];
+};
+
+struct DATMGR_STRUCT_SAVE
+{
+	ST_SAVE_LAS_TIME_DM_DETECTION_DATA stSaveLasTimeDmDetectionData;
+	ST_SAVE_LAS_FREQ_DM_DETECTION_DATA stSaveLasFreqDmDetectionData;
+	ST_SAVE_LAS_DETECTION_DATA stSaveLasDetectionData;
+};
+
+struct DATMGR_TACTICAL_AREA_CONTROL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oRequestResult;
+	octet oDetailReason;
+};
+
+struct ST_DRAW_OBJ
+{
+	octet szObjName[256];
+	octet oDrawType;
+	octet oPointNum;
+	float fPoint[10][2];
+	octet oDisplayFont;
+	octet oFontSize;
+	octet oFondBold;
+	octet oLineSize;
+	octet oLineColor;
+	octet oLineType;
+};
+
+struct ST_TACTICAL_AREA
+{
+	unsigned short usTacticalAreaIndex;
+	octet szTacticalAreaName[80];
+	octet szUserID[30];
+	ST_DATE_TIME stSaveTime;
+	octet oDisplay;
+	unsigned short usPriority;
+	unsigned short usAreaType;
+	octet oDrawObjNum;
+	ST_DRAW_OBJ stDrawObj[30];
+};
+
+struct DATMGR_TACTICAL_AREA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oTacticalAreaNum;
+	ST_TACTICAL_AREA stTacticalAreaList[30];
+};
+
+struct ST_TARGET_DB_INFO
+{
+	long nCreationDateTime;
+	octet szName[100];
+	float fSpeed;
+	float fHeading;
+	long nBISStrengthMode;
+	float fBISRepresentativeStrength;
+	long nBISDetailStrengthIncidenceCount;
+	long nBISDetailStrengthReflectionCount;
+	long nASStrengthMode;
+	float fASRepresentativeStrength;
+	long nASDetailStrengthBearingCount;
+	long nASDetailStrengthFreqCount;
+};
+
+struct ST_TARGET_DB_AS_STRENGTH
+{
+	long nCreationDateTime;
+	float fBearing;
+	float fFrequency;
+	float fStrength;
+};
+
+struct ST_TARGET_DB_BIS_STRENGTH
+{
+	long nCreationDateTime;
+	float fIncidence;
+	float fReflection;
+	float fStrength;
+};
+
+struct ST_TARGET_DB_BB_SOURCE_LEVEL
+{
+	long nCreationDateTime;
+	octet szFrequency[100];
+	float fSourceLevel;
+};
+
+struct ST_TARGET_DB_NB_SOURCE_LEVEL
+{
+	long nCreationDateTime;
+	float fFrequency;
+	float fSourceLevel;
+};
+
+struct DATMGR_TARGET_DB_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usTargetDBInfoCnt;
+	ST_TARGET_DB_INFO stTargetDBInfo[1000];
+	unsigned short usTargetDBASStrengthCnt;
+	ST_TARGET_DB_AS_STRENGTH stTargetDBASStrength[1000];
+	unsigned short usTargetDBBISStrengthCnt;
+	ST_TARGET_DB_BIS_STRENGTH stTargetDBBISStrength[1000];
+	unsigned short usTargetDBBBSourceLevelCnt;
+	ST_TARGET_DB_BB_SOURCE_LEVEL stTargetDBBBSourceLevel[1000];
+	unsigned short usTargetDBNBSourceLevelCnt;
+	ST_TARGET_DB_NB_SOURCE_LEVEL stTargetDBNBSourceLevel[1000];
+};
+
+struct ST_LAS_THRESH_INFO
+{
+	float fLasCitBbdCbfThresh;
+	float fLasCitBbdAbfThresh;
+	float fLasCitLofarVlfCbfThresh;
+	float fLasCitLofarVlfAbfThresh;
+	float fLasCitLofarLfCbfThresh;
+	float fLasCitLofarLfAbfThresh;
+	float fLasCitLofarMfCbfThresh;
+	float fLasCitLofarMfAbfThresh;
+	float fLasCitLofarHfCbfThresh;
+	float fLasCitLofarHfAbfThresh;
+	float fLasCitDemonThresh;
+	float fLasOitBbdCbfThresh;
+	float fLasOitBbdAbfThresh;
+	float fLasOitLofarCbfThresh;
+	float fLasOitLofarAbfThresh;
+	float fLasOitDemonThresh;
+	float aReserved[4];
+};
+
+struct ST_BIS_THRESH_INFO
+{
+	float fBisCitCwThresh;
+	float fBisCitFmThresh;
+	float fBisOitCwThresh;
+	float fBisOitFmThresh;
+	float fBisCwGrdThresh;
+	float fBisFmGrdThresh;
+	float aReserved[4];
+};
+
+struct ST_MAS_THRESH_INFO
+{
+	float fMasBbdThresh;
+	float fMasNbdThresh;
+	float fMasMagThresh;
+	float fMasLofFreqThresh;
+	float fMasDemFreqThresh;
+	float aReserved[4];
+};
+
+struct DATMGR_TGTTRK_PARAM_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsLasCitThrshAuto;
+	ST_LAS_THRESH_INFO stLasThresh[3];
+	octet oIsBisCitThrshAuto;
+	ST_BIS_THRESH_INFO stBisThresh[3];
+	octet oIsMasCitThrshAuto;
+	ST_MAS_THRESH_INFO stMasCitThresh[2];
+	float aThreatFrequency[24];
+	float aExclusFrequency[3][24];
+};
+
+struct ST_THREAT_AREA
+{
+	float fPoint[2][2];
+	octet oLineSize;
+	octet oLineColor;
+	octet oLineType;
+};
+
+struct DATMGR_THREAT_AREA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oInfoType;
+	ST_THREAT_AREA stThreatArea1;
+	ST_THREAT_AREA stThreatArea2;
+	ST_THREAT_AREA stThreatArea3;
+};
+
+struct DATMGR_USER_LOGIN_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+};
+
+struct ST_SEN_DET_CHK
+{
+	boolean bLAS[3];
+	boolean bBIS[3];
+	octet oMAS[4];
+	boolean bASE[3];
+	boolean bEOT[2];
+	boolean bRDR[2];
+	boolean bKNT;
+};
+
+struct ST_SEN_DET_SEL
+{
+	boolean bLAS_CIT_BBD_CBF[3];
+	boolean bLAS_CIT_BBD_ABF[3];
+	boolean bLAS_CIT_LOFAR_CBF[3];
+	boolean bLAS_CIT_LOFAR_ABF[3];
+	boolean bLAS_CIT_DEMON[3];
+	boolean bLAS_OIT_BBD_CBF[3];
+	boolean bLAS_OIT_BBD_ABF[3];
+	boolean bLAS_OIT_LOFAR_CBF[3];
+	boolean bLAS_OIT_LOFAR_ABF[3];
+	boolean bLAS_OIT_DEMON[3];
+	boolean bBIS_CW_CIT[3];
+	boolean bBIS_CW_OIT[3];
+	boolean bBIS_FM_CIT[3];
+	boolean bBIS_FM_OIT[3];
+	boolean bMAS_MAG[2];
+	boolean bMAS_ACO_BBD[2];
+	boolean bMAS_ACO_NBD[2];
+	boolean bASE_CIT[3];
+	boolean bASE_OIT[3];
+	boolean bEOT[2];
+	boolean bRDR[2];
+	boolean bKNT;
+};
+
+struct ST_SEN_DISTANCE
+{
+	float fLAS[3];
+	float fBIS[3];
+	float fMAS[4];
+	float fASE[3];
+	float fEOT[2];
+	float fRDR[2];
+	float fKNT;
+};
+
+struct ST_SEN_BEARING
+{
+	float fLAS[3];
+	float fBIS[3];
+	float fMAS[4];
+	float fASE[3];
+	float fEOT[2];
+	float fRDR[2];
+	float fKNT;
+};
+
+struct ST_BIS_TARGET_POS
+{
+	float fPosX[3];
+	float fPosY[3];
+};
+
+struct ST_HIS_FREQ_INFO
+{
+	float fLofar;
+	octet oSNR;
+	boolean bThreatFreqChk;
+};
+
+struct ST_SCENARIO_TARGET_INFO
+{
+	unsigned short unTargetNum;
+	double dLat;
+	double dLon;
+	float fCourse;
+	float fSpeed;
+	ST_SEN_DET_CHK stSenDetChk;
+	ST_SEN_DET_SEL stSenDetSel;
+	ST_SEN_DISTANCE stSenDistance;
+	ST_SEN_BEARING stSenBearing;
+	ST_BIS_TARGET_POS stBisTargetPos;
+	ST_HIS_FREQ_INFO stHisLofarFreqInfo[2];
+	ST_HIS_FREQ_INFO stHisDemonFreqInfo;
+};
+
+struct HUSSIS_SCENARIO_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usTargetNum;
+	ST_SCENARIO_TARGET_INFO stScenarioTargetInfo[30];
+};
+
+struct ST_HIS_TARGET_INFORMATION
+{
+	double dLat;
+	double dLon;
+	short sNumLofar;
+	long lLofarFreq[960];
+	short sNumSing;
+	long lSingFreq[5];
+};
+
+struct HUSSIS_TARGET_INFORMATION
+{
+	ST_MSG_HEADER stMsgHeader;
+	short sTargetNum;
+	ST_HIS_TARGET_INFORMATION stTargetInformation[50];
+};
+
+struct HUSS_CSCI_COM_MSG
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulComMSGID;
+	unsigned long ulCSCIID;
+	octet oData[1500];
+};
+
+struct IFCCTR_ACTIVESONAR_CHANNEL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	unsigned long ulFaultSensorNum;
+	octet oFaultSensorInfo[120];
+	float fReferenceValue;
+	float fEnergyError[120];
+	long lAGC;
+	ST_DATE_TIME stDateTime;
+};
+
+struct IFCCTR_ACTIVESONAR_CLUTTER_MAP_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long ClutterMapInfo[240][1458];
+	long SonarImageInfo[240][1458];
+	ST_DATE_TIME stUpdateTime;
+	unsigned long ulPingCount;
+};
+
+struct ST_TX_INFO
+{
+	unsigned long ulStartFreq;
+	unsigned long ulEndFreq;
+	unsigned short usPeriodFreq;
+	unsigned short usMinDeep;
+	octet oPulseType;
+	octet oPulseLength;
+	octet oShading;
+	octet oTransAgc;
+	octet oAttAgc1;
+	octet oAttAgc2;
+	octet oAttAgc3;
+	octet oAttAgc4;
+	octet oAttAgc5;
+	octet oAttAgc6;
+	octet oTransArea;
+	octet oRes[37];
+};
+
+struct ST_MEAS_INFO
+{
+	short sID;
+	short sX;
+	short sY;
+	unsigned short usDistance;
+	unsigned short usDegree;
+	short sEnergy;
+	short sStrength;
+	short sClusterId;
+};
+
+struct IFCCTR_ACTIVESONAR_DETECT_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_MEAS_INFO stTMeasInfo[3000];
+	ST_TX_INFO stTTxInfo;
+	ST_DATE_TIME stDateTime;
+	unsigned long ulPingCount;
+};
+
+struct ST_TH_INFO
+{
+	short sDt[6];
+};
+
+struct IFCCTR_ACTIVESONAR_DETECT_TH_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_TH_INFO stTThInfo;
+};
+
+struct IFCCTR_ACTIVESONAR_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_TX_INFO stTxInfo;
+	float fENEData[24];
+};
+
+struct IFCCTR_ACTIVESONAR_FISH_SUP_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oFishSup;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_FLOW_SUP_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oFlowSup;
+	octet oRes[2];
+};
+
+struct ST_AS_TARGET
+{
+	unsigned short usTargetID;
+	octet oTrackStatus;
+	octet oRelation;
+	unsigned short usDistance;
+	short sBearing;
+	short sCourse;
+	unsigned short usVelocity;
+	short sSignalPower;
+	unsigned short usTrackPingcnt;
+	unsigned short usTrackAge;
+	unsigned short usTrackReliability;
+	unsigned short usIdentify;
+	unsigned short usCorrection;
+	ST_DATE_TIME stTrackConfirmTime;
+	ST_DATE_TIME stTrackStartTime;
+	ST_DATE_TIME stTrackRefreshTime;
+	float aStateVector[4];
+	float aPositionCovArry[4][4];
+	octet oTranning;
+	octet oTrackInitType;
+	octet oReserved[2];
+};
+
+struct IFCCTR_ACTIVESONAR_LOCAL_TARGET_DATA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	unsigned long ulCitCount;
+	unsigned long ulOitCount;
+	ST_AS_TARGET stAsTarget[2000];
+	ST_TX_INFO stTTxInfo;
+	unsigned long ulPingCount;
+};
+
+struct IFCCTR_ACTIVESONAR_MANUAL_AGC_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+};
+
+struct IFCCTR_ACTIVESONAR_MAX_RANGE_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	unsigned long ulMaxRange;
+};
+
+struct IFCCTR_ACTIVESONAR_MAX_SPEED_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oSpeed;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_MODE_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oMode;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_OIT_GEN_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+};
+
+struct IFCCTR_ACTIVESONAR_REV_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_TX_INFO stTxInfo;
+	unsigned long ulDataCountNum;
+	float fREVData[32][24];
+};
+
+struct IFCCTR_ACTIVESONAR_SENSOR_DEG_OFFSET_SET_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+};
+
+struct IFCCTR_ACTIVESONAR_SENSOR_FAIL_SET_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+};
+
+struct ST_TM_STATUS_T
+{
+	octet oStatus;
+	octet oValue;
+};
+
+struct ST_PS_STATUS_T
+{
+	octet oStatus;
+	octet oValue;
+};
+
+struct ST_PS_STATUS_F
+{
+	unsigned short usPowerStatus;
+	short sPowerValue;
+	unsigned short usCurrentStatus;
+	short sCurrentValue;
+};
+
+struct ST_AS_NIC_CONF
+{
+	octet oIPAClass;
+	octet oIPBClass;
+	octet oIPCClass;
+	octet oIPDClass;
+	unsigned short usPortNumControl;
+	unsigned short usPortNumSensor;
+};
+
+struct ST_AS_TILT_SENSOR
+{
+	short usRoll;
+	short usPitch;
+	short usYaw;
+	short usReserved;
+};
+
+struct ST_AS_AUX_SENSOR
+{
+	ST_AS_TILT_SENSOR stTiltSensor;
+	unsigned long ulPressureSensor;
+	unsigned long ulTempSensor;
+	unsigned long ulReserved;
+};
+
+struct ST_AS_PSU_STATUS
+{
+	unsigned short usPowerStatus;
+	unsigned short usPSUStatus;
+	unsigned short usElectricity;
+	unsigned short usCurrent;
+	unsigned short usVoltage;
+	unsigned short usReserved[3];
+};
+
+struct ST_ASE_STATUS_INFO
+{
+	unsigned long ulASID;
+	octet oReceiveAmpBoardStatus[6];
+	octet oTransmitAmpBoardStatus[6];
+	ST_TM_STATUS_T stFpgaTmStatusT;
+	ST_PS_STATUS_T oPowerStatus10[2];
+	ST_TM_STATUS_T stTmTmStatusT;
+	ST_PS_STATUS_T stTmStatus[6];
+	ST_PS_STATUS_F stPsStatus[5];
+	ST_TM_STATUS_T stTmStatusT[8];
+	ST_AS_NIC_CONF stNICConf;
+	ST_AS_AUX_SENSOR stAuxSensor;
+	ST_AS_PSU_STATUS stPsuStatus;
+	octet oSenIFCStatus;
+	octet oPSUIFCStatus;
+	octet oAGCOffSet;
+	octet oTVG;
+	char cTxSteering;
+	octet oRes[11];
+};
+
+struct IFCCTR_ACTIVESONAR_SENSOR_STATUS
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_ASE_STATUS_INFO stAseStatusInfo;
+};
+
+struct IFCCTR_ACTIVESONAR_SONARSPEED_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lWaterSpeed;
+};
+
+struct IFCCTR_ACTIVESONAR_STAY_TARGET_MODE_RES
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oStayTarget;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_STEERING_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+};
+
+struct IFCCTR_ACTIVESONAR_TRANSMIT_ACTIVIATION_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oActivation;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_TRANSMIT_OPTION_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lResult;
+	ST_TX_INFO stTTxInfo;
+};
+
+struct IFCCTR_ACTIVESONAR_TRK_SENSITIVE_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oSenstive;
+	octet oRes[2];
+};
+
+struct IFCCTR_ACTIVESONAR_WAKE_SUP_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oWakeSup;
+	octet oRes[2];
+};
+
+struct IFCCTR_AIS_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	long lAISStatus;
+};
+
+struct ST_AIS_TARGET
+{
+	unsigned long ulTrackNo;
+	unsigned long ulMMSI;
+	unsigned long ulLatitude_Int;
+	unsigned long ulLatitude_Dec;
+	unsigned long ulLongitude_Int;
+	unsigned long ulLongitude_Dec;
+	float fSpeed;
+	float fCourse;
+	octet aAISShipName[20];
+	ST_DATE_TIME stTimeDetectTime;
+	octet oCallSign[8];
+	unsigned short usShipCargoType;
+	unsigned long ulNavigationStatus;
+	octet oDestination[20];
+	float fCOG;
+	octet oNationality[40];
+	float fRateOfTurn;
+	float fMaximumDraught;
+	float fDimensionToBow;
+	float fDimensionToStern;
+	float fDimensionToPort;
+	float fDimensionToStarboard;
+	ST_DATE_TIME stTimeETA;
+};
+
+struct IFCCTR_AIS_TARGET_DATA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts;
+	ST_DATE_TIME stUpdateTime;
+	ST_AIS_TARGET stAISTargetInfo[1000];
+};
+
+struct IFCCTR_EOTE_ADDITIONAL_INFO_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet oIRCameraCalInfo;
+	octet oTopdownAck;
+	short sTrueNorthValueAngle;
+	unsigned short usEO_CenterPixel_X;
+	unsigned short usEO_CenterPixel_Y;
+	unsigned short usIR_CenterPixel_X;
+	unsigned short usIR_CenterPixel_Y;
+};
+
+struct IFCCTR_EOTE_AUTH_CONTROL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usAuthoritySettingAck;
+};
+
+struct IFCCTR_EOTE_AUTH_FAIL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usAuthorityFailureInfo;
+};
+
+struct IFCCTR_EOTE_AUTH_INFO_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usAuthoritySettingInfo;
+};
+
+struct ST_EOTE_STATUS_INFO
+{
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet oStabilizationBoardBIT;
+	octet oCameraBoardBIT;
+	octet oTrackingBoardBIT;
+	octet oLaserRangeFinderBIT;
+	octet oEOCameraBIT;
+	octet oIRCameraBIT;
+	octet oPitchMotorBIT;
+	octet oYawMotorBIT;
+	unsigned short usIRUsedTimeDAY;
+	unsigned short usIRUsedTimeHour;
+	unsigned long usLaserMeasureCount;
+};
+
+struct IFCCTR_EOTE_BIT_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_EOTE_STATUS_INFO stEoteStatusInfo;
+};
+
+struct ST_EOTE_RESTIRCT_DISTRICT
+{
+	short sDistrictStartAzimuth;
+	short sDistrictEndAzimuth;
+	short sDistrictStartElevation;
+	short sDistrictEndElevation;
+};
+
+struct IFCCTR_EOTE_BLOCK_INFO_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	ST_EOTE_RESTIRCT_DISTRICT stRestrictedResion[10];
+};
+
+struct IFCCTR_EOTE_BLOCK_SET_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usRestrictDistrictAck;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_EOTE_CALIBRATION_CONTROL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet oIRInverseOnOffStatus;
+	octet oIRSharpnessStatus;
+	octet oFogRevisionStatus;
+	octet oReserved2;
+};
+
+struct IFCCTR_EOTE_LASER_CONTROL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usDistanceInfo;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_EOTE_MOVE_CONTROL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet usMovingTrackingAck;
+	octet oMovingSearchingDistrict;
+	unsigned short usReserved2;
+};
+
+struct ST_EOTE_MOVING_SEARCHING_INFO
+{
+	short sPointAzimuth;
+	short sPointElevation;
+	unsigned short usPointViewAngle;
+	octet oPointMovingTime;
+	octet oPointStayTime;
+};
+
+struct IFCCTR_EOTE_MOVE_INFO_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usDistrictNumber;
+	unsigned short usReserved2;
+	ST_EOTE_MOVING_SEARCHING_INFO stPointInfo[10];
+};
+
+struct IFCCTR_EOTE_MOVE_SET_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usMovingSearchingDistrictAck;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_EOTE_SENSOR_CONTROL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	short sAzimuth;
+	short sElevation;
+	unsigned short usEOZoom;
+	unsigned short usIRZoom;
+	unsigned short usEOFocus;
+	unsigned short usIRFocus;
+	unsigned short usRangeFinderPoss;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_EOTE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet oEOPowerStatus;
+	octet oIRPowerStatus;
+	octet oLaserPowerStatus;
+	octet oFanPowerStatus;
+	octet oHeaterPowerStatus;
+	octet oReserved2;
+	unsigned short usReserved3;
+};
+
+struct IFCCTR_EOTE_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usTargetTrackStatus;
+	short sTargetBearing;
+	unsigned short usTargetDistance;
+	short sTargetElevation;
+};
+
+struct IFCCTR_EOTE_TRACKING_CONTROL_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usTrackValueAck;
+};
+
+struct IFCCTR_EOTE_TRACK_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	short usTargetBearing;
+	unsigned short usTargetDistance;
+	unsigned short usTargetTrackStatus;
+	unsigned short usTrackingImage;
+	unsigned short usTrackLeftPoint;
+	unsigned short usTrackTopPoint;
+	unsigned short usTrackHorizontalSize;
+	unsigned short usTrackVerticalSize;
+	short sTargetElevation;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_KNTDS_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	long lKNTStatus;
+};
+
+struct ST_KNTDS_TARGET
+{
+	unsigned long ulTrackNo;
+	double dLatitude;
+	double dLongitude;
+	float fVelocity_X;
+	float fVelocity_Y;
+	octet ucTrackStat;
+	octet ucTrackQuality;
+	octet ucTrackSize;
+	octet ucKind;
+	octet ucClass;
+	octet ucCategory;
+	octet ucIdentify;
+	ST_DATE_TIME stTimeDetectTime;
+	ST_DATE_TIME stTimeRegisterTime;
+	ST_DATE_TIME stMaintainTime;
+	octet ucGTRegistrated;
+	octet ucTag[6];
+};
+
+struct IFCCTR_KNTDS_TARGET_DATA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulKNTDSTargetNumber;
+	ST_DATE_TIME stUpdateTime;
+	ST_KNTDS_TARGET stKNTDSTargetInfo[1000];
+};
+
+struct ST_RD_IMAGE
+{
+	unsigned long ulRadarNum;
+	octet ucFTC;
+	octet ucSTC;
+	octet unCACFAR;
+	octet ucReserved;
+	unsigned short usReserved;
+	unsigned short usDispalyArea;
+	ST_DATE_TIME stTimeGetTime;
+	float fLeftUpperRange;
+	float fLeftUpperAzimuth;
+	float fRightLowerRange;
+	float fRightLowerAzimuth;
+	unsigned long ulSizeOfCompressedRDImage;
+	octet ucCompressedRDImage[259200];
+	unsigned long ulSizeOfCenterCompressedRDImage;
+	octet ucCenterCompressedRDImage[259200];
+};
+
+struct IFCCTR_RD_IMAGE_DATA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_RD_IMAGE stRadarImageInfo;
+};
+
+struct IFCCTR_RD_OPERATION_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRadarID;
+	octet ucRadarIFCBitResult;
+	octet ucImageConverterBitResult;
+	octet ucTrackProcCardBitResult;
+	octet ucSignalCardBitResult;
+	octet ucFTC;
+	octet ucSTC;
+	octet ucCACFAR;
+	octet ucReserved;
+	octet ucImageGain;
+	octet ucPulseMode;
+	octet ucDetectRange;
+	octet ucRadarChannel;
+	octet ucAutoDetectCount;
+	octet ucAutoLowSpeed;
+	octet ucAutoHighSpeed;
+	octet ucTrackingCancelCnt;
+	octet ucSemiAutoDetectCount;
+	octet ucSemiAutoLowSpeed;
+	octet ucSemiAutoHighSpeed;
+	octet ucReserved1;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short usTargetMode;
+	unsigned short usNoOfTgts;
+};
+
+struct ST_RD_STATUS_INFO
+{
+	unsigned long ulRadarID;
+	octet ucRadarIFCBitResult;
+	octet ucImageConverterBitResult;
+	octet ucTrackProcCardBitResult;
+	octet ucSignalCardBitResult;
+	octet ucFanBlowerBitResult;
+	octet ucRadarIFCFanBitResult;
+	unsigned short usReserved1;
+	unsigned long ulReserved2;
+	octet ucCH1;
+	octet ucCH2;
+	unsigned short usUsedDiskRate;
+};
+
+struct IFCCTR_RD_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_RD_STATUS_INFO stRdStatusInfo;
+};
+
+struct ST_RD_TARGET
+{
+	unsigned long ulTargetNumber;
+	octet ucReserved;
+	octet ucUserSeperation;
+	octet ucTrackReliability[2];
+	unsigned long ulTrackState;
+	unsigned long ulAutoOrSemi;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fSpeed;
+	ST_DATE_TIME stTargetRegistrationTime;
+	ST_DATE_TIME stTargetUpdateTime;
+	ST_DATE_TIME stTargetHoldingTime;
+	long lTargetPositionXVector;
+	long lTargetPositionYVector;
+	float fTargetSpeedXVector;
+	float fTargetSpeedYVector;
+	float fTargetPositionCovariance[4];
+};
+
+struct IFCCTR_RD_TARGET_DATA_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRadarID;
+	octet ucRadarIFCBitResult;
+	octet ucImageConverterBitResult;
+	octet ucTrackProcCardBitResult;
+	octet ucSignalCardBitResult;
+	octet ucRadarChannel;
+	octet ucTrackingMode;
+	unsigned short usReserved;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short usNoOfTgts;
+	unsigned short usReserved2;
+	ST_RD_TARGET stRadarTargetInfo[1000];
+};
+
+struct ST_EA_INTERWORKING_STATUS_INFO
+{
+	unsigned short usDeviceID;
+	unsigned short usDeviceStatus;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct IFCCTR_RMD_EA_INTERWORKING_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_EA_INTERWORKING_STATUS_INFO stEaInterworkingStatusInfo;
+};
+
+struct ST_INTERCHANGE_DEVICE_STATUS_INFO
+{
+	unsigned short usDeviceID;
+	unsigned short usDeviceStatus;
+	unsigned short usMainModuleStatus;
+	unsigned short usMainModuleStatus2;
+	unsigned short usIOModule1Status;
+	unsigned short usIOModule2Status;
+	unsigned short usIOModule3Status;
+	unsigned short usIOModule4Status;
+	unsigned short usPowerModuleStatus;
+	unsigned short usPowerModuleStatus2;
+	unsigned short usFanModuleStatus;
+	unsigned short usReserved3;
+};
+
+struct IFCCTR_RMD_INTERCHANGE_DEVICE_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_INTERCHANGE_DEVICE_STATUS_INFO stInterchangeDeviceStatusInfo;
+};
+
+struct ST_TRANSCEIVER_STATUS_INFO
+{
+	unsigned short usDeviceID;
+	unsigned short usDeviceStatus;
+	unsigned short usTRMD_PowerModuleStatus;
+	unsigned short usTRMD_CardStatus;
+	unsigned short usBaseband_PowerModuleStatus;
+	unsigned short usBaseband_CardStatus;
+	unsigned short usGESW_CardStatus;
+	unsigned short usReserved;
+};
+
+struct IFCCTR_RMD_TRANSCEIVER_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_TRANSCEIVER_STATUS_INFO stTransceiverStatusInfo;
+};
+
+struct ST_SIM_RD_TARGET
+{
+	unsigned long ulTargetNumber;
+	unsigned long ulTrackState;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fSpeed;
+	ST_DATE_TIME stTargetRegistrationTime;
+	ST_DATE_TIME stTargetUpdateTime;
+	ST_DATE_TIME stTargetHoldingTime;
+};
+
+struct IFCCTR_SIM_RD_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRadarID;
+	ST_DATE_TIME stDetectionTime;
+	unsigned short usTargetNum;
+	unsigned short usReserved;
+	ST_SIM_RD_TARGET stSimRadarTarget[64];
+};
+
+struct ST_SIM_STATUS_INFO
+{
+	unsigned short usStatusSM1;
+	unsigned short usStatusSM2;
+	unsigned short usStatusSM3;
+	unsigned short usStatusSM4;
+	unsigned long ulReserved;
+};
+
+struct IFCCTR_SIM_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SIM_STATUS_INFO stSimStatusInfo;
+};
+
+struct LASDSP_LAS_A_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unAxisId;
+	unsigned short usAgcGain;
+	float aSensorEnergy[240];
+	float fTotalEnergy;
+};
+
+struct LASDSP_LAS_A_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aBeamOut[4][256][2048];
+};
+
+struct LASDSP_LAS_A_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aEneOut[256][15];
+};
+
+struct LASDSP_LAS_A_FREQ_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	unsigned short reserved;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+};
+
+struct LASDSP_LAS_A_TIME_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+	float aNormDemonOut[256][1601];
+	float aDemonOut[256][1601];
+};
+
+struct LASDSP_LAS_B_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short usAgcGain;
+	float aSensorEnergy[240];
+	float fTotalEnergy;
+};
+
+struct LASDSP_LAS_B_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aBeamOut[4][256][2048];
+};
+
+struct LASDSP_LAS_B_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aEneOut[256][15];
+};
+
+struct LASDSP_LAS_B_FREQ_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	unsigned short reserved;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+};
+
+struct LASDSP_LAS_B_TIME_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+	float aNormDemonOut[256][1601];
+	float aDemonOut[256][1601];
+};
+
+struct LASDSP_LAS_C_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisId;
+	unsigned short usAgcGain;
+	float aSensorEnergy[240];
+	float fTotalEnergy;
+};
+
+struct LASDSP_LAS_C_BEAM_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aBeamOut[4][256][2048];
+};
+
+struct LASDSP_LAS_C_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short usAxisId;
+	unsigned short reserved;
+	float aEneOut[256][15];
+};
+
+struct LASDSP_LAS_C_FREQ_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	unsigned short reserved;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+};
+
+struct LASDSP_LAS_C_TIME_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short usAxisId;
+	unsigned short usReserved;
+	unsigned short usSensorGain;
+	unsigned short usBbIntegTime;
+	unsigned short usNbIntegTime;
+	float aNormBbdOut[5][721];
+	float aNormLofarOut[4][256][1601];
+	float aLofarOut[4][256][1601];
+	float aNormDemonOut[256][1601];
+	float aDemonOut[256][1601];
+};
+
+struct MASDSP_MAS_ACO_SENSOR_SIGNAL_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	unsigned short aAColumnMASAcoSig[25][4096];
+	unsigned short aBColumnMASAcoSig[25][4096];
+};
+
+struct MASDSP_MAS_AGC_CTRL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAxisGainControlVal[2];
+	float aSensorEnergy[2][25];
+	float fTotalEnergy[2];
+};
+
+struct MASDSP_MAS_DETECTION_CTRL_INFO_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTrgDtcSetInfoRequest;
+};
+
+struct MASDSP_MAS_DETECTION_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	ST_DATE_TIME stAcqusitionTime;
+	unsigned short unSensorGainVal[2];
+	unsigned short unNBDIntegTimeInfo;
+	ST_MAS_DETECTION_EXCLUSION_FREQ_INFO stMASDetFreqExcInfo;
+	float fALineBBDEngInfo[800];
+	float fBLineBBDEngInfo[800];
+	float fALineNBDEngInfo[5][800];
+	float fBLineNBDEngInfo[5][800];
+	float fALineLOFARSigNorm[25][1601];
+	float fBLineLOFARSigNorm[25][1601];
+	float fALineDEMONSig[25][1601];
+	float fBLineDEMONSig[25][1601];
+	float fALineMagTrgDtcInfo[800];
+	float fBLineMagTrgDtcInfo[800];
+	float fALineMagTrgDtcInfoAxis[4][49];
+	float fBLineMagTrgDtcInfoAxis[4][49];
+	float fALineMagSyntheSig[49];
+	float fBLineMagSyntheSig[49];
+};
+
+struct MASDSP_MAS_ENE_DATA
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulFrameNo;
+	float aAColumnENE[25][15];
+	float aBColumnENE[25][15];
+};
+
+struct SPPANA_ANALYSIS_PROCESS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAnalType;
+	float fProcessRate;
+};
+
+struct SPPANA_AS_ACOUSTIC_DETECTION_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	char acASPDRayFolder[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_BIS_ACOUSTIC_MODEL_PROCESS_STOP_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+};
+
+struct SPPANA_BIS_SOUND_SOURCE_POSITION_CONFIRM_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	double dAnalPointLat;
+	double dAnalPointLon;
+	float fAnalPointDepth;
+	boolean bProcesson;
+};
+
+struct SPPANA_BIS_SOUND_SOURCE_POSITION_FIND_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	char acFindResultFolder[80];
+	double dAnalPointLat;
+	double dAnalPointLon;
+	float fAnalPointDepth;
+	boolean bProcesson;
+};
+
+struct SPPANA_BIS_SOUND_SOURCE_POSITION_SEARCH_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	char acSearchResultFolder[80];
+	unsigned short usPosNum;
+	double dAnalPointLat[3];
+	double dAnalPointLon[3];
+	float fAnalPointDepth[3];
+	boolean bProcesson;
+};
+
+struct SPPANA_BI_ACOUSTIC_DETECTION_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	char acBIPDFolder[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_HORIZONTAL_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	float fAnalXRangeRes;
+	float fAnalYRangeRes;
+	char acDepthDataName[80];
+	char acTempDataName[80];
+	char acSVPDataName[80];
+	char acContourLineName[80];
+	char acUnderwaterObsName[80];
+	char acSediInfo[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_LAS_ACOUSTIC_DETECTION_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	char acLASPDRayFolder[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_MAS_ACOUSTIC_DETECTION_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	char acMASPDRayFolder[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_MODEL_PROCESS_STATUS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	boolean bPerform;
+	unsigned short usAnalType;
+	boolean bDBType;
+	char acTempDataName[80];
+};
+
+struct SPPANA_POINT_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTempDataLength;
+	float fBottom;
+	char acTempDataName[80];
+	char acSVPDataName[80];
+	boolean bProcesson;
+};
+
+struct SPPANA_VERTICAL_ANALYSIS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTempDataLength;
+	float fTempAnalXRangeRes;
+	float fTempAnalYRangeRes;
+	char acTempDataName[80];
+	char acSVPDataName[80];
+	boolean bProcesson;
+};
+
+struct ST_NIC_ADDR
+{
+	octet oIP1[20];
+	octet oIP2[20];
+	octet oIP3[20];
+	octet oIP4[20];
+};
+
+struct ST_EQUIP_DIAGNOSTIC_RESULT
+{
+	long lCPUTestResult;
+	long lCPUTestTime;
+	long lMemTestResult;
+	long lMemTestTime;
+	long lHDDTestTime;
+	long lHDDTestResult;
+};
+
+struct SYSMGR_AGENT_HW_DIAGNOSTIC_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_NIC_ADDR stNICIPAddress;
+	ST_EQUIP_DIAGNOSTIC_RESULT stEquipDiagnosticResult;
+};
+
+struct SYSMGR_ALERT_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSWName[128];
+	octet oIP[20];
+	octet oCmdType;
+	unsigned long ulMsgID;
+	octet oOperatorName[128];
+	octet oAlertType;
+	octet oMsg[500];
+};
+
+struct SYSMGR_ALERT_REPORT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulMsgID;
+	octet oSWName[128];
+	octet oIP[20];
+	octet oAlertType;
+	octet oMsg[500];
+};
+
+struct ST_SW_NAME
+{
+	octet oSWName1[128];
+	octet oSWName2[128];
+	octet oSWName3[128];
+	octet oSWName4[128];
+	octet oSWName5[128];
+	octet oSWName6[128];
+	octet oSWName7[128];
+	octet oSWName8[128];
+	octet oSWName9[128];
+	octet oSWName10[128];
+};
+
+struct SYSMGR_DEV_RUN_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_NIC_ADDR stIP;
+	ST_SW_NAME stSWName;
+	unsigned short usForce;
+	unsigned short usRunType;
+};
+
+struct ST_SW_VERSION
+{
+	unsigned short usMajorVer;
+	unsigned short usMinorVer;
+	unsigned short usBuildVer;
+	unsigned short reserved;
+};
+
+struct ST_SW_STATUS_INFO
+{
+	octet oSWName[128];
+	unsigned long ulProcID;
+	octet oActive;
+	octet oStatus;
+	octet aSubUnitStatus[32];
+	octet oOnOff;
+	octet oMode;
+	ST_SW_VERSION stSWVersion;
+};
+
+struct ST_SW_ALL_STATUS_INFO
+{
+	unsigned long ulSWID;
+	unsigned long ulHWID;
+	ST_SW_STATUS_INFO stSWStatusInfo;
+};
+
+struct ST_CPU_INFO
+{
+	unsigned long nCoreCount;
+	unsigned long nUsage;
+};
+
+struct ST_NIC_INFO
+{
+	octet oIP[20];
+	octet oNicName[256];
+	boolean bEnable;
+	unsigned long ulBandWidth;
+	unsigned long long ullBytesRecvPerSec;
+	unsigned long long ullBytesSendPerSec;
+	unsigned long long ullBytesTotalPerSec;
+};
+
+struct ST_MEM_INFO
+{
+	unsigned long ulTotalSize;
+	unsigned long ulUsedSize;
+};
+
+struct ST_DRIVE_INFO
+{
+	boolean bUse;
+	octet reserved[3];
+	octet oDrive[10];
+	octet oVolume[256];
+	unsigned long ulDriveType;
+	unsigned long ulDriveFileSystem;
+	unsigned long long ullTotalSize;
+	unsigned long long ullUsedSize;
+};
+
+struct ST_HW_STATUS_FOR_HCI
+{
+	unsigned long lHWID;
+	octet oState;
+	octet oReallocation;
+	unsigned long relHWID;
+	ST_CPU_INFO stCpuInfo;
+	octet oCpuState;
+	ST_NIC_INFO stNicInfo[4];
+	octet oNicState[4];
+	octet oNicBandwidthState[4];
+	ST_MEM_INFO stMemInfo;
+	octet oMemState;
+	octet oMemTotalSizeState;
+	ST_DRIVE_INFO stPartitionInfo[5];
+	octet oDriveState[5];
+	octet oDriveTotalSizeState[5];
+};
+
+struct ST_HW_ALL_STATUS_INFO
+{
+	unsigned long ulHWID;
+	ST_HW_STATUS_FOR_HCI stHWStatusInfo;
+};
+
+struct ST_HW_EQUIP_BOARD_STATUS_INFO
+{
+	unsigned long ulEquipID;
+	octet oStatus[32];
+	octet oHWStatus;
+};
+
+struct SYSMGR_EQUIP_DIAGNOSTIC_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulHWID;
+	ST_EQUIP_DIAGNOSTIC_RESULT stEquipDiagnosticResult;
+	ST_SW_ALL_STATUS_INFO stSWStatus[20];
+	ST_HW_ALL_STATUS_INFO stHWServerStatus;
+	ST_HW_EQUIP_BOARD_STATUS_INFO stHWEquipBoardStatus;
+	octet oUseSWStatus;
+	octet oUseHWStatus;
+	octet oEquipType;
+	octet oResearved;
+};
+
+struct SYSMGR_GPS_STS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usStatus;
+};
+
+struct ST_HUSS_STATUS_INFO
+{
+	unsigned long ulHUSSEquipID;
+	octet oStatus;
+};
+
+struct ST_HUSS_EQUIP_STATUS_INFO
+{
+	unsigned long ulHWID;
+	octet oStatus;
+	octet oHWStatus;
+	octet oSWStatus;
+	boolean bHWStatusUse;
+	boolean bSWStatusUse;
+	octet oReserved[3];
+};
+
+struct SYSMGR_HUSS_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_HUSS_STATUS_INFO stHUSSStatusInfo[100];
+	ST_HUSS_EQUIP_STATUS_INFO stHUSSEquipStatusInfo[200];
+	octet oHUSSState;
+};
+
+struct ST_HW_EQUIP_STATUS_INFO
+{
+	unsigned long ulEquipID;
+	octet oStatus;
+};
+
+struct ST_HW_EQUIP_BOARD_ALL_STATUS_INFO_EX
+{
+	ST_STORAGE_STATUS_INFO stStorageStatusInfo;
+	ST_ASE_STATUS_INFO stAseStatusInfo;
+	ST_LAS_SENSOR_STATUS LAS_stSensorStatus[3];
+	ST_SENSOR_IFC_STATUS LAS_stSensorIFCStatus;
+	ST_BIS_SENSOR_STATUS BIS_stSensorStatus[3];
+	ST_SENSOR_IFC_STATUS BIS_stSensorIFCStatus;
+	ST_MAS_SENSOR_STATUS MAS_stSensorStatus[2];
+	ST_SENSOR_IFC_STATUS MAS_stSensorIFCStatus;
+	ST_RD_STATUS_INFO stRdStatusInfo[2];
+	ST_INTERCHANGE_DEVICE_STATUS_INFO stInterchangeDeviceStatusInfo[3];
+	ST_EA_INTERWORKING_STATUS_INFO stEaInterworkingStatusInfo;
+	ST_TRANSCEIVER_STATUS_INFO stTransceiverStatusInfo[6];
+	ST_EOTE_STATUS_INFO stEoteStatusInfo[2];
+};
+
+struct SYSMGR_HW_ALL_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_HW_ALL_STATUS_INFO stHwStatusInfo[100];
+	ST_HW_EQUIP_STATUS_INFO stHWEquipStatusInfo[300];
+	octet oHwAllState;
+	ST_HW_EQUIP_BOARD_ALL_STATUS_INFO_EX stHwEquipBoardAllStatusInfo_Ex;
+	ST_HW_EQUIP_BOARD_STATUS_INFO stHwEquipBoardStatusInfo[100];
+};
+
+struct SYSMGR_HW_STATUS_HCI_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long lHWID;
+	octet oState;
+	octet oReallocation;
+	unsigned long relHWID;
+	ST_CPU_INFO stCpuInfo;
+	octet oCpuState;
+	ST_NIC_INFO stNicInfo[4];
+	octet oNicState[4];
+	ST_MEM_INFO stMemInfo;
+	octet oMemState;
+	ST_DRIVE_INFO stPartitionInfo[26];
+	octet oDriveState;
+};
+
+struct SYSMGR_HW_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usHwID;
+	ST_CPU_INFO stCpuInfo;
+	ST_NIC_INFO stNicInfo[4];
+	ST_MEM_INFO stMenInfo;
+	ST_DRIVE_INFO stPartitionInfo[26];
+};
+
+struct SYSMGR_NOTIFICATION_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	long eSendSW;
+	octet oDestinationConsoleID;
+	unsigned long ulMsgID;
+	octet oExtMsg[500];
+	octet oNotificationType;
+	octet oDisplayType;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_PARAMETER
+{
+	octet oParaKey[100];
+	octet oParaValue[500];
+};
+
+struct SYSMGR_PARAMETER_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oFlag;
+	octet szSWName[128];
+	unsigned long ulCount;
+	ST_PARAMETER stParameter[100];
+};
+
+struct SYSMGR_PARAMETER_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIP[20];
+	octet szSWName[128];
+	long lResult;
+	unsigned long ulCount;
+	ST_PARAMETER stParameter[100];
+};
+
+struct SYSMGR_SERVER_START_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oCMDType;
+};
+
+struct SYSMGR_SWUPDATE_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usInstallHWID;
+	octet oIP[20];
+	unsigned short usInstallSWID;
+	octet oSWExeName[128];
+	octet usInstallSWPath[1000];
+};
+
+struct ST_SWUPDATE_OVERALL_RESULT
+{
+	boolean bUSE;
+	unsigned long ulHWID;
+	unsigned long ulSWID;
+	unsigned long ulInstallResult;
+	octet oResearved[3];
+};
+
+struct SYSMGR_SWUPDATE_OVERALL_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SWUPDATE_OVERALL_RESULT stSWUpdateOverallResult[100];
+	octet oMSG[500];
+};
+
+struct SYSMGR_SWUPDATE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usInstallHWID;
+	unsigned short usInstallSWID;
+	unsigned short usInstallResult;
+	octet oErrMsg[128];
+};
+
+struct ST_SW_GROUP_STATUS_INFO
+{
+	unsigned long ulHWID;
+	octet oStatus;
+};
+
+struct ST_SW_EQUIP_STATUS_INFO
+{
+	unsigned long ulEquipID;
+	octet oStatus;
+};
+
+struct SYSMGR_SW_ALL_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SW_ALL_STATUS_INFO stSwStatusInfo[100];
+	ST_SW_GROUP_STATUS_INFO stSWGroupInfo[100];
+	ST_SW_EQUIP_STATUS_INFO stSWEquipInfo[100];
+	octet oSwAllState;
+};
+
+struct SYSMGR_SW_FIRST_RUN_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIP[20];
+	unsigned short usCmd;
+};
+
+struct SYSMGR_SW_KILL_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIP[20];
+	octet oSWName[128];
+	unsigned long ulProcID;
+	unsigned short usForce;
+	unsigned short usRunType;
+};
+
+struct SYSMGR_SW_RUN_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_NIC_ADDR stNicName;
+	octet szSWName[128];
+	unsigned long ulProcID;
+	unsigned short usForce;
+	unsigned short usRunType;
+};
+
+struct SYSMGR_SW_RUN_CMD_ALL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usRunType;
+};
+
+struct SYSMGR_SW_STATUS_HCI_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	long lHWID;
+	octet oIP[20];
+	ST_SW_STATUS_INFO stSWStatusInfo;
+};
+
+struct SYSMGR_SW_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oHWName[128];
+	ST_NIC_ADDR stnicName;
+	ST_SW_STATUS_INFO stSWStatusInfo;
+};
+
+struct SYSMGR_TIMESYNC_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usCmd;
+};
+
+struct SYSMGR_TIMESYNC_DEV_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unSync;
+	unsigned short usType;
+	octet oIP[20];
+};
+
+struct SYSMGR_TIMESYNC_MODE_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usMode;
+};
+
+struct ST_USER_ACCOUNT_INFO
+{
+	octet oUserID[32];
+	octet oUserPW[32];
+	octet oUserName[32];
+	octet oUserGrade;
+	octet oUserAuthority;
+	octet oResearved[2];
+	ST_DATE_TIME stAssignDate;
+	ST_DATE_TIME stExpireDate;
+};
+
+struct SYSMGR_USER_ACCOUNT_INFO_RSP
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_USER_ACCOUNT_INFO stUserAccountInfo;
+	octet oMode;
+	octet oResult;
+	octet oStationID;
+	octet oResearved;
+	octet oMSG[500];
+};
+
+struct ST_USER_ACCOUNT_LIST_INFO
+{
+	ST_USER_ACCOUNT_INFO stUserAccountInfo;
+	boolean bEnable;
+	octet oResearved[3];
+};
+
+struct SYSMGR_USER_ACCOUNT_LIST_RSP
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_USER_ACCOUNT_LIST_INFO stUserAccountListInfo[50];
+	octet oStationID;
+	octet oResearved[3];
+};
+
+struct ST_USER_ACCOUNT_LOG_INFO
+{
+	octet oUserID[32];
+	octet oUserName[32];
+	ST_DATE_TIME stLogDate;
+	octet oMSG[200];
+};
+
+struct SYSMGR_USER_ACCOUNT_LOG_RSP
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_USER_ACCOUNT_LOG_INFO stUserAccountLogInfo[100];
+	unsigned short unTotalPageNum;
+	unsigned short unCurrentPageNum;
+	octet oStationID;
+	octet oResearved[3];
+};
+
+struct SYSMGR_USER_REALLOCATION_RSP
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSrcHWID;
+	unsigned short usDesHWID;
+	long lResult;
+	octet oMSG[500];
+};
+
+struct TGTCLA_CI_ACOUSTIC_TARGET_CLASSIFICATION_TO_DATMGR_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usGlobalTargetNum;
+	ST_DATE_TIME stReqTime;
+	ST_DATE_TIME stSendTime;
+	unsigned short usClaRetNum;
+	unsigned short usSensorID;
+	ST_CLA_RESULT_INFO stCLAInfo[8];
+	unsigned short usLOFARFrameNum;
+	float fLOFARGram[300][4][1601];
+	unsigned short usDEMONFrameNum;
+	float fDEMONGram[300][1601];
+	ST_FEATURE_FREQ_INFO stFeatureInfo;
+};
+
+struct TGTCLA_CI_ACOUSTIC_TARGET_CLASSIFICATION_TO_TGTMGR_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usGlobalTargetNum;
+	ST_DATE_TIME stReqTime;
+	ST_DATE_TIME stSendTime;
+	unsigned short usClaRetNum;
+	ST_CLA_RESULT_INFO stCLAInfo[8];
+};
+
+struct TGTCLA_CLA_DB_BACKUP_RESTORE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDBBackupRestoreResult;
+};
+
+struct TGTCLA_OI_ACOUSTIC_TARGET_CLASSIFICATION_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_DATE_TIME stReqTime;
+	ST_DATE_TIME stSendTime;
+	unsigned short usClaRetNum;
+	ST_CLA_RESULT_INFO stCLARet[8];
+};
+
+struct TGTCLA_OI_CLASSIFICATION_FREQ_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_FEATURE_FREQ_INFO stFeatureInfo;
+};
+
+struct TGTCLA_STANDARD_CLA_DB_INFO_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDBInterfaceResult;
+	char acDBInterfaceLog[240];
+};
+
+struct ST_FUSED_GLOBAL_TARGET
+{
+	octet oFusionProcessed;
+	octet oUsedSensorForAssociation;
+	unsigned short usTgtNumber;
+	unsigned short usTrackStatus;
+	octet oLOFARTonalFreqCnt;
+	float aLOFARTonalFreq[24];
+	octet aIsThreatFreq[24];
+	octet oDEMONTonalFreqCnt;
+	float aDEMONTonalFreq[8];
+	octet oInOutInfo;
+	float aStateVector[4];
+	float aMatP[4][4];
+	octet oNoOfAssociatedSensors;
+	octet aAssociatedSensors[32];
+	unsigned long aAssociatedLocalTgtID[32];
+	octet oOriginSensorID;
+	unsigned short aTrackReliability[2];
+	boolean bIsRegisteredByManual;
+	octet oTargetType;
+	octet oRefSensorIDForBearingTgt;
+	float fAzimuthForBearingTgt;
+	octet oAssociatedStatus;
+	unsigned short usAssociatedMasterTgtID;
+	octet oNoOfAssociatedSystemTgts;
+	unsigned short aAssociatedSystemTgtID[32];
+	octet oAssociationReliability;
+	ST_DATE_TIME stAssociationTime;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_AIS_TARGET_ASSOICATED
+{
+	octet oAssociatedSensorID;
+	unsigned long ulTargetNumber;
+	unsigned long ulMMSINumber;
+	octet aAISShipName[20];
+	float fShipWidth;
+	float fShipLength;
+	unsigned short usNationalityCode;
+	ST_DATE_TIME stTrackDetectTime;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oUserChange;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	float fAssociationReliability;
+};
+
+struct ST_AIS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_AIS_TARGET_ASSOICATED stAISTgtInfoAssociated;
+};
+
+struct TGTMGR_AIS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_AIS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct ST_AS_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned short usTargetNumber;
+	unsigned short usAssociatedTrackID;
+	float fAssociationReliability;
+	float fBearing;
+	float fDistance;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oTrackReliability;
+	unsigned short usTgtClsResult;
+	float fTgtClsPrecisionInfo;
+	unsigned short usPulseType;
+	float fTargetTS;
+	ST_DATE_TIME stUpdateTime;
+	ST_DATE_TIME stRegistrationTime;
+	unsigned short usTargetClassificationResult;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	octet oUserChange;
+	octet oIsTrainingTgt;
+};
+
+struct ST_AS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_AS_TARGET_ASSOCIATED stASTgtInfoAssociated[3];
+};
+
+struct TGTMGR_AS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_AS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_AS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usCommandID;
+	octet oSensorID;
+	unsigned short usTgtID;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_BIS_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned short aTgtNumber[2];
+	unsigned short usRealTgtNumber;
+	unsigned short usAssociatedTrackID;
+	float fAssociationReliability;
+	float fBearing;
+	float fDistance;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oTrackReliability;
+	octet oFusionStatus;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	octet oUserChange;
+	octet oIsTrainingTgt;
+};
+
+struct ST_BIS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_BIS_TARGET_ASSOCIATED stBISTgtInfoAssociated[3];
+};
+
+struct TGTMGR_BIS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_BIS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_BIS_SOURCE_MANUEVER_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usPulseID;
+	unsigned short usInfoType;
+	unsigned short usPulseType;
+	unsigned short usTxSourceType;
+	unsigned short usTargetNo;
+	ST_DATE_TIME stUpdateTime;
+	float fVelocity;
+	float fHeading;
+	float fTxTgtDistanceFromBISSensor[3];
+	float fTxTgtBearingFromBISSensor[3];
+	unsigned short usReserved;
+};
+
+struct TGTMGR_BIS_TRACK_DELETE_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	unsigned short usTgtNo;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct TGTMGR_BIS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usCommandID;
+	octet oAxis;
+	unsigned short usTgtID;
+	octet oDetectionType;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_TARGET_TRACK_HISTORY
+{
+	octet oRecordTimeHour;
+	octet oRecordTimeMin;
+	octet oRecordTimeSec;
+	double dTgtPos[2];
+};
+
+struct ST_FOC_INFO
+{
+	ST_DATE_TIME stReqTime;
+	float fDistance;
+};
+
+struct ST_DR_INFO
+{
+	ST_DATE_TIME stReqTime;
+	double dLatitude;
+	double dLongitude;
+	float fCourse;
+	float fVelocity;
+	unsigned long ulEstimationTime;
+};
+
+struct ST_CCRN_TARGET
+{
+	unsigned short usTgtNo;
+	unsigned short usGTTgtNo;
+	octet oTargetStatus;
+	octet oRegistrationType;
+	float fCourse;
+	float fVelocity;
+	double dLatitude;
+	double dLongitude;
+	boolean bIsThreatTgt;
+	octet oThreatGrade;
+	octet oAnchoredThreatTgt;
+	unsigned long ulAnchoringDurationTime;
+	octet oFriendlyInfo;
+	octet oClassInfo;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	unsigned long stMaintainTime;
+	octet oLOFARTonalFreqCnt;
+	float aLOFARTonalFreq[24];
+	octet oDEMONTonalFreqCnt;
+	float aDEMONTonalFreq[8];
+	unsigned short usNoOfTrkHistory;
+	ST_TARGET_TRACK_HISTORY aTgtTrkHistory[225];
+	octet oFOCStatus;
+	octet oDRStatus;
+	ST_FOC_INFO stFOCInfo;
+	ST_DR_INFO stDRInfo;
+	octet oOriginSensorID;
+	float aRelativeBearingFromSensors[32];
+	float aRelativeDistanceFromSensors[32];
+	octet aTagInfo[20];
+};
+
+struct TGTMGR_CONCERNED_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	ST_DATE_TIME stUpdateTime;
+	ST_CCRN_TARGET stCcrnTrgInfo[1000];
+};
+
+struct ST_EO_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned short usTargetNumber;
+	float fBearing;
+	float fDistance;
+	octet oTrackStatus;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	ST_DATE_TIME stRecentRangeMeasureTime;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	float fAssociationReliability;
+	octet oUserChange;
+};
+
+struct ST_EOS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_EO_TARGET_ASSOCIATED stEOTgtInfoAssociated[2];
+};
+
+struct TGTMGR_EOS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_EOS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct ST_AS_LOCAL_TARGET
+{
+	unsigned short usTgtNumber;
+	unsigned short usTrackState;
+	float fDepth;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fVelocity;
+	float fTargetTS;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	unsigned short usTgtClsResult;
+	float fTgtClsPrecisionInfo;
+	unsigned short usPulseType;
+	float fPulsePRI;
+	float aStateVector[4];
+	float aPosCovArry[4][4];
+	float fTrackReliability;
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_AS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_AS_LOCAL_TARGET stASTgtInfo[1000];
+};
+
+struct ST_BIS_TARGET
+{
+	unsigned short usTgtNumber;
+	ST_DATE_TIME stRegistrationTime;
+	unsigned short usTrackMainCnt;
+	unsigned short oTrackStatus;
+	octet oTrackInitType;
+	float fTrackReliability;
+	octet oPulseType;
+	float fPulsePRI;
+	unsigned short usDetectSourceTgtNo;
+	octet oFusionStatus;
+	unsigned short usNoOfAssociatedTgts;
+	unsigned short aAssociatedTgtNo[2];
+	unsigned short usBeamNo;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fVelocity;
+	float fDistanceVar;
+	float fBearingVar;
+	float fPosX;
+	float fPosY;
+	float fPosXVar;
+	float fPosYVar;
+	float fPosCovArry[4][4];
+	float fBearingCovArry[4];
+	float fDistranceCovArry[4];
+	octet oPairTgtFlag;
+	unsigned short usPairTgtNo;
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct ST_BIS_LOCAL_TARGET
+{
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_DATE_TIME stUpdateTime;
+	ST_BIS_TARGET stBisTargetLocal[192];
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_BIS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_BIS_LOCAL_TARGET stBISTgtInfo[3];
+};
+
+struct ST_EO_LOCAL_TARGET
+{
+	unsigned short usTargetType;
+	ST_DATE_TIME stUpdateTime;
+	float fElevation;
+	float fAzimuth;
+	unsigned short usEOSensorType;
+	unsigned short usTrackingStatus;
+	ST_DATE_TIME stDistanceMeasureTime;
+	ST_DATE_TIME stRegistrationTime;
+	float fDistanceInfo;
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_EO_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_EO_LOCAL_TARGET stEOTgtInfo;
+};
+
+struct ST_KNTDS_NETWORK_TARGET
+{
+	unsigned long ulTgtNumber;
+	octet ucTrackStat;
+	octet ucTrackQuality;
+	octet ucTrackSize;
+	octet ucKind;
+	octet ucClass;
+	octet ucCategory;
+	octet ucIdentify;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fVelocity;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	unsigned long ulMaintainTime;
+	octet ucTag[6];
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_KNTDS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_KNTDS_NETWORK_TARGET stKNTDSTgtInfo[1000];
+};
+
+struct ST_LAS_FREQ_INFO
+{
+	octet oFreqTrackStatus;
+	float fTonalFreq;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+	float fSNR;
+	octet oTrackInitType;
+	unsigned short aIsThreatFreq;
+	float fFreqRate;
+	float aFreqCovArry[4];
+};
+
+struct ST_LAS_TARGET
+{
+	unsigned short usTgtNumber;
+	ST_DATE_TIME stRegistrationTime;
+	unsigned short usTrackMainCnt;
+	octet oTrackStatus;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oFusionStatus;
+	octet oTrackReliability;
+	unsigned short usNoOfAssociatedTgts;
+	unsigned short aAssociatedTgtNo[5];
+	float aAssociatedBearing[5];
+	float fBearing;
+	float fBearingRate;
+	float aBearingCovArray[4];
+	octet oLofarTonalFreqCnt;
+	ST_LAS_FREQ_INFO aLofarFreqInfo[24];
+	octet oDemonTonalFreqCnt;
+	ST_LAS_FREQ_INFO aDemonFreqInfo[8];
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+	unsigned short usPairTgtNo;
+	octet IsInitByUserAssociation;
+	octet oOriginSensorAxis;
+	unsigned short usOriginTargetNo;
+	unsigned short usReserved[2];
+};
+
+struct ST_LAS_LOCAL_TARGET
+{
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_DATE_TIME stUpdateTime;
+	ST_LAS_TARGET stLasTargetLocal[320];
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_LAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_LAS_LOCAL_TARGET stLASTgtInfo[3];
+};
+
+struct ST_MAS_TARGET
+{
+	unsigned short usTgtNumber;
+	ST_DATE_TIME stRegistrationTime;
+	unsigned short usTrackMainCnt;
+	octet oTrackStatus;
+	octet oTrackInitType;
+	float fTrackReliabiliy;
+	unsigned short usMASDetectionType;
+	unsigned short usFusionStatus;
+	unsigned short usAllFusedSectorNo;
+	unsigned short usMagSectorNo;
+	unsigned short usAcoSectorNo;
+	unsigned short usBbdSectorNo;
+	unsigned short usNbdSectorNo;
+	unsigned short usMagSensorNo;
+	unsigned short usAcoSensorNo;
+	float fLineMagSyntheSig;
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	octet oTgtAssoFlag;
+	unsigned short usAssoTgtNo;
+	unsigned short usAcoLofFreqNo;
+	float aAcoLofFreqInfo[24];
+	unsigned short usAcoDemFreqNo;
+	float aAcoDemFreqInfo[8];
+	unsigned short usInOutInfo;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct ST_MAS_LOCAL_TARGET
+{
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_DATE_TIME stUpdateTime;
+	ST_MAS_TARGET stMasTargetLocal[50];
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_MAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_MAS_LOCAL_TARGET stMASTgtInfo[2];
+};
+
+struct ST_RADAR_LOCAL_TARGET
+{
+	unsigned short usTgtNumber;
+	unsigned short usTrackReliability[2];
+	unsigned short usTrackStatus;
+	unsigned short usAutoOrSemi;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fVelocity;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	float aStateVector[4];
+	float aMatP[4];
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+};
+
+struct TGTMGR_FUSION_PROCESSED_LOCAL_TARGET_RD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_RADAR_LOCAL_TARGET stRDTgtInfo[1000];
+};
+
+struct ST_BIS_SOURCE_INFO
+{
+	unsigned short usPulseID;
+	octet oPulseType;
+	octet oSourceType;
+	ST_DATE_TIME stRegistrationTime;
+};
+
+struct ST_RD_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned short usTgtNumber;
+	float fAssociationReliability;
+	float fBearing;
+	float fDistance;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	octet oUserChange;
+	octet oIsTrainingTgt;
+};
+
+struct ST_LAS_TARGET_ASSOICATED
+{
+	octet oAssociatedSensorID;
+	unsigned short aTgtNumber[2];
+	unsigned short usRealTgtNumber;
+	unsigned short usAssociatedTrackID;
+	float fAssociationReliability;
+	float fBearing;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oTrackReliability;
+	octet oFusionStatus;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oLOFARFreqCnt;
+	float aLOFARFreq[24];
+	octet aLOFARTrackInitType[24];
+	octet aIsThreatFreq[24];
+	octet oDEMONFreqCnt;
+	float aDEMONFreq[8];
+	octet aDEMONTrackInitType[8];
+	octet oRegistCnt;
+	octet oProcessCnt;
+	octet oUserChange;
+	octet oIsTrainingTgt;
+};
+
+struct ST_MAS_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned short usTgtNumber;
+	octet oDetectColumn;
+	octet oDetectType;
+	octet oTrackReliability;
+	octet oMagneticSensor;
+	octet oAcousticSensor;
+	octet oAcoLofFreqNo;
+	float aAcoLofFreqInfo[24];
+	octet oAcoDemFreqNo;
+	float aAcoDemFreqInfo[8];
+	float fLineMagSyntheSig;
+	float fAssociationReliability;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	octet oUserChange;
+	octet oIsTrainingTgt;
+};
+
+struct ST_KNTDS_TARGET_ASSOCIATED
+{
+	octet oAssociatedSensorID;
+	unsigned long ulTrackNo;
+	octet ucKind;
+	octet ucClass;
+	octet ucCategory;
+	octet ucIdentify;
+	octet ucTag[6];
+	ST_DATE_TIME stTrackDetectTime;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet oUserChange;
+	octet oRegistCnt;
+	octet oProcessCnt;
+	float fAssociationReliability;
+};
+
+struct ST_CPA_INFO
+{
+	ST_DATE_TIME stReqTime;
+	unsigned short usRelativeTgtNo;
+	unsigned short usCPAResultType;
+	double dDestinationLatitude;
+	double dDestinationLongitude;
+	double dCPAPointLat;
+	double dCPAPointLon;
+	float fRelativeBearing;
+	float fRelativeDistance;
+	unsigned long ulCPATime;
+	float fCPADistance;
+};
+
+struct ST_PREDICT_PATH_INFO
+{
+	ST_DATE_TIME stReqTime;
+	unsigned short usPredictionTime;
+	double dPredictedPointLatitude;
+	double dPredictedPointLongitude;
+};
+
+struct ST_GLOBAL_TARGET
+{
+	unsigned short usTgtNumber;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	unsigned long ulMaintainTime;
+	unsigned short usTrackStatus;
+	unsigned long ulTrackUpdateCount;
+	octet oFriendlyInfo;
+	octet oClassInfo;
+	float fClassificationScore;
+	octet oClassificationStatus;
+	octet bIsClassificationPossible;
+	octet oAutoClassificationProgress;
+	octet oLOFARTonalFreqCnt;
+	float aLOFARTonalFreq[24];
+	octet aIsThreatFreq[24];
+	octet oDEMONTonalFreqCnt;
+	float aDEMONTonalFreq[8];
+	octet oIsInSurveillanceArea;
+	octet oThreatGrade;
+	unsigned short usThreatScore;
+	octet oAlarmGrade;
+	octet oInOutInfo;
+	octet oThreatTgt;
+	ST_DATE_TIME stThreatTgtRegistrationTime;
+	octet oConcernedTgt;
+	ST_DATE_TIME stConcernedTgtRegistrationTime;
+	octet oAnchoredThreatTgt;
+	octet aTgtInfo[20];
+	float aStateVector[4];
+	float fBearing;
+	float fDistance;
+	double dLatitude;
+	double dLongitude;
+	float fCourse;
+	float fVelocity;
+	float aMatP[4][4];
+	float aBearingCovArry[4];
+	octet oNoOfAssociatedSensors;
+	octet aAssociatedSensors[32];
+	unsigned long aAssociatedLocalTgtID[32];
+	octet oOriginSensorID;
+	ST_DATE_TIME stInitialDetectionTime;
+	octet oTrackReliability;
+	boolean bIsBISSourceTgt;
+	octet oKNTDSSendStatus;
+	ST_DATE_TIME stClassificationReqTime;  //@key
+	ST_DATE_TIME stClassificationResponseTime;  //@key
+	float aRelativeBearingFromSensors[32];
+	float aRelativeDistanceFromSensors[32];
+	ST_BIS_SOURCE_INFO stBISSourceInfo;
+	octet oFusionProcessed;
+	ST_RD_TARGET_ASSOCIATED stRDTgtInfoAssociated[2];  //@key
+	ST_LAS_TARGET_ASSOICATED stLASTgtInfoAssociated[3];  //@key
+	ST_BIS_TARGET_ASSOCIATED stBISTgtInfoAssociated[3];  //@key
+	ST_MAS_TARGET_ASSOCIATED stMASTgtInfoAssociated[2];
+	ST_AS_TARGET_ASSOCIATED stASTgtInfoAssociated[3];
+	ST_EO_TARGET_ASSOCIATED stEOTgtInfoAssociated[2];
+	ST_KNTDS_TARGET_ASSOCIATED stKNTDSTgtInfoAssociated;
+	ST_AIS_TARGET_ASSOICATED stAISTgtInfoAssociated;
+	octet oCPAStatus;
+	ST_CPA_INFO stCPAInfo;
+	octet oPredictPathStatus;
+	ST_PREDICT_PATH_INFO stPredictPathInfo;
+	octet oTargetType;
+	octet oRefSensorIDForBearingTgt;
+	float fAzimuthForBearingTgt;
+	octet oIsClassifiedAsEnemyAutomatically;
+	unsigned short usNoOfTrkHistory;
+	ST_TARGET_TRACK_HISTORY aTgtTrkHistory[225];
+	octet oAssociatedStatus;
+	unsigned short usAssociatedMasterTgtID;
+	octet oNoOfAssociatedSystemTgts;
+	unsigned short aAssociatedSystemTgtID[32];
+	octet oAssociationReliability;
+	ST_DATE_TIME stAssociationTime;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct TGTMGR_GLOBAL_TARGET_FOR_FUSION_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	ST_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct ST_GLOBAL_TARGET_FOR_REMOTE
+{
+	unsigned short usTgtNumber;
+	octet oClassInfo;
+	ST_DATE_TIME stRegistrationTime;
+	unsigned long ulMaintainTime;
+	unsigned short usTrackStatus;
+	octet oFriendlyInfo;
+	octet oClassificationStatus;
+	octet oIsInSurveillanceArea;
+	octet oThreatGrade;
+	octet oAlarmGrade;
+	octet oInOutInfo;
+	octet oKNTDSSendStatus;
+	octet oThreatTgt;
+	octet oConcernedTgt;
+	octet aTgtInfo[20];
+	float fBearing;
+	float fDistance;
+	double dLatitude;
+	double dLongitude;
+	float fCourse;
+	float fVelocity;
+	boolean bIsBISSourceTgt;
+	octet oTargetType;
+	octet oRefSensorIDForBearingTgt;
+	float fAzimuthForBearingTgt;
+	float aRelativeBearingFromSensors[32];
+	float aRelativeDistanceFromSensors[32];
+	octet oAssociatedStatus;
+	octet oNoOfAssociatedSystemTgts;
+	unsigned short aAssociatedSystemTgtID[32];
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct TGTMGR_GLOBAL_TARGET_RMT_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulNumOfTargets;
+	ST_GLOBAL_TARGET_FOR_REMOTE stGTInfo[2000];
+};
+
+struct ST_KNTDS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_KNTDS_TARGET_ASSOCIATED stKNTDSTgtInfoAssociated;
+};
+
+struct TGTMGR_KNTDS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_KNTDS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_LASTRK_SEMI_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSemiOITType;
+	octet aAxisValidFlag[3];
+	octet aAxisBearing[3];
+	unsigned short usLASTgtNo;
+	octet oLOFARTonalFreqCnt;
+	float aLOFARTonalFreq[24];
+	octet oDEMONTonalFreqCnt;
+	float aDEMONTonalFreq[6];
+	unsigned short aReserved[2];
+};
+
+struct ST_LAS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_LAS_TARGET_ASSOICATED stLASTgtInfoAssociated[3];
+};
+
+struct TGTMGR_LAS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_LAS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_LAS_TRACK_DELETE_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	unsigned short usTgtNo;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct TGTMGR_LAS_TRACK_SFL_DELETE_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	unsigned short usTgtNo;
+	octet oDetectionType;
+	octet oSFLIndex;
+	float fFreq;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct TGTMGR_LAS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usCommandID;
+	unsigned short usConfirmType;
+	octet oAxis;
+	unsigned short usTgtID;
+	octet oDetectionType;
+	float fFreq;
+	octet oSFLIndex;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_AIS_NETWORK_TARGET
+{
+	unsigned long ulTgtNumber;
+	float fDistance;
+	float fBearing;
+	float fCourse;
+	float fVelocity;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	unsigned long ulMaintainTime;
+	double dLatitude;
+	double dLongitude;
+	float fPosXOnGlobalCoordinate;
+	float fPosYOnGlobalCoordinate;
+	unsigned short usUserChange;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+	unsigned short usConcernedTargetInfo;
+	float fShipWidth;
+	float fShipLength;
+	unsigned short usNationalityCode;
+	ST_AIS_TARGET stAISTargetInfo;
+};
+
+struct TGTMGR_LOCAL_TARGET_AIS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_AIS_NETWORK_TARGET stAISTgtInfo[1000];
+};
+
+struct TGTMGR_LOCAL_TARGET_AS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_AS_LOCAL_TARGET stASTgtInfo[120];
+};
+
+struct TGTMGR_LOCAL_TARGET_BIS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_BIS_LOCAL_TARGET stBISTgtInfo[3];
+};
+
+struct TGTMGR_LOCAL_TARGET_EO_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_EO_LOCAL_TARGET stEOTgtInfo;
+};
+
+struct TGTMGR_LOCAL_TARGET_KNTDS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_KNTDS_NETWORK_TARGET stKNTDSTgtInfo[1000];
+};
+
+struct TGTMGR_LOCAL_TARGET_LAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_LAS_LOCAL_TARGET stLASTgtInfo[3];
+};
+
+struct TGTMGR_LOCAL_TARGET_MAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	ST_MAS_LOCAL_TARGET stMASTgtInfo[2];
+};
+
+struct TGTMGR_LOCAL_TARGET_RD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSensorID;
+	unsigned short usNumOfTargets;
+	ST_RADAR_LOCAL_TARGET stRDTgtInfo[1000];
+};
+
+struct ST_MAS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_MAS_TARGET_ASSOCIATED stMASTgtInfoAssociated[2];
+};
+
+struct TGTMGR_MAS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_MAS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_MAS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usCommandID;
+	octet oAxis;
+	unsigned short usTgtID;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct ST_OUM_TARGET
+{
+	unsigned short usTgtNo;
+	unsigned short usConsoleID;
+	ST_DATE_TIME stRegistrationTime;
+	ST_DATE_TIME stUpdateTime;
+	octet aTagInfo[20];
+	octet oOriginSensorID;
+	double dLatitude;
+	double dLongitude;
+	float fCourse;
+	float fVelocity;
+	unsigned short usTargetNo;
+	unsigned short usActivePulseSourceTgtType;
+	ST_BIS_SOURCE_INFO stBISSourceInfo;
+	unsigned short usGTRegistered;
+	unsigned short usGTTgtNo;
+};
+
+struct TGTMGR_OUM_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short aNumOfTargets[4];
+	ST_DATE_TIME stUpdateTime;
+	ST_OUM_TARGET stOUMTgtInfo[4][16];
+};
+
+struct ST_RDS_FUSED_GLOBAL_TARGET
+{
+	ST_FUSED_GLOBAL_TARGET stFusedGlobalTgt;
+	ST_RD_TARGET_ASSOCIATED stRDTgtInfoAssociated[2];
+};
+
+struct TGTMGR_RDS_FUSED_GLOBAL_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNumOfTargets;
+	unsigned short usLocalSensorID;
+	unsigned long ulFrameCnt;
+	ST_RDS_FUSED_GLOBAL_TARGET stGTInfo[2000];
+};
+
+struct TGTMGR_SENSOR_CONFIG_PARAM_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usReqParamGrpID;
+	unsigned short usReqParamValueInfo;
+};
+
+struct TGTMGR_TARGET_FUSION_ACTIVATION_STATUS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oLasActivationStatus;
+	octet oBisActivationStatus;
+	octet oMasActivationStatus;
+	octet oAsEosActivationStatus;
+	octet oRdsKntdsActivationStatus;
+	unsigned short usReserved;
+};
+
+struct TGTMGR_TGT_CLASSIFICATION_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usGlobalTgtNo;
+	float fSpeed;
+	unsigned short usLOFARFreqCnt;
+	float aLOFARFreq[24];
+	unsigned short usDEMONFreqCnt;
+	float aDEMONFreq[24];
+	unsigned short usSensorID;
+	unsigned short usLocalTgtNo;
+	unsigned short usShipType;
+	unsigned short usFriendlyInfo;
+	unsigned long ulMaintainTime;
+	unsigned short usAutoManualMode;
+};
+
+struct ST_THREAT_TARGET_FOR_KNTDS
+{
+	octet usKNTDSPropagationStatus;
+	unsigned long ulGTTgtNo;
+	unsigned long ulLatitude_Int;
+	unsigned long ulLatitude_Dec;
+	unsigned long ulLongitude_Int;
+	unsigned long ulLongitude_Dec;
+	float fVelocityX;
+	float fVelocityY;
+	octet usTgtKind;
+	octet usTgtFriendlyGrade;
+	ST_DATE_TIME stDetectionTime;
+};
+
+struct TGTMGR_THREAT_TARGET_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulNumOfTargets;
+	ST_THREAT_TARGET_FOR_KNTDS ThreatTarget[500];
+};
+
+struct ST_BIS_MEAS
+{
+	float fDistance;
+	float fBearing;
+	float fSNR;
+	float fDopplerInfo;
+	unsigned short aReserved[4];
+};
+
+struct TGTTRK_BISTRK_MEAS_INFO_A
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfCWMeas;
+	ST_BIS_MEAS stBisCWMeasInfo[1920];
+	unsigned short usNoOfFMMeas;
+	ST_BIS_MEAS stBisFMMeasInfo[1920];
+};
+
+struct TGTTRK_BISTRK_MEAS_INFO_B
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unNoOfCWMeas;
+	ST_BIS_MEAS stBisCWMeasInfo[1920];
+	unsigned short usNoOfFMMeas;
+	ST_BIS_MEAS stBisFMMeasInfo[1920];
+};
+
+struct TGTTRK_BISTRK_MEAS_INFO_C
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfCWMeas;
+	ST_BIS_MEAS stBisCWMeasInfo[1920];
+	unsigned short usNoOfFMMeas;
+	ST_BIS_MEAS stBisFMMeasInfo[1920];
+};
+
+struct ST_BIS_TARGET_LOCAL
+{
+	unsigned short usTargetNo;
+	ST_DATE_TIME stInitTime;
+	unsigned long ulTrackMainCnt;
+	octet oTrackStatus;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oTrackReliability;
+	octet oTrackStrength;
+	octet oCwOitUserID;
+	unsigned short usCwTmpTgtNo;
+	octet oFmOitUserID;
+	unsigned short usFmTmpTgtNo;
+	float fSNR;
+	float fPulsePRI;
+	unsigned short usDetectSourceTgtNo;
+	octet oFusionStatus;
+	unsigned short usNoOfAssociatedTgts;
+	unsigned short aAssociatedTgtNo[2];
+	float fDistance;
+	float fBearing;
+	float fDistanceVar;
+	float fBearingVar;
+	float fPosX;
+	float fPosY;
+	float fPosXVar;
+	float fPosYVar;
+	float fPosCovArry[4][4];
+	float fBearingCovArry[4];
+	float fDistanceCovArry[4];
+	octet oUserConcFlag;
+	octet oPairTgtFlag;
+	unsigned short usPairTgtNo;
+	octet aReserved[4];
+};
+
+struct TGTTRK_BISTRK_TARGET_TRACKING_INFO_A
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts;
+	ST_DATE_TIME stUpdateTime;
+	ST_BIS_TARGET_LOCAL stBisTargetLocal[192];
+};
+
+struct TGTTRK_BISTRK_TARGET_TRACKING_INFO_B
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts;
+	ST_DATE_TIME stUpdateTime;
+	ST_BIS_TARGET_LOCAL stBisTargetLocal[192];
+};
+
+struct TGTTRK_BISTRK_TARGET_TRACKING_INFO_C
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts;
+	ST_DATE_TIME stUpdateTime;
+	ST_BIS_TARGET_LOCAL stBisTargetLocal[192];
+};
+
+struct TGTTRK_BISTRK_THRESHOLD_INFO_ACK_A
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsBisCitThrshAuto;
+	ST_BIS_THRESH_INFO stBisThresh;
+};
+
+struct TGTTRK_BISTRK_THRESHOLD_INFO_ACK_B
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsBisCitThrshAuto;
+	ST_BIS_THRESH_INFO stBisThresh;
+};
+
+struct TGTTRK_BISTRK_THRESHOLD_INFO_ACK_C
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsBisCitThrshAuto;
+	ST_BIS_THRESH_INFO stBisThresh;
+};
+
+struct TGTTRK_BIS_OIT_CONTROL_COMMAND_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oBisAxisID;
+	octet oBisPulseType;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+};
+
+struct TGTTRK_BIS_SENSOR_POSITION_DATA_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oParGroupID;
+	octet oParValSort;
+};
+
+struct ST_LAS_LOFAR_MEAS
+{
+	float fBearing;
+	float fFreq;
+	float fSNR;
+	octet aReserved[4];
+};
+
+struct TGTTRK_LASTRK_LOFAR_MEAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfLofCbfMeas[3];
+	ST_LAS_LOFAR_MEAS stLasLofCbfMeasInfo[3][1600];
+	unsigned short usNoOfLofAbfMeas[3];
+	ST_LAS_LOFAR_MEAS stLasLofAbfMeasInfo[3][1600];
+	unsigned short usNoOfDemMeas[3];
+	ST_LAS_LOFAR_MEAS stLasDemMeasInfo[3][1600];
+	float aThreatFrequency[24];
+	float aExclusFrequency[3][24];
+};
+
+struct ST_LAS_TARGET_LOCAL
+{
+	unsigned short usTargetNo;
+	ST_DATE_TIME stInitTime;
+	unsigned long ulTrackMainCnt;
+	octet oTrackStatus;
+	unsigned short usBeamNo;
+	octet oTrackInitType;
+	octet oTrackReliability;
+	octet oTrackStrength;
+	octet oFusionStatus;
+	unsigned short usNoOfAssociatedTgts;
+	unsigned short aAssociatedTgtNo[5];
+	float aAssociatedBearing[5];
+	float fSNR;
+	octet oBbdOitUserID;
+	unsigned short usBbdTmpTgtNo;
+	float fBearing;
+	float fBearingRate;
+	float fBearingCovArry[4];
+	octet oLofarTonalFreqCnt;
+	ST_LAS_FREQ_INFO aLofarFreqInfo[24];
+	octet oDemonTonalFreqCnt;
+	ST_LAS_FREQ_INFO aDemonFreqInfo[8];
+	octet oUserConcStatus;
+	octet IsInitByUserAssociation;
+	octet oOriginSensorAxis;
+	unsigned short usOriginTargetNo;
+	octet aReserved[4];
+};
+
+struct TGTTRK_LASTRK_TARGET_TRACKING_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts[3];
+	ST_DATE_TIME stUpdateTime;
+	ST_LAS_TARGET_LOCAL stLasTargetLocal[3][320];
+};
+
+struct TGTTRK_LASTRK_THRESHOLD_INFO_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsLasCitThrshAuto;
+	ST_LAS_THRESH_INFO stLasThresh[3];
+};
+
+struct TGTTRK_LAS_BBD_OIT_CONTROL_COMMAND_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oBFType;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+};
+
+struct TGTTRK_LAS_DEMON_CONTROL_COMMAND_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+};
+
+struct TGTTRK_LAS_LOFAR_OIT_CONTROL_COMMAND_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oBFType;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+};
+
+struct TGTTRK_LAS_SENSOR_POSITION_DATA_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oParGroupID;
+	octet oParValSort;
+};
+
+struct TGTTRK_MASTRK_ACO_FREQ_TRACK_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short aAcoLofFreqNo[2][25];
+	float aAcoLofFreqInfo[2][25][50];
+	unsigned short usAcoDemFreqNo[2][25];
+	float aAcoDemFreqInfo[2][25][50];
+};
+
+struct ST_MAS_TARGET_LOCAL
+{
+	unsigned short usTargetNo;
+	ST_DATE_TIME stInitTime;
+	unsigned long ulTrackMainCnt;
+	octet oTrackStatus;
+	octet oTrackInitType;
+	float fTrackReliability;
+	octet oTrackStrength;
+	unsigned short usMASDetectionType;
+	unsigned short usFusionStatus;
+	unsigned short usAllFusedSectorNo;
+	unsigned short usMagSectorNo;
+	unsigned short usAcoSectorNo;
+	unsigned short usBbdSectorNo;
+	unsigned short usNbdSectorNo;
+	unsigned short usMagSensorNo;
+	unsigned short usAcoSensorNo;
+	unsigned short usInOut;
+	octet oTgtAssoFlag;
+	unsigned short usAssoTgtNo;
+	unsigned short usAcoLofFreqNo;
+	float aAcoLofFreqInfo[24];
+	unsigned short usAcoDemFreqNo;
+	float aAcoDemFreqInfo[8];
+	float fLineMagSyntheSig;
+	octet oUserConcFlag;
+	unsigned short aReserved[4];
+};
+
+struct TGTTRK_MASTRK_TARGET_TRACKING_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usNoOfTgts[2];
+	ST_DATE_TIME stUpdateTime;
+	ST_MAS_TARGET_LOCAL stMasTargetLocal[2][50];
+};
+
+struct TGTTRK_MASTRK_THRESHOLD_INFO_ACK
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsMasCitThrshAuto;
+	ST_MAS_THRESH_INFO stMasCitThresh[2];
+};
+
+struct TGTTRK_MAS_SENSOR_POSITION_DATA_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oParGroupID;
+	octet oParValSort;
+};
+
+struct TGTTRK_PARAM_INFO_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsReq;
+};
+
+struct ST_PERIOD_PROC_PARAM_INFO
+{
+	unsigned short usMonth;
+	unsigned short usDay;
+	float fNBTargetSourceLevel[15];
+	float fBBTargetSourceLevel[4];
+	float fASTargetSpeed;
+	ST_AS_TS_INFO stASTSInfo;
+	boolean bASAutoNoiseFlag;
+	float fASAmbientNoise[3];
+	octet oASSeaState;
+	float fBISTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fBISTransmitterDepth;
+	ST_SOUND_INFO stBISSoundInfo;
+	double dBISSrcPosLat;
+	double dBISSrcPosLon;
+};
+
+struct USERIF_ACOUSTIC_MODEL_PERIOD_PROCESS_PARAMETER_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_PERIOD_PROC_PARAM_INFO stPeriodParamInfo;
+};
+
+struct USERIF_ACOUSTIC_MODEL_PROCESS_STATUS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+};
+
+struct USERIF_ACOUSTIC_MODEL_PROCESS_STOP_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usAnalType;
+};
+
+struct USERIF_ACO_MODEL_PERIOD_PARAM_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usDataNum;
+	octet oRequestCommand;
+	ST_PERIOD_PARAM_MNG_INFO stPeriodParamInfo[100];
+};
+
+struct USERIF_ASE_DETECT_TH_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_TH_INFO stTThInfo;
+};
+
+struct USERIF_ASE_FISH_SUP_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oFishSup;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_FLOW_SUP_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oFlowSup;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_MANUAL_AGC_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	octet oAGC;
+	octet oTable;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_MAX_RANGE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	unsigned long ulMaxRange;
+};
+
+struct USERIF_ASE_MAX_SPEED_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oSpeed;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_MODE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oMode;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_OIT_GEN_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	float fXmeter;
+	float fYmeter;
+};
+
+struct USERIF_ASE_POWER_CTRL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oPower;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_SENSOR_DEG_OFFSET_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lSetDegree[120];
+};
+
+struct USERIF_ASE_SENSOR_FAIL_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	long ulASID;
+	octet oSensorFail[120];
+};
+
+struct USERIF_ASE_SONARSPEED_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	long lWaterSpeed;
+};
+
+struct USERIF_ASE_STAY_TARGET_MODE_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oStayTarget;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_STEERING_CTRL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	char cSteering;
+	char oRes[2];
+};
+
+struct USERIF_ASE_TRANSMIT_ACTIVIATION_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oActivation;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_TRANSMIT_OPTION_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulASID;
+	ST_TX_INFO stTTxInfo;
+};
+
+struct USERIF_ASE_TRK_SENSITIVE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oSenstive;
+	octet oRes[2];
+};
+
+struct USERIF_ASE_WAKE_SUP_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet ucASID;
+	octet oWakeSup;
+	octet oRes[2];
+};
+
+struct ST_DEPTH_TEMP
+{
+	double dLatitude;
+	double dLongitude;
+	unsigned short usDataNum;
+	float fDepth[100];
+	float fTemp[100];
+};
+
+struct ST_USER_TEMP_INFO
+{
+	ST_DATE_TIME stCreateTime;
+	ST_DEPTH_TEMP stDepthTempInfo;
+	char acComment[80];
+};
+
+struct ST_AS_SENSOR_INFO
+{
+	unsigned short usStartSoundFreq;
+	unsigned short usEndSoundFreq;
+	unsigned short usSoundPulselength;
+	long lVerticalAngle;
+	float fASAmbientNoise;
+};
+
+struct ST_AS_MODEL_INPUT_SET
+{
+	octet oTemperDBType;
+	unsigned short usMonth;
+	unsigned short usDay;
+	ST_USER_TEMP_INFO stTempInfo;
+	float fTargetSpeed;
+	ST_AS_SENSOR_INFO stASSensorInfo[3];
+	ST_AS_TS_INFO stASTSInfo;
+	octet oSeaState;
+};
+
+struct USERIF_AS_DETECTION_PROBABILITY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	ST_AS_MODEL_INPUT_SET stASModelInput;
+};
+
+struct USERIF_AS_THREAT_AREA_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet oSensorID;
+	float fRange;
+};
+
+struct USERIF_AS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	unsigned short usGlobalID;
+	octet oSensorID;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_AUDIO_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unSensortype;
+	octet unCommandcode;
+	unsigned short usTargetAudioMode;
+	unsigned short usTargetNumber;
+	octet unLine;
+	unsigned short usBeam;
+	octet unBandvalue;
+	unsigned short usBISPulseType;
+	float fBISCenterFreq;
+	float fBISBandwidth;
+	float fBISPulseLength;
+	octet unPlayMode;
+	ST_DATE_TIME unReplayStartTime;
+	unsigned short unReplayIndex;
+	octet oBISSyncFlag;
+	unsigned long ulBISFrameNum;
+};
+
+struct USERIF_BISTRK_CONC_TGT_REG_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oBisTrkType;
+	unsigned short unTgtNo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_BISTRK_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+	octet oBisAixsID;
+	octet oBisPulseType;
+	octet oIsAddOrDelete;
+	unsigned short unBisOitBeamNo;
+	unsigned short usBisOitSectorNo;
+	unsigned short unBisOitBin;
+	float fBisTgtDist;
+	unsigned short unBisOitDelTrackNo;
+};
+
+struct USERIF_BISTRK_THRESHOLD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsBisCitThrshAuto;
+	ST_BIS_THRESH_INFO stBisThresh[3];
+};
+
+struct USERIF_BIS_ACTIVE_PULSE_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unpulsemode;
+	float Cntrfrequency[2];
+	float frequencyBndWdth[2];
+	float fpulselength[2];
+	float fpri[2];
+	unsigned short usPulseSweep;
+};
+
+struct USERIF_BIS_DETECT_PARAM_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	long lRemoveClutterCtrlEnable;
+	float fDopplerFreq;
+	long lAPDThresholdCtrlEnable;
+	float fAPDThreshold;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_BIS_DETECT_USERCONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unStrtOn[2];
+	octet unActivepulsegainmode;
+};
+
+struct USERIF_BIS_MOVINFO_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usTgtType;
+	unsigned short usTgtNo;
+	octet unSend;
+};
+
+struct USERIF_BIS_SENSORRECEIVER_USER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oPowerSupplyPowerControl[3];
+	octet oReceiverPowerControl;
+	octet oProcessorPowerControl;
+	octet oNetworkPowerControl;
+	octet oDisplayPowerControl;
+};
+
+struct USERIF_BIS_SENSOR_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oGainCtrlMode[3];
+	octet oAGCvalue_Main[3];
+	octet oAGCvalue_Sub[3];
+	octet oEOSwitch_Tx[3];
+	octet oEOSwitch_Rx[3];
+	octet oMainMuxSwitch[3];
+};
+
+struct USERIF_BIS_SENSOR_STATUS_MANUAL_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unSensorStatus[3][144];
+};
+
+struct ST_BI_SOURCE_CONFIRM_SET
+{
+	octet oTemperDBType;
+	unsigned short usMonth;
+	unsigned short usDay;
+	ST_USER_TEMP_INFO stTempInfo;
+	ST_SOUND_INFO stSoundInfo;
+	float fMinTgtDepth;
+	float fMaxTgtDepth;
+	float fTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fTransmitterDepth;
+	long lSoundArrivalTime;
+	float fTgtCourseAngle;
+	float fTgtMoveSpd;
+	double dTgtPosLat;
+	double dTgtPosLon;
+};
+
+struct USERIF_BIS_SOUNDSOURCEPOSITION_CONFIRM_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_BI_SOURCE_CONFIRM_SET stBISrcPosConfirm;
+};
+
+struct ST_POSITION_INFO
+{
+	double dLatitude;
+	double dLongitude;
+};
+
+struct ST_QROUTE_INFO
+{
+	unsigned short usQrouteNum;
+	ST_POSITION_INFO stQroute[20];
+};
+
+struct ST_BI_SOURCE_FIND_SET
+{
+	ST_QROUTE_INFO stQroute[3];
+	ST_SOUND_INFO stSoundInfo;
+	float fMinTgtDepth;
+	float fMaxTgtDepth;
+	float fTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fTransmitterDepth;
+	unsigned short usRefSensorIDForBearingTgt;
+	float fAzimuthForBearingTgt;
+	float fTgtBearing;
+};
+
+struct USERIF_BIS_SOUNDSOURCEPOSITION_FIND_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_BI_SOURCE_FIND_SET stBISrcPosFind;
+};
+
+struct ST_BI_SOURCE_SEARCH_SET
+{
+	octet oTemperDBType;
+	unsigned short usMonth;
+	unsigned short usDay;
+	ST_POSITION_INFO stSearchArea[2];
+	ST_QROUTE_INFO stQroute[3];
+	ST_SOUND_INFO stSoundInfo;
+	unsigned short usSoundNum;
+	float fMinTgtDepth;
+	float fMaxTgtDepth;
+	float fTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fTransmitterDepth;
+};
+
+struct USERIF_BIS_SOUNDSOURCEPOSITION_SEARCH_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_BI_SOURCE_SEARCH_SET stBISSrcPosSearch;
+};
+
+struct USERIF_BIS_SOURCE_DB_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	unsigned short usDataNum;
+	ST_BIS_SOURCE_DB stBISSourceDBInfo[1000];
+	ST_BIS_SOURCE_TYPE_MATCHING_INFO stTypeMatchingInfo[100];
+	ST_BIS_SOURCE_SHIP_MATCHING_INFO stShipMatchingInfo[100];
+};
+
+struct USERIF_BIS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	unsigned short usGlobalID;
+	octet oAxis;
+	octet oDetectionType;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_BIS_USERPOWERCONTROL_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unPowervalue[3];
+};
+
+struct ST_BI_MODEL_INPUT_SET
+{
+	octet oTemperDBType;
+	unsigned short usMonth;
+	unsigned short usDay;
+	ST_USER_TEMP_INFO stTempInfo;
+	float fTargetSpeed;
+	ST_BI_TS_INFO stBITSInfo;
+	float fTransmitterDepth;
+	ST_SOUND_INFO stSoundInfo;
+	double dSrcPosLat;
+	double dSrcPosLon;
+};
+
+struct USERIF_BI_DETECTION_PROBABILITY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	ST_BI_MODEL_INPUT_SET stBIModelInput;
+};
+
+struct USERIF_CLASSIFICATIONDATABASE_BAKUPRESTORE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oCertificationDBmode;
+};
+
+struct USERIF_CLASSIFICATIONDATABASE_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	char acDatabasedirectory[80];
+};
+
+struct USERIF_CLASSIFICATION_RESULT_MANAGE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oClaType;
+	octet oRequestCommand;
+	unsigned short usDataIndex;
+	unsigned short usPageNum;
+	octet szComments[256];
+};
+
+struct USERIF_CPACALCULATE_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usActivateCmd;
+	unsigned short unGlobalID;
+	unsigned short usRelativeTgtID;
+	double dCPALatitude;
+	double dCPALongitude;
+};
+
+struct USERIF_DATA_BACKUP_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDataType;
+	unsigned long ulDataIndex;
+	octet szFilePath[256];
+};
+
+struct USERIF_DATA_DELETE_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDataType;
+	unsigned long ulDataIndex;
+};
+
+struct USERIF_DATA_LIST_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oListType;
+	unsigned short unPageNum;
+	ST_DATE_TIME stStartTime;
+	ST_DATE_TIME stEndTime;
+	octet szComments[256];
+};
+
+struct USERIF_DATA_MODIFY_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unDatamodifycommand;
+	octet oDataType;
+	unsigned long ulDataIndex;
+	ST_OPER_DATA_LIST stDataModifyInfo;
+};
+
+struct USERIF_DATA_RECORD_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_OPER_DATA_LIST stOperDataList[30];
+};
+
+struct USERIF_DATA_RESTORE_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oDataType;
+	unsigned long ulDataIndex;
+	octet szFilePath[256];
+};
+
+struct USERIF_EOTE_ADDITIONAL_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+};
+
+struct USERIF_EOTE_ADDITIONAL_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+	octet oIRCalibration;
+	octet oInverseHigh;
+	short sTrueDeg;
+	unsigned short usEOCenterX;
+	unsigned short usEOCenterY;
+	unsigned short usIRCenterX;
+	unsigned short usIRCenterY;
+};
+
+struct USERIF_EOTE_AUTH_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usAuthCmd;
+	unsigned short usReserved2;
+};
+
+struct USERIF_EOTE_AUTH_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+};
+
+struct USERIF_EOTE_BLOCK_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+};
+
+struct USERIF_EOTE_BLOCK_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+	ST_EOTE_RESTIRCT_DISTRICT stBlockSet[10];
+};
+
+struct USERIF_EOTE_CALIBRATION_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usIRInverse;
+	unsigned short usIRSharpness;
+	unsigned short usEOFogAdapt;
+	unsigned short usReserved2;
+};
+
+struct USERIF_EOTE_LASER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+};
+
+struct USERIF_EOTE_MOTOR_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usMode;
+	unsigned short usDegControlMode;
+	unsigned short usDegControlSpeed;
+	unsigned short usAngControlMode;
+	unsigned short usAngControlSpeed;
+	short sDegPosition;
+	short sAngPosition;
+};
+
+struct USERIF_EOTE_MOVE_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+	unsigned short usDoSearch;
+	unsigned short usAreaID;
+};
+
+struct USERIF_EOTE_MOVE_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usAreaID;
+	unsigned short usReserved2;
+};
+
+struct USERIF_EOTE_MOVE_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usAreaID;
+	unsigned short usReserved2;
+	ST_EOTE_MOVING_SEARCHING_INFO stMovingSet[10];
+};
+
+struct USERIF_EOTE_POWER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	octet oEOPwer;
+	octet oIRPower;
+	octet oLRFPower;
+	octet oFANPower;
+	octet oHeaterPower;
+	octet oReserved2;
+	unsigned short usReserved3;
+};
+
+struct USERIF_EOTE_TRACKING_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved1;
+	unsigned short usEOIR;
+	unsigned short usTargetPosX;
+	unsigned short usTargetPosY;
+	unsigned short usTargetH;
+	unsigned short usTargetV;
+	unsigned short usTargetConfirm;
+	unsigned short usTargetTracking;
+	unsigned short usReserved2;
+};
+
+struct USERIF_EOTE_ZOOMFOC_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+	octet oReceiverID;
+	unsigned short usReserved;
+	octet oEOIR;
+	octet oReserved;
+	octet oZoomControlMode;
+	octet oZoomContinusMode;
+	unsigned short usZoomPosition;
+	octet oFocusControlMode;
+	octet oFocusContinusMode;
+};
+
+struct USERIF_EQUIP_DIAGNOSTIC_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oStationID;
+	octet oReserved[3];
+	long lHWID;
+};
+
+struct USERIF_FOC_DR_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unCommandID;
+	unsigned short usActivateCmd;
+	unsigned short unTgtNo;
+	unsigned short usEstimationMode;
+	unsigned short usEstimationTime;
+	float fUserInputSpeed;
+	float fUserInputCourse;
+};
+
+struct USERIF_HISTORY_EXCUTE_VACCINE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulReserved1;
+	unsigned long ulReserved2;
+	unsigned long ulReserved3;
+};
+
+struct USERIF_HISTORY_LIST_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unHistorylistrequest;
+	unsigned short unPageNum;
+	octet szUserID[32];
+	octet szUserName[32];
+	octet szContents[100];
+	ST_DATE_TIME stStartTime;
+	ST_DATE_TIME stEndTime;
+};
+
+struct USERIF_HISTORY_MANAGE_ACCOUNT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulOperation;
+	ST_USER_ACCOUNT_INFO stAccountInfo;
+	ST_USER_ACCOUNT_INFO stOldAccountInfo;
+};
+
+struct USERIF_HISTORY_PRINT_REPORT
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_DATE_TIME stReportDate;
+	unsigned long ulReserved1;
+	unsigned long ulReserved2;
+};
+
+struct USERIF_HISTORY_RESERVED
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulReserved1;
+	unsigned long ulReserved2;
+	unsigned long ulReserved3;
+};
+
+struct USERIF_HORIZONTAL_ANALYSIS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	float fDepth;
+	unsigned short usMonth;
+	unsigned short usDay;
+};
+
+struct USERIF_IPE_DEVICE_CTRL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	long eSWID;
+};
+
+struct USERIF_LASTRK_BBD_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+	octet oAxisID;
+	octet oBbdBFType;
+	octet oIsAddOrDelete;
+	float fBbdOitBearing;
+	unsigned short usBbdOitDelTrackNo;
+};
+
+struct USERIF_LASTRK_CONC_TGT_REG_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oLasTrkType;
+	unsigned short unTgtNo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_LASTRK_DEMON_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+	octet oAxisID;
+	octet oIsAddOrDelete;
+	unsigned short unDemonOitTrackNo;
+	unsigned short unDemonOitBeamNo;
+	float fDemonOitFreq;
+	unsigned short unDemonOitDelTrackNo;
+	unsigned short unDemonOitDelFreq;
+};
+
+struct USERIF_LASTRK_EXCLUSION_FREQ_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxis;
+	float aExclusFrequency[24];
+};
+
+struct USERIF_LASTRK_LOFAR_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oOitUserID;
+	unsigned short usTmpTgtNo;
+	octet oAxisID;
+	octet oLofBFType;
+	octet oIsAddOrDelete;
+	unsigned short unLofarOitTrackNo;
+	unsigned short unLofarOitBeamNo;
+	unsigned short unLofarOitBandNo;
+	float fLofarOitFreq;
+	unsigned short unLofarOitDelTrackNo;
+	unsigned short unLofarOitDelFreq;
+};
+
+struct ST_LAS_ASS_TGT_INFO
+{
+	octet oTgtAssoFlat;
+	octet oAxisID;
+	ST_LAS_TARGET usLasLocalTgtInfo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_LASTRK_SEMI_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oConsoleID;
+	octet oSemiOITType;
+	octet aAxisValidFlag[3];
+	float aAxisBearing[3];
+	unsigned short aAxisBeamNo[3];
+	ST_LAS_ASS_TGT_INFO stLasAssoTgtNo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_LASTRK_THREAT_FREQ_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	float aThreatFrequency[24];
+};
+
+struct USERIF_LASTRK_THRESHOLD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsLasCitThrshAuto;
+	ST_LAS_THRESH_INFO stLasThresh[3];
+};
+
+struct USERIF_LAS_DETECTTARGET_USERCONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unLineID;
+	octet unCBFBBDintegraltime;
+	octet unCBFSBDintegraltime;
+	octet unABFBBDintegraltime;
+	octet unABFSBDintegraltime;
+};
+
+struct ST_LAS_MAS_MODEL_INPUT_SET
+{
+	octet oTempDBType;
+	unsigned short usMonth;
+	unsigned short usDay;
+	ST_USER_TEMP_INFO stTempInfo;
+	float fNBTargetSourceLevel[15];
+	float fBBTargetSourceLevel[4];
+	boolean bDetMode;
+};
+
+struct USERIF_LAS_MAS_DETECTION_PROBABILITY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	boolean bProcessType;
+	octet oAnalSensor;
+	ST_LAS_MAS_MODEL_INPUT_SET stLASMASModelInput;
+};
+
+struct USERIF_LAS_SENSORRECEIVER_USER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oPowerSupplyPowerControl[3];
+	octet oReceiverPowerControl;
+	octet oProcessorPowerControl;
+	octet oNetworkPowerControl;
+	octet oDisplayPowerControl;
+};
+
+struct USERIF_LAS_SENSOR_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oGainCtrlMode[3];
+	octet oAGCvalue[3];
+	octet oEOSwitch_Tx[3];
+	octet oEOSwitch_Rx[3];
+	octet oMainMuxSwitch[3];
+};
+
+struct USERIF_LAS_SENSOR_STATUS_MANUAL_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unSensorStatus[3][240];
+};
+
+struct USERIF_LAS_TRACK_SFL_DELETE_CONTROL
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usGlobalID;
+	octet oAxis;
+	float fFreq;
+	octet oDetectionType;
+	octet oSFLIndex;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_LAS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	unsigned short usGlobalID;
+	octet oAxis;
+	float fFreq;
+	octet oDetectionType;
+	octet oSFLIndex;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_LAS_USERPOWERCONTROL_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unPowervalue[3];
+};
+
+struct USERIF_LOST_INTEREST_TARGET_SEND_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usTgtNo;
+};
+
+struct USERIF_MANUAL_TARGET_CLASSIFICATION_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unCommandID;
+	unsigned short unGlobalID;
+};
+
+struct USERIF_MASTRK_CONC_TGT_REG_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oAxisID;
+	octet oMasTrkType;
+	unsigned short unTgtNo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_MASTRK_THRESHOLD_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oIsMasCitThrshAuto;
+	ST_MAS_THRESH_INFO stMasThresh[2];
+};
+
+struct USERIF_MAS_DETECTTARGET_USERCONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unSBDintegraltime[2];
+	ST_MAS_DETECTION_EXCLUSION_FREQ_INFO stMASDetFreqExcInfo;
+};
+
+struct USERIF_MAS_SENSORRECEIVER_USER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oPowerSupplyPowerControl[2];
+	octet oReceiverPowerControl;
+	octet oProcessorPowerControl;
+	octet oNetworkPowerControl;
+	octet oDisplayPowerControl;
+};
+
+struct USERIF_MAS_SENSOR_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oGainCtrlMode[2];
+	octet oAGCvalue[2];
+	octet oEOSwitch_Tx[2];
+	octet oEOSwitch_Rx[2];
+	octet oMainMuxSwitch[2];
+};
+
+struct USERIF_MAS_SENSOR_STATUS_MANUAL_SET_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unMAGSensorStatus[2][49];
+	octet unACOSensorStatus[2][25];
+};
+
+struct USERIF_MAS_TRACK_USER_CONFIRM_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	unsigned short usGlobalID;
+	octet oAxis;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_MAS_USERPOWERCONTROL_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unPowervalue[2];
+};
+
+struct USERIF_OI_CLASSIFICATION_FREQ_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_FEATURE_FREQ_INFO stFeatureInfo;
+};
+
+struct USERIF_OI_CLASSIFICATION_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_DATE_TIME stSelectTime;
+	octet oAxis;
+	unsigned short usBeamNum;
+};
+
+struct USERIF_OI_CLASSIFICATION_RESULT_SAVE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_DATE_TIME stReqTime;
+	ST_DATE_TIME stSendTime;
+	unsigned short usSensorID;
+	unsigned short usBeamNum;
+	unsigned short usGlobalTargetNum;
+	unsigned short usClaRetNum;
+	ST_FEATURE_FREQ_INFO stFeatureInfo;
+	ST_CLA_RESULT_INFO stOICLARet[8];
+	octet szComments[256];
+	unsigned short usLOFARFrameNum;
+	float fLOFARGram[300][4][1601];
+	unsigned short usDEMONFrameNum;
+	float fDEMONGram[300][1601];
+};
+
+struct USERIF_POINT_ANALYSIS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	double dPointLatPos;
+	double dPointLonPos;
+	unsigned short usMonth;
+	unsigned short usDay;
+};
+
+struct USERIF_PRESUPPOSEDHEADING_CALCULATE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCalculationTime;
+	unsigned short unGlobalID;
+	unsigned short unPredicTime;
+	unsigned short usActivateCmd;
+};
+
+struct USERIF_RADAR_CHANNEL_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRaderID;
+	unsigned long ucChannelID;
+};
+
+struct USERIF_RADAR_FILTER_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRaderID;
+	octet ucResetTarget;
+	octet ucTrackmethod;
+	octet ucTrackregieon;
+	octet ucTrackcancelvalue;
+	unsigned long ulSpeedhigh;
+	unsigned long ulSpeedlow;
+	unsigned long ulContactFrequency;
+};
+
+struct USERIF_RADAR_TRACK_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRaderID;
+	unsigned long ulTrackingstart;
+	float fTargetdistance;
+	float fTargetdegree;
+	unsigned long ulTrackingend;
+	unsigned long ulTrackingendID;
+	unsigned long ulExchangetraking;
+	unsigned long ulExchangetrakingID1;
+	unsigned long ulExchangetrakingID2;
+	unsigned long ulChangetraking;
+	unsigned long ulChangetrakingID1;
+	unsigned long ulChangetrakingID2;
+	unsigned long ulUserDefine;
+	unsigned long ulUserDefineID;
+};
+
+struct USERIF_RADAR_VIDEO_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulRaderID;
+	octet ucreserved;
+	octet ucFTCvalue;
+	octet ucSTCvalue;
+	octet ucCACFARvalue;
+	octet ucreserved2;
+	octet ucReserved3;
+	unsigned short unCurrentDisplay;
+	float fScreencenter;
+	float fScreenDegree;
+};
+
+struct USERIF_RAWAUDIO_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unCommandcode;
+	octet szFileName[256];
+	octet szUserTag[100];
+	unsigned short usIndex;
+	unsigned short usPageNum;
+	ST_DATE_TIME stStartTime;
+	ST_DATE_TIME stEndTime;
+};
+
+struct USERIF_RMT_DEVICE_CTRL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	long eSWID;
+};
+
+struct USERIF_SCREENSHOT_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unScreenShotIndex;
+	octet oRequestCommand;
+	octet szComment[256];
+};
+
+struct USERIF_SCREENSHOT_LIST_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unPageNum;
+};
+
+struct USERIF_SCREENSHOT_SAVE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet szUserID[30];
+	octet szComment[256];
+	octet oScreenNum;
+	octet aScreenContents[6220800];
+};
+
+struct USERIF_SENSOR_PROTECTION_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	ST_SENSOR_PROTECTION_AREA_INFO stSensorProtectionAreaInfo;
+};
+
+struct USERIF_SOFTWARE_OPERATE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet unStationID;
+	octet unSWID;
+	octet unOperationcommand;
+};
+
+struct USERIF_SPE_DEVICE_CTRL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usCommandID;
+	long eSWID;
+};
+
+struct USERIF_STABILIZED_GRAM_TARGET_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usTargetNo;
+	unsigned short usAxis;
+};
+
+struct USERIF_SYSMGR_ALL_STATE_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oCMDType;
+};
+
+struct USERIF_SYSMGR_REALLOCATION_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSrcHWID;
+	unsigned short usDesHWID;
+	octet oReAssignSWGID[100];
+};
+
+struct ST_SW_UPDATE_INFO
+{
+	octet oUpdate;
+	unsigned long ulSWID;
+	ST_SW_VERSION stSWVersion;
+	octet oInstallSWPath[500];
+};
+
+struct USERIF_SYSMGR_SWUPDATE_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SW_UPDATE_INFO stUpdateSWInfo;
+};
+
+struct USERIF_SYSMGR_SWUPDATE_OVERALL_CMD
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_SW_UPDATE_INFO stUpdateSWinfo[100];
+};
+
+struct USERIF_TARGET_DANGER_INFO_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unCommandID;
+	unsigned short unGlobalID;
+};
+
+struct USERIF_TARGET_DB_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	unsigned short usTargetDBInfoCnt;
+	ST_TARGET_DB_INFO stTargetDBInfo[1000];
+	unsigned short usTargetDBASStrengthCnt;
+	ST_TARGET_DB_AS_STRENGTH stTargetDBASStrength[1000];
+	unsigned short usTargetDBBISStrengthCnt;
+	ST_TARGET_DB_BIS_STRENGTH stTargetDBBISStrength[1000];
+	unsigned short usTargetDBBBSourceLevelCnt;
+	ST_TARGET_DB_BB_SOURCE_LEVEL stTargetDBBBSourceLevel[1000];
+	unsigned short usTargetDBNBSourceLevelCnt;
+	ST_TARGET_DB_NB_SOURCE_LEVEL stTargetDBNBSourceLevel[1000];
+};
+
+struct USERIF_TARGET_FUSION_ACTIVATION_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	octet oLasActivation;
+	octet oBisActivation;
+	octet oMasActivation;
+	octet oAsEosActivation;
+	octet oRdsKntdsActivation;
+	unsigned short usReserved;
+};
+
+struct USERIF_TARGET_FUSION_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unCommandID;
+	octet unMode;
+	unsigned short unMasternumber;
+	unsigned short unSlavenumber;
+	unsigned short usSensorID;
+	unsigned short usResetUserAssociationHistory;
+};
+
+struct USERIF_TARGET_GLOBAL_DELETE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unGlobalID;
+	unsigned short usSensorTypeToDelete;
+	unsigned short usReserved1;
+	unsigned short usReserved2;
+};
+
+struct USERIF_TARGET_GLOBAL_REFRESH_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unGlobalID;
+	unsigned short usFriendlyInfo;
+	unsigned short usClassInfo;
+	octet oThreatGrade;
+	octet aTag[20];
+};
+
+struct USERIF_TARGET_GLOBAL_REGISTER_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unSensorID;
+	unsigned short unLocalID;
+};
+
+struct USERIF_TARGET_INFO_INITIATE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short usInitCmd;
+	unsigned short usSensorID;
+};
+
+struct USERIF_TARGET_INTEREST_DELETE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unAtractID;
+};
+
+struct USERIF_TARGET_INTEREST_NEW_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unGlobalID;
+};
+
+struct USERIF_TARGET_OUM_DELETE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unOUMID;
+};
+
+struct USERIF_TARGET_OUM_REFRESH_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	unsigned short unOUMID;
+	double dLatitude;
+	double dLongitude;
+	unsigned short usClassInfo;
+	unsigned short usFriendlyInfo;
+	octet aTag[20];
+};
+
+struct USERIF_TARGET_OUM_REGISTER_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usUserID;
+	double dLatitude;
+	double dLongitude;
+	unsigned short usClassInfo;
+	unsigned short usFriendlyInfo;
+	unsigned short usSensorID;
+	unsigned short usTargetNo;
+	octet aTag[20];
+};
+
+struct USERIF_TARGET_SEMI_OIT_CONTROL_COMMAND
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oConsoleID;
+	octet oAxisID;
+	unsigned short usTargetNo;
+	unsigned short aReserved[2];
+};
+
+struct USERIF_THREAT_AREA_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	octet szUserID[30];
+	ST_THREAT_AREA stThreatArea1;
+	ST_THREAT_AREA stThreatArea2;
+	ST_THREAT_AREA stThreatArea3;
+};
+
+struct USERIF_TIMESYNC_MODE_CMD
+{
+	ST_MSG_HEADER  stMsgHeader;
+	unsigned short usMode;
+	ST_DATE_TIME stSetTime;
+};
+
+struct USERIF_USER_ACCOUNT_INFO_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	ST_USER_ACCOUNT_INFO stUserAccountInfo;
+	octet oMode;
+	octet oStationID;
+	octet oResearved[2];
+};
+
+struct USERIF_USER_ACCOUNT_LIST_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oStationID;
+	octet oResearved[3];
+};
+
+struct USERIF_USER_ACCOUNT_LOG_REQ
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unTotalPageNum;
+	unsigned short unCurrentPageNum;
+	ST_DATE_TIME stStartTime;
+	ST_DATE_TIME stEndTime;
+	octet oStationID;
+	octet oResearved[3];
+};
+
+struct USERIF_USER_LOGIN_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet szUserID[32];
+	octet szUserName[32];
+	octet oUserRank;
+	octet oUserAuthority;
+};
+
+struct USERIF_VERTICAL_ANALYSIS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	double dPointLatPos1;
+	double dPointLonPos1;
+	double dPointLatPos2;
+	double dPointLonPos2;
+	unsigned short usMonth;
+	unsigned short usDay;
+};
+
+struct USERIF_ZONE_CONTROL_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oRequestCommand;
+	ST_TACTICAL_AREA stTacticalArea;
+};
+
+//------------------------------------
+// 정비지원 IDL 191105
+//------------------------------------
+
+struct ST_MSSSUP_SYSTEM_COMPONENT
+{
+	unsigned long ulID;
+	wstring<100> strName;
+	wstring<20> strLCN;
+	unsigned long ulDisplay;
+	unsigned long ulIETMPM;
+	unsigned long ulIETMCM;
+};
+
+struct USERIF_MSS_SYSTEM_TREE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SYSTEM_TREE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT, 1000> seqSystemTree;
+};
+
+//--------------------------------------------------------------------------
+struct ST_MSSSUP_SYSTEM_COMPONENT_REPAIR_ITEM
+{
+	unsigned long ulID;
+	wstring<50> strContent;
+};
+
+struct ST_MSSSUP_SYSTEM_COMPONENT_PART
+{
+	unsigned long ulID;
+	wstring<100> strName;	//부속이름
+	wstring<50> strSN;		//재고번호
+	wstring<50> strPN;		//부품번호
+	wstring<6> strUnit; 	//단위
+};
+
+struct ST_MSSSUP_SYSTEM_COMPONENT_PART_QUANTITY
+{
+	ST_MSSSUP_SYSTEM_COMPONENT_PART stPart;
+	unsigned long ulQuantity;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID;
+};
+
+struct MSSSUP_USE_SYSTEM_COMPONENT_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID; //관리번호
+	wstring<50> strPN;	//부품번호
+	wstring<255> strURL;		//형상URL
+	wstring<100> strNameKr;	//품명
+	wstring<100> strNameEng;	//영문품명
+	wstring<20> strLCN;	// LCN
+	wstring<50> strClassification; //물품 구분
+	unsigned long long ullPrice;	//단가
+	wstring<10> strUI;	//불출 단위
+	wstring<50> strSN;	//재고번호
+	wstring<50> strProducer;	//생산자
+	wstring<20> strCage; //Cage
+	wstring<100> strAC;	//적용장비명
+	wstring<100> strSize; // 크기
+	wstring<100> strWeight; // 무게
+	wstring<5000> strDescription; //재원
+	wstring<5000> strFunction;	//기능
+	unsigned long ulIProperInventory; //적정 재고량
+	wstring<50> strSmr; // SMR
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_REPAIR_ITEM, 150> seqMaintenanceRepairItems; // 정비 항목 리스트
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_REPAIR_ITEM, 150> seqPreventionRepairItems; // 정비 항목 리스트
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_PART, 400> seqRepairParts; // 수리 부속 리스트
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_PREVENTIVE_MAINTENANCE_PLAN
+{
+	unsigned long ulID; //관리번호
+	unsigned long ulSystemComponentID;
+	wstring<100> strSystemComponentName;	//정비 품목명
+	wstring<50> strRepairItem;	//정비 방법
+	unsigned short unCycle;	//정비 주기 0 비계획 1 일간 2 주간 3 월간 4 분기 5 년간 + 6 반기 7 필요시
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned short unPersonnel;	// 수행 인원
+	unsigned long ulTime;	//정비 시간 (분)
+	wstring<20> strManager;	//담당자
+	wstring<20> strInspecter;	//담당자
+	wstring<5000> strContent;	//작업내용
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_PART_QUANTITY, 200> seqParts; //수리부속 리스트 예방
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_PLAN_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_PREVENTIVE_MAINTENANCE_PLAN_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_PREVENTIVE_MAINTENANCE_PLAN, 100> seqPreventiveMaintenancePlans;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_PLAN_CREATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_PREVENTIVE_MAINTENANCE_PLAN stPreventiveMaintenancePlan;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_PLAN_UPDATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_PREVENTIVE_MAINTENANCE_PLAN stPreventiveMaintenancePlan;
+};
+
+struct MSSSUP_USE_ALERT_MSG
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned short unCode;
+	wstring<100> strMessage;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_PLAN_DELETE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID;
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_PREVENTIVE_MAINTENANCE_RESULT
+{
+	unsigned long ulID; //관리번호
+	unsigned long ulPlanID; // 계획 ID
+	unsigned short unPersonnel;	//수행 인원 [결과]
+	unsigned long ulDate;	//계획 수행일[결과]
+	unsigned long ulTime;	//정비 시간 (분) [결과]
+	wstring<20> strFDM;//고장탐지 방법
+	wstring<20> strFDS;//고장탐지최초 상태
+	wstring<20> strState;//고장탐지 처리 후 상태
+	wstring<20> strManager; // 담당자[결과]
+	wstring<20> strInspector;	//확인자[결과]
+	wstring<5000> strContent;	//작업내용[결과]
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_PART_QUANTITY, 200> seqParts; //수리부속 리스트 결과
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_RESULT_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_PREVENTIVE_MAINTENANCE_RESULT_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_PREVENTIVE_MAINTENANCE_RESULT, 100> seqPreventiveMaintenanceResults;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_RESULT_CREATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_PREVENTIVE_MAINTENANCE_RESULT stPreventiveMaintenanceResult;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_RESULT_UPDATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_PREVENTIVE_MAINTENANCE_RESULT stPreventiveMaintenanceResult;
+};
+
+struct USERIF_MSS_PREVENTIVE_MAINTENANCE_RESULT_DELETE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID;
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_MAINTENANCE_HISTORY
+{
+	unsigned long ulID;
+	unsigned long ulOccurrenceDate;	//발생일
+	unsigned long ulActionDate;	//조치일
+	unsigned long ulTime;	//작업소요시간 분
+	unsigned long ulSystemComponentID; // for create
+	unsigned long ulStartDate; // 결과수정용 계획시작일
+	unsigned long ulEndDate; // 결과수정용 계획 종료일
+	wstring<20> strLCN;	// LCN
+	wstring<100> strNameKR;	//품명
+	wstring<50> strPN;	//제품번호
+	wstring<50> strSN;	//재고번호
+	wstring<100> strAC; // 장치명
+	long lStock;//재고량
+	wstring<20> strFDM;	//고장탐지방법
+	wstring<20> strFDS;//고장탐지상태
+	wstring<20> strState; // 조치 후 상태
+	wstring<50> strItem;	//작업명
+	unsigned short unCycle;	//주기  0 비계획 1 일간 2 주간 3 월간 4 분기 5 년간
+	unsigned short unPersonnel; //소요인원
+	wstring<20> strManager;	//담당자
+	wstring<20> strInspector;	//확인자
+	wstring<5000> strContent;	//작업내용
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_PART_QUANTITY, 200> seqParts;
+};
+
+struct USERIF_MSS_MAINTENANCE_HISTORY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+	unsigned short unCategory;
+};
+
+struct MSSSUP_USE_MAINTENANCE_HISTORY_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulStartDate;
+	unsigned long ulEndDate;
+	unsigned long ulNextKey;
+	unsigned short unCategory;
+	sequence<ST_MSSSUP_MAINTENANCE_HISTORY, 100> seqMaintenanceHistories;
+};
+
+struct USERIF_MSS_MAINTENANCE_HISTORY_CREATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_MAINTENANCE_HISTORY stMaintenanceHistory;
+};
+
+struct USERIF_MSS_MAINTENANCE_HISTORY_UPDATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_MAINTENANCE_HISTORY stMaintenanceHistory;
+};
+
+struct USERIF_MSS_MAINTENANCE_HISTORY_DELETE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulSystemComponentID;
+};
+
+struct MSSSUP_USE_SYSTEM_COMPONENT_STOCK_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulSystemComponentID;
+	long lStock;
+};
+
+struct ST_MSSSUP_SYSTEM_COMPONENT_STOCK
+{
+	unsigned long ulSystemComponentID;
+	long lStock;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SYSTEM_COMPONENT_STOCK_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_STOCK, 100> seqSystemComponentStocks;
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_SYSTEM_COMPONENT_STOCK_HISTORY
+{
+	unsigned long ulID;
+	unsigned long ulSystemComponentID;
+	unsigned long ulDate;				//날짜
+	unsigned long ulSupplyQuantity;		//보급수량
+	unsigned long ulIssueQuantity;		//불출수량
+	wstring<20> strManager;				//담당자
+	wstring<20> strInspector;			//확인자
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_HISTORY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulSystemComponentID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SYSTEM_COMPONENT_STOCK_HISTORY_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulSystemComponentID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_STOCK_HISTORY, 100> seqSystemComponentStockHistories;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_HISTORY_CREATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_SYSTEM_COMPONENT_STOCK_HISTORY stComponentStockHistory;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_HISTORY_UPDATE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	ST_MSSSUP_SYSTEM_COMPONENT_STOCK_HISTORY stComponentStockHistory;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_STOCK_HISTORY_DELETE
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulID;
+};
+
+//--------------------------------------------------------------------------
+struct ST_MSSSUP_SYSTEM_COMPONENT_IETM
+{
+	unsigned long ulID;
+	unsigned long ulSystemComponentID;
+	wstring<100> strComponentName;
+	wstring<50> strName;
+	wstring<50> strNumber;
+	wstring<255> strUrl;
+};
+
+struct USERIF_MSS_SYSTEM_COMPONENT_IETM_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SYSTEM_COMPONENT_IETM_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SYSTEM_COMPONENT_IETM, 100> seqSystemComponentIETMs;
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_EXTERNAL_STORAGE_INFO
+{
+	wstring<30> strSWID; // 소프트웨어 ID
+	wstring<50> strExeName; // exe이름
+	wstring<255> strPath; // 파일 패스
+	wstring<30> strVersion; // 파일 버전
+	unsigned long long ullSize; // 파일 사이즈
+};
+struct USERIF_MSS_SOFTWARE_EXTERNAL_STORAGE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SOFTWARE_EXTERNAL_STORAGE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_EXTERNAL_STORAGE_INFO, 100> seqExternalStorageInfos;
+};
+
+struct ST_MSSSUP_NAS_INFO
+{
+	wstring<30> strSWID; // 소프트웨어 ID
+	wstring<50> strExeName; // exe이름
+	wstring<255> strPath; // 파일 패스
+	wstring<30> strVersion; // 파일 버전
+	wstring<30> strDate; // 저장일자
+	unsigned long long ullSize; // 파일 사이즈
+};
+struct USERIF_MSS_SOFTWARE_NAS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SOFTWARE_NAS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_NAS_INFO, 200> seqNasInfos;
+};
+
+struct USERIF_MSS_SOFTWARE_DISK_SPACE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+};
+
+struct MSSSUP_USE_SOFTWARE_DISK_SPACE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long long ullExternalTotalSize;
+	unsigned long long ullExternalFreeSize;
+};
+
+struct USERIF_MSS_SOFTWARE_NAS_SPACE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+};
+
+struct MSSSUP_USE_SOFTWARE_NAS_SPACE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long long ullNASTotalSize;
+	unsigned long long ullNASFreeSize;
+};
+
+struct USERIF_MSS_DISK_TO_NAS_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strPath;//패스
+	wstring<30> strSWID; // 소프트웨어 ID
+	wstring<50> strExeName; // exe이름
+	wstring<30> strVersion; // Version
+	unsigned long long ullSize;
+};
+
+struct MSSSUP_USE_DISK_TO_NAS_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strPath;//패스
+	unsigned short unCode;
+};
+
+struct USERIF_MSS_NAS_DELETE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strPath;
+	wstring<30> strSWID; // 소프트웨어 ID
+	wstring<50> strExeName; // exe이름
+	wstring<30> strVersion; // Version
+	unsigned long long ullSize;
+};
+struct MSSSUP_USE_NAS_DELETE_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strPath;
+	unsigned short unCode; //성공 유무
+};
+
+struct ST_MSSSUP_SOFTWARE_DISTRIBUTE_HISTORY
+{
+	unsigned long ulID;
+	unsigned long long ulDate;	//배포일자
+	wstring<20> strState;//상태
+	wstring<255> strPath;
+	wstring<30> strSWID; // 소프트웨어 ID
+	wstring<50> strExeName; // exe이름
+	wstring<30> strVersion;	//버전
+	unsigned long long ullSize;	//용량
+	unsigned short unExists; //상태
+};
+
+struct ST_MSSSUP_SOFTWARE_INSTALL_HISTORY
+{
+	unsigned long ulID;
+	unsigned long  ulDate;	//설치일자
+	wstring<30> strEquipment; // 장치
+	wstring<50> strExeName; // exe이름
+	wstring<30> strVersion;	//버전
+	wstring<30> strSWID;// SWID
+};
+
+struct USERIF_MSS_SOFTWARE_DISTRIBUTE_HISTORY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SOFTWARE_DISTRIBUTE_HISTORY_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SOFTWARE_DISTRIBUTE_HISTORY, 100> seqSoftwareUpdateHistories;
+};
+
+struct USERIF_MSS_SOFTWARE_INSTALL_HISTORY_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_SOFTWARE_INSTALL_HISTORY_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_SOFTWARE_INSTALL_HISTORY, 100> seqSoftwareInstallHistories;
+};
+
+//--------------------------------------------------------------------------
+
+struct USERIF_MSS_SYSTEM_ALERT_INCOMPLETION_REQUEST //스테이션정보만 보낼것
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+};
+
+struct MSSSUP_USE_SYSTEM_ALERT_INCOMPLETION_RESULT //다음날짜요청일 알려주기 현재날짜로부터 --
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<100> strMessages;	// 표시내용
+};
+
+struct USERIF_MSS_SERVER_DISK_STATE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+};
+
+//--------------------------------------------------------------------------
+
+struct ST_MSSSUP_DATABASE_BACKUP_HISTORY
+{
+	unsigned long long ullDate;	//날짜
+	wstring<255> strName;	//DB FILE백업 파일명
+	unsigned long long ullSize;	//용량
+};
+
+struct USERIF_MSS_DATABASE_BACKUP_REQUEST // 지금 시점으로 백업 요청
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+};
+
+struct USERIF_MSS_DATABASE_RESTORE_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strName; // 복원할 파일명
+};
+
+struct USERIF_MSS_DATABASE_BACKUP_HISTORY_REQUEST //백업 리스트 요청
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct MSSSUP_USE_DATABASE_BACKUP_HISTORY_RESULT //백업 리스트 응답
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_DATABASE_BACKUP_HISTORY, 100> seqBackupInfos;
+};
+
+struct USERIF_MSS_DATABASE_BACKUP_DELETE_REQUEST //백업파일 삭제 요청
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	wstring<255> strName; // 삭제할 파일명
+};
+//--------------------------------------------------------------------------
+struct ST_MSSSUP_IETM_MAPPING_INFO
+{
+	unsigned long ulID;
+	unsigned long ulSystemComponentID;
+	unsigned long ulHWID;
+	wstring<255> strErrorURL; // 고장배제
+	wstring<255> strPreventionURL; // 예방정비
+	wstring<255> strRepairURL; // 수리부속품 목록
+};
+struct USERIF_MSS_IETM_MAPPING_INFO_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+struct MSSSUP_USE_IETM_MAPPING_INFO_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+	sequence<ST_MSSSUP_IETM_MAPPING_INFO, 1000> seqIETMs;
+};
+struct MSSSUP_USE_UPDATED_SW_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short usSWID;
+	wstring<255> strSWExeName;
+	wstring<255> strInstallSWPath;
+};
+
+// 재설치 관련 토픽
+struct ST_SW_UPDATE_LIST
+{
+	unsigned long ulSWID;
+	wstring<255> strSWPath;
+	ST_SW_VERSION stSWVersion;
+	ST_DATE_TIME stSWInstallTime;
+};
+
+struct MSSSUP_USE_UPDATE_SW_RESULT
+{
+	ST_MSG_HEADER stMsgHeader;
+	sequence<ST_SW_UPDATE_LIST, 1000> seqSWUpdateList;
+};
+
+struct MSSSUP_SW_UPDATE_FINISH_ALAM
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned long ulUpdateSWNo;
+};
+
+struct USERIF_SW_UPDATE_LIST_REUQEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oSenderID;
+};
+
+//디스크 -> NAS
+struct USERIF_MSS_DISK_TO_NAS_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned long ulNextKey;
+};
+
+struct USERIF_INTERNAL_IETM_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	unsigned short unStationID;
+	unsigned short unShellNo;
+	unsigned long ulHWID;
+};
+
+
+//-------------------------------------------------------------
+// 운용자연동 자체관리 토픽
+//-------------------------------------------------------------
+struct USERIF_EOTS_RECORDING_REQUEST
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oStationID;
+	octet oSensorType; // 센서 ID 51: A, 52: B
+	octet oVideoType; // 1: TV, 2: IR
+	octet oCommand; // 1: 저장 시작, 2: 저장 중지
+	wstring strFileName; // 파일 이름
+};
+
+struct USERIF_EOTS_RECORDING_RESPONSE
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oStationID;
+	octet oSensorType; // 센서 ID 51: A, 52: B
+	octet oVideoType; // 1: TV, 2: IR
+	octet oCommand; // 1: 저장 시작, 2: 저장 중지
+	wstring strFileName; // 파일 이름
+	octet oResponse; // 0: 성공, 1: 실패
+};
+
+struct USERIF_EOTS_RECORDING_STATUS // 1초 주기로 전송
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oStationID;
+	octet oSensorType; // 센서 ID 51: A, 52: B
+	octet oVideoType; // 1: TV, 2: IR
+	wstring strFileName; // 파일 이름
+	unsigned long ulElapsedTime; // 초
+};
+
+// login info
+struct USERIF_REQUEST_LOGIN_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+};
+
+struct USERIF_RESPONSE_LOGIN_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	wstring<255> strUserID;
+};
+
+// 훈련편집
+struct USERIF_REQUEST_DRILL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+};
+
+struct USERIF_RESPONSE_DRILL_INFO
+{
+	ST_MSG_HEADER stMsgHeader;
+	octet oActivated;
+};
